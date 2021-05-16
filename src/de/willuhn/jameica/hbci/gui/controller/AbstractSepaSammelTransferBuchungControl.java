@@ -252,7 +252,7 @@ public abstract class AbstractSepaSammelTransferBuchungControl<T extends SepaSam
       return;
     
     Double d = (Double) getBetrag().getValue();
-    s.setBetrag(d == null ? Double.NaN : d.doubleValue());
+    s.setBetrag(d == null ? Double.NaN : d);
     
     s.setZweck((String)getZweck().getValue());
     s.setEndtoEndId((String) getEndToEndId().getValue());
@@ -269,8 +269,7 @@ public abstract class AbstractSepaSammelTransferBuchungControl<T extends SepaSam
     s.store();
 
     {
-      final Boolean store = (Boolean) getStoreEmpfaenger().getValue();
-      this.aUpdate.setCreate(store.booleanValue());
+      this.aUpdate.setCreate((Boolean) getStoreEmpfaenger().getValue());
       HibiscusAddress e = (HibiscusAddress) Settings.getDBService().createObject(HibiscusAddress.class,null);
       e.setIban(kto);
       e.setName(name);

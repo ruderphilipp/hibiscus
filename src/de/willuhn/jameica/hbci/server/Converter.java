@@ -444,10 +444,10 @@ public class Converter
       {
         Integer n = newest.getNummer();
         if (n != null)
-          number = n.intValue() + 1;
+          number = n + 1;
       }
     }
-    kh.setNummer(number > 0 ? Integer.valueOf(number) : null);
+    kh.setNummer(number > 0 ? number : null);
     //
     ///////////////////////////////////////////////////////////////////
     

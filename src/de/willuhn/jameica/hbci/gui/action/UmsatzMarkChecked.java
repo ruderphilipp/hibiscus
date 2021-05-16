@@ -71,7 +71,7 @@ public class UmsatzMarkChecked extends FlaggableChange
                          "Änderung des Suchbegriffes in der Kategorie, ohne dass hierbei die Zuordnung\n" +
                          "ggf. wieder verloren geht.\n\n" +
                          "Kategorien hierbei fest zuordnen?");
-      this.assign = Boolean.valueOf(Application.getCallback().askUser(s));
+      this.assign = Application.getCallback().askUser(s);
     }
     
     if (this.assign != null && this.assign.booleanValue())

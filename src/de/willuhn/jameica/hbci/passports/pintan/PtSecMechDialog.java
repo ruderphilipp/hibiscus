@@ -114,7 +114,7 @@ public class PtSecMechDialog extends AbstractDialog
           Boolean b = (Boolean) getSave().getValue();
           SETTINGS.setAttribute("save",b.booleanValue());
           
-          if (getSave().isEnabled() && b.booleanValue())
+          if (getSave().isEnabled() && b)
           {
             // BUGZILLA 218
             try

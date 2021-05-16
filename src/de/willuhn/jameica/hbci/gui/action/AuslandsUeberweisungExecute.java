@@ -75,7 +75,7 @@ public class AuslandsUeberweisungExecute implements Action
 			AuslandsUeberweisungDialog d = new AuslandsUeberweisungDialog(u,AuslandsUeberweisungDialog.POSITION_CENTER);
 			try
 			{
-				if (!((Boolean)d.open()).booleanValue())
+				if (!(Boolean) d.open())
 					return;
 			}
       catch (OperationCanceledException oce)

@@ -148,7 +148,7 @@ public class CamtSetupDialog extends AbstractDialog
       final String s    = Boolean.toString(enabled);
       final Boolean all = (Boolean) this.getSwitchAll().getValue();
       
-      List<Konto> konten = all.booleanValue() ? KontoUtil.getKonten(KontoFilter.ONLINE) : Arrays.asList(this.konto);
+      List<Konto> konten = all ? KontoUtil.getKonten(KontoFilter.ONLINE) : Arrays.asList(this.konto);
       for (Konto k:konten)
       {
         MetaKey.UMSATZ_CAMT.set(k,s);

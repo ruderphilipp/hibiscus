@@ -153,7 +153,7 @@ public abstract class AbstractSammelTransferImpl extends AbstractHibiscusDBObjec
     Integer i = (Integer) getAttribute("ausgefuehrt");
     if (i == null)
       return false;
-    return i.intValue() == 1;
+    return i == 1;
   }
 
   // Kleines Hilfsboolean damit uns der Status-Wechsel
@@ -361,7 +361,7 @@ public abstract class AbstractSammelTransferImpl extends AbstractHibiscusDBObjec
     Integer i = (Integer) getAttribute("warnungen");
     if (i == null)
       return false;
-    return i.intValue() == 1;
+    return i == 1;
   }
   
   /**

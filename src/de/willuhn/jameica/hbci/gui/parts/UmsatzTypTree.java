@@ -77,7 +77,7 @@ public class UmsatzTypTree extends TreePart
       {
         if (o == null)
           return i18n.tr("egal");
-        return UmsatzTypUtil.getNameForType(((Integer) o).intValue());
+        return UmsatzTypUtil.getNameForType((Integer) o);
       }
     });
     addColumn(i18n.tr("Konto"),"dummy");

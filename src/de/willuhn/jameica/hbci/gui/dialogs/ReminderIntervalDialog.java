@@ -110,7 +110,7 @@ public class ReminderIntervalDialog extends AbstractDialog<ReminderInterval>
     final Button apply = new Button(i18n.tr("Übernehmen"), new Action() {
       public void handleAction(Object context) throws ApplicationException
       {
-        boolean enabled = ((Boolean)checkbox.getValue()).booleanValue();
+        boolean enabled = (Boolean) checkbox.getValue();
         interval = (enabled) ? (ReminderInterval) input.getValue() : null;
         close();
       }
@@ -231,7 +231,7 @@ public class ReminderIntervalDialog extends AbstractDialog<ReminderInterval>
   {
     try
     {
-      boolean enabled = ((Boolean)checkbox.getValue()).booleanValue();
+      boolean enabled = (Boolean) checkbox.getValue();
 
       this.preview.setEnabled(enabled);
       this.input.setEnabled(enabled);

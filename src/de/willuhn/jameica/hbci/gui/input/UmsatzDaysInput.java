@@ -132,7 +132,7 @@ public class UmsatzDaysInput extends ScaleInput
     {
       try
       {
-        int start = ((Integer)getValue()).intValue();
+        int start = (Integer) getValue();
         if (start == 1)
         {
           setComment(i18n.tr("seit gestern"));

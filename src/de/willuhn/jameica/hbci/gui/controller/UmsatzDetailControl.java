@@ -491,7 +491,7 @@ public class UmsatzDetailControl extends AbstractControl
       public void handleEvent(Event event)
       {
         // Wert speichern
-        boolean b2 = ((Boolean) zweckSwitch.getValue()).booleanValue();
+        boolean b2 = (Boolean) zweckSwitch.getValue();
         settings.setAttribute("usage.display.all",b2);
         
         // Verwendungszweck-Anzeige aktualisieren

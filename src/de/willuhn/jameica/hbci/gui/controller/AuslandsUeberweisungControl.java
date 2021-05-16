@@ -453,7 +453,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
       t.transactionBegin();
 
       Double d = (Double) getBetrag().getValue();
-      t.setBetrag(d == null ? Double.NaN : d.doubleValue());
+      t.setBetrag(d == null ? Double.NaN : d);
       
       t.setKonto((Konto)getKontoAuswahl().getValue());
       t.setZweck((String)getZweck().getValue());
@@ -482,8 +482,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
         ReminderUtil.apply(t,(ReminderInterval) input.getValue(), input.getEnd());
 
       {
-        final Boolean store = (Boolean) getStoreEmpfaenger().getValue();
-        this.aUpdate.setCreate(store.booleanValue());
+        this.aUpdate.setCreate((Boolean) getStoreEmpfaenger().getValue());
         HibiscusAddress e = (HibiscusAddress) Settings.getDBService().createObject(HibiscusAddress.class,null);
         e.setIban(kto);
         e.setName(name);

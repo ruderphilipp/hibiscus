@@ -137,7 +137,7 @@ public class UmsatzTree extends TreePart
               }
             }
           }
-          item.setForeground(ColorUtil.getForeground(betrag.doubleValue()));
+          item.setForeground(ColorUtil.getForeground(betrag));
         }
         catch (Exception e)
         {

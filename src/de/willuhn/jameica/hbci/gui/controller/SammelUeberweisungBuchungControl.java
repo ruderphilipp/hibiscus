@@ -73,7 +73,7 @@ public class SammelUeberweisungBuchungControl extends AbstractSammelTransferBuch
 			getBuchung().transactionBegin();
 
       Double db = (Double)getBetrag().getValue();
-      getBuchung().setBetrag(db == null ? Double.NaN : db.doubleValue());
+      getBuchung().setBetrag(db == null ? Double.NaN : db);
 			getBuchung().setZweck((String)getZweck().getValue());
       getBuchung().setZweck2((String)getZweck2().getText());  // "getText()" ist wichtig, weil das ein DialogInput ist
       
@@ -96,8 +96,7 @@ public class SammelUeberweisungBuchungControl extends AbstractSammelTransferBuch
 			
 			getBuchung().store();
 
-			Boolean store = (Boolean) getStoreAddress().getValue();
-			if (store.booleanValue())
+			if ((Boolean) getStoreAddress().getValue())
 			{
         HibiscusAddress e = (HibiscusAddress) Settings.getDBService().createObject(HibiscusAddress.class,null);
         e.setBlz(blz);

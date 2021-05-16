@@ -91,7 +91,7 @@ public abstract class AbstractSepaImporter extends AbstractImporter
       d.setTitle(i18n.tr("Warnung"));
       d.setSideImage(SWTUtil.getImage("dialog-warning-large.png"));
       d.setText("\n" + q + "\n");
-      b = ((Boolean) d.open()).booleanValue();
+      b = (Boolean) d.open();
       if (!b)
         throw new OperationCanceledException();
     }

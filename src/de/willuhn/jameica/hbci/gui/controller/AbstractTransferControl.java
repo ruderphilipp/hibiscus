@@ -287,7 +287,7 @@ public abstract class AbstractTransferControl extends AbstractControl
 			t.transactionBegin();
 
 			Double d = (Double) getBetrag().getValue();
-      t.setBetrag(d == null ? Double.NaN : d.doubleValue());
+      t.setBetrag(d == null ? Double.NaN : d);
 			
 			t.setKonto((Konto)getKontoAuswahl().getValue());
 			t.setZweck((String)getZweck().getValue());
@@ -309,9 +309,8 @@ public abstract class AbstractTransferControl extends AbstractControl
         t.setWeitereVerwendungszwecke(lines);
         
       t.store();
-      
-			Boolean store = (Boolean) getStoreEmpfaenger().getValue();
-			if (store.booleanValue())
+
+			if ((Boolean) getStoreEmpfaenger().getValue())
 			{
 				HibiscusAddress e = (HibiscusAddress) Settings.getDBService().createObject(HibiscusAddress.class,null);
 				e.setBlz(blz);

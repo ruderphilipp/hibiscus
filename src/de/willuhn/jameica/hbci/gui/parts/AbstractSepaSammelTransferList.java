@@ -224,7 +224,7 @@ public abstract class AbstractSepaSammelTransferList extends AbstractFromToList
     else if (konto != null && (konto instanceof String))
       list.addFilter("konto_id in (select id from konto where kategorie = ?)", (String) konto);
 
-    boolean pending = ((Boolean) this.getPending().getValue()).booleanValue();
+    boolean pending = (Boolean) this.getPending().getValue();
     if (pending)
       list.addFilter("ausgefuehrt = 0");
 

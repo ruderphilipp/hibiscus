@@ -94,7 +94,7 @@ public class SammelTransferBuchungList extends TablePart
           String curr = HBCIProperties.CURRENCY_DEFAULT_DE;
           if (s != null)
             curr = s.getKonto().getWaehrung();
-          return new CurrencyFormatter(curr,HBCI.DECIMALFORMAT).format(new Double(b.getBetrag()));
+          return new CurrencyFormatter(curr,HBCI.DECIMALFORMAT).format(b.getBetrag());
         }
         catch (RemoteException e)
         {

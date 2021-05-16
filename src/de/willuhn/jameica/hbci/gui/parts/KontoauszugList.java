@@ -578,9 +578,9 @@ public class KontoauszugList extends UmsatzList
     String zk         = (String) getText().getValue();
     String search     = (String) getSearch().getValue();
     UmsatzTyp typ     = (UmsatzTyp) getKategorie().getValue();
-    boolean unchecked = ((Boolean) getUnChecked().getValue()).booleanValue();
-    boolean subKategorien = ((Boolean) getSubKategorien().getValue()).booleanValue();
-    boolean regex         = ((Boolean) getRegex().getValue()).booleanValue();
+    boolean unchecked = (Boolean) getUnChecked().getValue();
+    boolean subKategorien = (Boolean) getSubKategorien().getValue();
+    boolean regex         = (Boolean) getRegex().getValue();
     
     // Aktuelle Werte speichern
     cache.put("kontoauszug.list.gegenkonto.nummer",gkNummer);
@@ -624,12 +624,12 @@ public class KontoauszugList extends UmsatzList
 
     /////////////////////////////////////////////////////////////////
     // Betrag
-    if (min != null && !(Double.isNaN(min.doubleValue())))
+    if (min != null && !(Double.isNaN(min)))
     {
       umsaetze.addFilter("betrag >= ?",min);
       this.filterCount++;
     }
-    if (max != null && (!Double.isNaN(max.doubleValue())))
+    if (max != null && (!Double.isNaN(max)))
     {
       umsaetze.addFilter("betrag <= ?",max);
       this.filterCount++;
@@ -986,7 +986,7 @@ public class KontoauszugList extends UmsatzList
                   typ = (UmsatzTyp) d.open();
                 }
                 typ.setPattern(text);
-                typ.setRegex(((Boolean)regex.getValue()).booleanValue());
+                typ.setRegex((Boolean) regex.getValue());
                 typ.store();
                 Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Umsatz-Kategorie gespeichert"),StatusBarMessage.TYPE_SUCCESS));
               }

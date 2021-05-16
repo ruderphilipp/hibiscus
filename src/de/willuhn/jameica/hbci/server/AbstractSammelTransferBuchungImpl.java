@@ -178,7 +178,7 @@ public abstract class AbstractSammelTransferBuchungImpl extends AbstractHibiscus
     Double d = (Double) getAttribute("betrag");
     if (d == null)
       return 0;
-    return d.doubleValue();
+    return d;
   }
 
   /**

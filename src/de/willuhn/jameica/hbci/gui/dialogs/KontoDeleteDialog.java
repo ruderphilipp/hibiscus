@@ -102,7 +102,7 @@ public class KontoDeleteDialog extends AbstractDialog<Boolean>
       @Override
       public void handleEvent(Event event)
       {
-        getApply().setEnabled(((Boolean)getCheck().getValue()).booleanValue());
+        getApply().setEnabled((Boolean) getCheck().getValue());
       }
     });
     return this.check;

@@ -122,7 +122,7 @@ public abstract class AbstractBaseUeberweisungImpl extends AbstractHibiscusTrans
 		Integer i = (Integer) getAttribute("ausgefuehrt");
 		if (i == null)
 			return false;
-		return i.intValue() == 1;
+		return i == 1;
   }
 
   /**

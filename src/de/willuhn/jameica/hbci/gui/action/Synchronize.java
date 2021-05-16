@@ -199,7 +199,7 @@ public class Synchronize implements Action
         return;
       }
       
-      int status = ((Integer) data).intValue();
+      int status = (Integer) data;
       if (status == ProgressMonitor.STATUS_DONE)
       {
         sync();

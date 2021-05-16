@@ -421,9 +421,7 @@ public class SynchronizeList extends TablePart
             if (status == null)
               return;
 
-            int i = status.intValue();
-            
-            if (i == ProgressMonitor.STATUS_RUNNING)
+            if (status == ProgressMonitor.STATUS_RUNNING)
             {
               syncButton.setEnabled(false); // Sync-Button deaktivieren
               return;

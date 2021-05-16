@@ -303,7 +303,7 @@ public class SaldoChart implements Part
     Date date = null;
     if (tiny)
     {
-      int start = ((Integer) getRangeTiny().getValue()).intValue();
+      int start = (Integer) getRangeTiny().getValue();
       if (start >= 0)
       {
         long d = start * 24l * 60l * 60l * 1000l;
@@ -354,7 +354,7 @@ public class SaldoChart implements Part
     }
     else if (o == null || (o instanceof String))
     {
-      boolean onlyActive = ((Boolean) this.getActiveOnly().getValue()).booleanValue();
+      boolean onlyActive = (Boolean) this.getActiveOnly().getValue();
       String group = o != null && (o instanceof String) ? (String) o : null;
 
       List<Konto> konten = KontoUtil.getKonten(onlyActive ? KontoFilter.ACTIVE : KontoFilter.ALL);

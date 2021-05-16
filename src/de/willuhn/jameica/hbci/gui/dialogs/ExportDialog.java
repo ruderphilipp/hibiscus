@@ -184,7 +184,7 @@ public class ExportDialog extends AbstractDialog implements Extendable
     SETTINGS.setAttribute("lastdir",file.getParent());
 
     // Dialog schliessen
-    final boolean open = ((Boolean)getOpenFile().getValue()).booleanValue();
+    final boolean open = (Boolean) getOpenFile().getValue();
     SETTINGS.setAttribute("open",open);
     close();
 

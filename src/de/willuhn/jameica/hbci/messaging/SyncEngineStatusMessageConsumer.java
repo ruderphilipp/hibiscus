@@ -49,7 +49,7 @@ public class SyncEngineStatusMessageConsumer implements MessageConsumer
     if (!(data instanceof Integer))
       return;
     
-    final int status = ((Integer) data).intValue();
+    final int status = (Integer) data;
     
     // finaler Status.
     if (status == ProgressMonitor.STATUS_CANCEL ||

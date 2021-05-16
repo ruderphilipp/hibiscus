@@ -73,9 +73,9 @@ public class SammelLastBuchungControl extends AbstractSammelTransferBuchungContr
 			getBuchung().transactionBegin();
 
       Double db = (Double)getBetrag().getValue();
-      getBuchung().setBetrag(db == null ? Double.NaN : db.doubleValue());
+      getBuchung().setBetrag(db == null ? Double.NaN : db);
 			getBuchung().setZweck((String)getZweck().getValue());
-			getBuchung().setZweck2((String)getZweck2().getText());  // "getText()" ist wichtig, weil das ein DialogInput ist
+			getBuchung().setZweck2(getZweck2().getText());  // "getText()" ist wichtig, weil das ein DialogInput ist
       
       TextSchluessel ts = (TextSchluessel) getTextSchluessel().getValue();
       getBuchung().setTextSchluessel(ts == null ? null : ts.getCode());
@@ -96,8 +96,7 @@ public class SammelLastBuchungControl extends AbstractSammelTransferBuchungContr
 			
 			getBuchung().store();
 
-			Boolean store = (Boolean) getStoreAddress().getValue();
-			if (store.booleanValue())
+			if ((Boolean) getStoreAddress().getValue())
 			{
         HibiscusAddress e = (HibiscusAddress) Settings.getDBService().createObject(HibiscusAddress.class,null);
         e.setBlz(blz);

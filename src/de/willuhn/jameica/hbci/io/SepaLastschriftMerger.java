@@ -91,7 +91,7 @@ public class SepaLastschriftMerger
         SepaTransferMergeDialog dialog = new SepaTransferMergeDialog(SepaTransferMergeDialog.POSITION_CENTER,count,inDb);
         Object o = dialog.open();
         if (o != null)
-          delete = ((Boolean)o).booleanValue();
+          delete = (Boolean) o;
       }
       
       // OK, wir duerfen weiter machen. Erstmal die Sammelauftraege anlegen

@@ -82,8 +82,7 @@ public class KontoauszugDelete implements Action
             public void handleEvent(Event event)
             {
               // Warnhinweis anzeigen, dass der Auftrag nur lokal geloescht wird
-              Boolean b = (Boolean) check.getValue();
-              if (b.booleanValue())
+              if ((Boolean) check.getValue())
                 warn.setValue(size > 1 ? i18n.tr("{0} Dateien werden gelöscht",Integer.toString(size)) : i18n.tr("Die Datei wird ebenfalls gelöscht"));
               else
                 warn.setValue("");
@@ -98,8 +97,7 @@ public class KontoauszugDelete implements Action
 	    d.setText(i18n.tr(size == 1 ? "Wollen Sie diesen Kontoauszug wirklich löschen?" : "Wollen Sie diese Kontoauszüge wirklich löschen?"));
 	    d.setSize(350,SWT.DEFAULT);
 
-	    Boolean choice = (Boolean) d.open();
-	    if (!choice.booleanValue())
+	    if (!(Boolean) d.open())
 	      return;
 
       Boolean b = (Boolean) check.getValue();

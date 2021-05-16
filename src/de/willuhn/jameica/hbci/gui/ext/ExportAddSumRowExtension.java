@@ -65,7 +65,7 @@ public class ExportAddSumRowExtension implements Extension
       {
         Boolean value = (Boolean) check.getValue();
         Exporter.SESSION.put(KEY_SUMROW_ADD,value);
-        ExportDialog.SETTINGS.setAttribute(KEY_SUMROW_ADD,value.booleanValue());
+        ExportDialog.SETTINGS.setAttribute(KEY_SUMROW_ADD,value);
       }
     });
     

@@ -374,7 +374,7 @@ public class KontoList extends TablePart implements Part, Extendable
   private List<Konto> getList() throws RemoteException
   {
     final String text = (String) this.getText().getValue();
-    final boolean activeOnly = ((Boolean)this.getActiveOnly().getValue()).booleanValue();
+    final boolean activeOnly = (Boolean) this.getActiveOnly().getValue();
     final Integer type = (Integer) getAccountType().getValue();
     
     Integer flags = activeOnly ? Konto.FLAG_DISABLED : null;

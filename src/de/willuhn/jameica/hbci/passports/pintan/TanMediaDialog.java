@@ -119,8 +119,7 @@ public class TanMediaDialog extends AbstractDialog
             config.addTanMedia(choosen);
             
             // User noch fragen, ob er seine Auswahl speichern will
-            Boolean b = (Boolean) getSave().getValue();
-            if (getSave().isEnabled() && b.booleanValue())
+            if (getSave().isEnabled() && (Boolean) getSave().getValue())
             {
               try
               {

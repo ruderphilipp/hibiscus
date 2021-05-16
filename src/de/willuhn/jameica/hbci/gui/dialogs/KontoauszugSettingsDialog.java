@@ -63,7 +63,7 @@ public class KontoauszugSettingsDialog extends AbstractDialog
       @Override
       public void handleAction(Object context) throws ApplicationException
       {
-        settings.setAttribute("usage.list.all",((Boolean) getDisplayAll().getValue()).booleanValue());
+        settings.setAttribute("usage.list.all", (Boolean) getDisplayAll().getValue());
         close();
       }
     },null,true,"ok.png");

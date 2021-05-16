@@ -145,7 +145,7 @@ public class SettingsControl extends AbstractControl
       Listener l = new Listener() {
         public void handleEvent(Event event)
         {
-          getKontoCheckExcludeAddressbook().setEnabled(((Boolean)kontoCheck.getValue()).booleanValue());
+          getKontoCheckExcludeAddressbook().setEnabled((Boolean) kontoCheck.getValue());
         }
       };
       kontoCheck.addListener(l);
@@ -213,7 +213,7 @@ public class SettingsControl extends AbstractControl
         if (event.type != SWT.Selection)
           return;
         
-        boolean enabled = ((Boolean) storePin.getValue()).booleanValue();
+        boolean enabled = (Boolean) storePin.getValue();
         if (enabled)
         {
           boolean b = false;
@@ -226,7 +226,7 @@ public class SettingsControl extends AbstractControl
                               "gegen die Onlinebanking-AGB Ihres Geldinstitutes. Bitte wenden Sie sich\n" +
                               "an Ihre Bank und fragen Sie diese, ob das Speichern der PIN zulässig ist.\n\n" +
                               "PIN-Speicherung wirklich aktivieren?"));
-            b = ((Boolean) d.open()).booleanValue();
+            b = (Boolean) d.open();
           }
           catch (OperationCanceledException oce)
           {
@@ -262,7 +262,7 @@ public class SettingsControl extends AbstractControl
       @Override
       public void handleEvent(Event event)
       {
-        boolean enabled = ((Boolean) getExFeatures().getValue()).booleanValue();
+        boolean enabled = (Boolean) getExFeatures().getValue();
         for (CheckboxInput c:getExperiments())
         {
           c.setEnabled(enabled);
@@ -352,13 +352,13 @@ public class SettingsControl extends AbstractControl
 		Settings.setBuchungHabenForeground(hf.getRGB());
 		Settings.setBuchungSollForeground(sf.getRGB());
 
-    Settings.setDecimalGrouping(((Boolean)getDecimalGrouping().getValue()).booleanValue());
-    Settings.setBoldValues(((Boolean)getBoldValues().getValue()).booleanValue());
-    Settings.setKontoCheck(((Boolean)getKontoCheck().getValue()).booleanValue());
-    Settings.setKontoCheckExcludeAddressbook(((Boolean)getKontoCheckExcludeAddressbook().getValue()).booleanValue());
+    Settings.setDecimalGrouping((Boolean) getDecimalGrouping().getValue());
+    Settings.setBoldValues((Boolean) getBoldValues().getValue());
+    Settings.setKontoCheck((Boolean) getKontoCheck().getValue());
+    Settings.setKontoCheckExcludeAddressbook((Boolean) getKontoCheckExcludeAddressbook().getValue());
 
-    boolean storeEnabled = ((Boolean)getStorePin().getValue()).booleanValue();
-    boolean cacheEnabled = ((Boolean)getCachePin().getValue()).booleanValue();
+    boolean storeEnabled = (Boolean) getStorePin().getValue();
+    boolean cacheEnabled = (Boolean) getCachePin().getValue();
     
     Settings.setCachePin(cacheEnabled);
     Settings.setStorePin(storeEnabled);
@@ -369,11 +369,11 @@ public class SettingsControl extends AbstractControl
     
     Double limit = (Double) getUeberweisungLimit().getValue();
 
-    Settings.setUeberweisungLimit(limit == null ? 0.0d : limit.doubleValue());
+    Settings.setUeberweisungLimit(limit == null ? 0.0d : limit);
 		
     final BeanService bs = Application.getBootLoader().getBootable(BeanService.class);
     final FeatureService fs = bs.get(FeatureService.class);
-    final boolean ex = ((Boolean) this.getExFeatures().getValue()).booleanValue();
+    final boolean ex = (Boolean) this.getExFeatures().getValue();
     boolean changed = ex != fs.enabled();
     fs.setEnabled(ex);
 		if (ex)

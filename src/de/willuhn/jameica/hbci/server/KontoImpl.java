@@ -445,7 +445,7 @@ public class KontoImpl extends AbstractHibiscusDBObject implements Konto
     Double d = (Double) getAttribute("saldo");
     if (d == null)
       return 0;
-    return d.doubleValue();
+    return d;
   }
 
   /**
@@ -456,7 +456,7 @@ public class KontoImpl extends AbstractHibiscusDBObject implements Konto
     Double d = (Double) getAttribute("saldo_available");
     if (d == null)
       return Double.NaN;
-    return d.doubleValue();
+    return d;
   }
 
   /**

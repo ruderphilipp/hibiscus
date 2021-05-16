@@ -121,7 +121,7 @@ public class TurnusImpl extends AbstractHibiscusDBObject implements Turnus
 		Integer i = (Integer) getAttribute("intervall");
 		if (i == null)
 			return 1; // noch nicht definiert, wir nehmen "1" als Default-Wert
-		return i.intValue();
+		return i;
   }
 
   /**
@@ -140,7 +140,7 @@ public class TurnusImpl extends AbstractHibiscusDBObject implements Turnus
 		Integer i = (Integer) getAttribute("zeiteinheit");
 		if (i == null)
 			return Turnus.ZEITEINHEIT_MONATLICH; // noch nicht definiert, wir nehmen "monatlich" als Default-Wert
-		return i.intValue();
+		return i;
   }
 
   /**
@@ -159,7 +159,7 @@ public class TurnusImpl extends AbstractHibiscusDBObject implements Turnus
 		Integer i = (Integer) getAttribute("tag");
 		if (i == null)
 			return 1; // noch nicht definiert, wir nehmen "1" als Default-Wert
-		return i.intValue();
+		return i;
   }
 
   /**

@@ -54,7 +54,7 @@ public class SepaDauerauftragExecute implements Action
 			SepaDauerauftragDialog dd = new SepaDauerauftragDialog(d,SepaDauerauftragDialog.POSITION_CENTER);
 			try
 			{
-				if (!((Boolean)dd.open()).booleanValue())
+				if (!(Boolean) dd.open())
 					return;
 			}
       catch (OperationCanceledException oce)

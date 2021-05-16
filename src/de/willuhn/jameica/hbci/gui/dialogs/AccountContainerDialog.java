@@ -106,7 +106,7 @@ public class AccountContainerDialog extends AbstractDialog
       	container.host 				= (String) getHost().getValue();
       	
       	Integer i = ((Integer) getPort().getValue());
-      	container.port 				= i != null ? i.intValue() : -1;
+      	container.port 				= i != null ? i : -1;
       	
       	// Check der Pflichtfelder
         if (container.userid == null || container.userid.length() == 0)
@@ -262,7 +262,7 @@ public class AccountContainerDialog extends AbstractDialog
 		if (this.port == null)
 		{
 		  Integer value = this.passport.getPort();
-		  int i = (value != null && value.intValue() > 0) ? value.intValue() : ((this.passport instanceof AbstractPinTanPassport) ? 443 : 3000); 
+		  int i = (value != null && value > 0) ? value : ((this.passport instanceof AbstractPinTanPassport) ? 443 : 3000);
       this.port = new IntegerInput(i);
       this.port.setComment(i18n.tr("Bei PIN/TAN \"443\", sonst \"3000\""));
       this.port.setMandatory(true);

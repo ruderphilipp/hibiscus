@@ -103,11 +103,11 @@ public class HBCI extends AbstractPlugin
     //  BUGZILLA 101 http://www.willuhn.de/bugzilla/show_bug.cgi?id=101
     DECIMALFORMAT.setGroupingUsed(Settings.getDecimalGrouping());
 
-    LOGMAPPING.put(Level.ERROR, new Integer(HBCIUtils.LOG_ERR));
-    LOGMAPPING.put(Level.WARN,  new Integer(HBCIUtils.LOG_WARN));
-    LOGMAPPING.put(Level.INFO,  new Integer(HBCIUtils.LOG_INFO));
-    LOGMAPPING.put(Level.DEBUG, new Integer(HBCIUtils.LOG_DEBUG));
-    LOGMAPPING.put(Level.TRACE, new Integer(HBCIUtils.LOG_DEBUG2));
+    LOGMAPPING.put(Level.ERROR, HBCIUtils.LOG_ERR);
+    LOGMAPPING.put(Level.WARN,  HBCIUtils.LOG_WARN);
+    LOGMAPPING.put(Level.INFO,  HBCIUtils.LOG_INFO);
+    LOGMAPPING.put(Level.DEBUG, HBCIUtils.LOG_DEBUG);
+    LOGMAPPING.put(Level.TRACE, HBCIUtils.LOG_DEBUG2);
 
     call(new ServiceCall()
     {
@@ -241,7 +241,7 @@ public class HBCI extends AbstractPlugin
       int logLevel = HBCIUtils.LOG_INFO; // Default
       try
       {
-        logLevel = ((Integer) LOGMAPPING.get(Logger.getLevel())).intValue();
+        logLevel = (Integer) LOGMAPPING.get(Logger.getLevel());
       }
       catch (Exception e)
       {

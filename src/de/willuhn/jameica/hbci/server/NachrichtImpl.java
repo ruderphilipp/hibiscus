@@ -103,7 +103,7 @@ public class NachrichtImpl extends AbstractHibiscusDBObject implements Nachricht
     Integer i = (Integer) getAttribute("gelesen");
     if (i == null)
       return false;
-    return i.intValue() == 1;
+    return i == 1;
   }
 
   /**

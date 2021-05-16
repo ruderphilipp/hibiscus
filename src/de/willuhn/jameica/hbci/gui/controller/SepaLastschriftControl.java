@@ -493,7 +493,7 @@ public class SepaLastschriftControl extends AbstractControl
       t.transactionBegin();
 
       Double d = (Double) getBetrag().getValue();
-      t.setBetrag(d == null ? Double.NaN : d.doubleValue());
+      t.setBetrag(d == null ? Double.NaN : d);
       
       Konto k = (Konto)getKontoAuswahl().getValue();
       t.setKonto(k);
@@ -524,8 +524,7 @@ public class SepaLastschriftControl extends AbstractControl
         ReminderUtil.apply(t,(ReminderInterval) input.getValue(), input.getEnd());
 
       {
-        final Boolean store = (Boolean) getStoreEmpfaenger().getValue();
-        this.aUpdate.setCreate(store.booleanValue());
+        this.aUpdate.setCreate((Boolean) getStoreEmpfaenger().getValue());
         HibiscusAddress e = (HibiscusAddress) Settings.getDBService().createObject(HibiscusAddress.class,null);
         e.setIban(kto);
         e.setName(name);

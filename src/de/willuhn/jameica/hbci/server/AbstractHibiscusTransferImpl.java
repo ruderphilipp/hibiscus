@@ -162,7 +162,7 @@ public abstract class AbstractHibiscusTransferImpl extends AbstractHibiscusDBObj
 		Double d = (Double) getAttribute("betrag");
 		if (d == null)
 			return 0;
-		return d.doubleValue();
+		return d;
   }
 
   /**

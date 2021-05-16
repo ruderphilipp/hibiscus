@@ -556,7 +556,7 @@ public class EinnahmeAusgabeControl extends AbstractControl
       result.add((Konto) o);
     } else if (o == null || (o instanceof String))
     {
-      boolean onlyActive = ((Boolean) this.getActiveOnly().getValue()).booleanValue();
+      boolean onlyActive = (Boolean) this.getActiveOnly().getValue();
       String group = o != null && (o instanceof String) ? (String) o : null;
 
       List<Konto> konten = KontoUtil.getKonten(onlyActive ? KontoFilter.ACTIVE : KontoFilter.ALL);

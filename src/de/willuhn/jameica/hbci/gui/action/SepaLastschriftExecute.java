@@ -61,7 +61,7 @@ public class SepaLastschriftExecute implements Action
 			SepaLastschriftDialog d = new SepaLastschriftDialog(u,SepaLastschriftDialog.POSITION_CENTER);
 			try
 			{
-				if (!((Boolean)d.open()).booleanValue())
+				if (!(Boolean) d.open())
 					return;
 			}
       catch (OperationCanceledException oce)

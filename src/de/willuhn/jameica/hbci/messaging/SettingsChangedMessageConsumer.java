@@ -48,7 +48,7 @@ public class SettingsChangedMessageConsumer implements MessageConsumer
   {
     try
     {
-      int ll = ((Integer) HBCI.LOGMAPPING.get(Logger.getLevel())).intValue();
+      int ll = (Integer) HBCI.LOGMAPPING.get(Logger.getLevel());
       Logger.info("changing hbci4java loglevel to " + ll);
       HBCIUtils.setParam("log.loglevel.default",""+ ll);
 

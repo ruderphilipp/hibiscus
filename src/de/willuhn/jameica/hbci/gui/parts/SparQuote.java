@@ -407,8 +407,8 @@ public class SparQuote implements Part
 
     final Date start   = (Date) this.getFrom().getValue();
     final Date end     = (Date) this.getTo().getValue();
-    final int monate   = ((Integer) this.getMonatAuswahl().getValue()).intValue();
-    final int stichtag = ((Integer) this.getTagAuswahl().getValue()).intValue();
+    final int monate   = (Integer) this.getMonatAuswahl().getValue();
+    final int stichtag = (Integer) this.getTagAuswahl().getValue();
     
     ////////////////////////////////////////////////////////////////////////////
     // Wir iterieren erstmal ueber den Zeitraum und erzeugen die passenden Time-Boxen

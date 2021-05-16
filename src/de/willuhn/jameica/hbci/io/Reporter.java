@@ -167,7 +167,7 @@ public class Reporter
   public void addHeaderColumn(String text, int align, int width, BaseColor color)
   {
     headers.add(getDetailCell(text, align, color));
-    widths.add(new Integer(width));
+    widths.add(width);
   }
 
   /**
@@ -198,7 +198,7 @@ public class Reporter
     table = new PdfPTable(headers.size());
     int[] w = new int[headers.size()];
     for (int i = 0; i < headers.size(); i++)
-      w[i] = widths.get(i).intValue();
+      w[i] = widths.get(i);
     table.setWidths(w);
     table.setWidthPercentage(100);
     table.setSpacingBefore(10);

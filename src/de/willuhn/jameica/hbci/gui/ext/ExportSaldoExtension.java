@@ -65,7 +65,7 @@ public class ExportSaldoExtension implements Extension
       {
         Boolean value = (Boolean) check.getValue();
         Exporter.SESSION.put(KEY_SALDO_SHOW,value);
-        ExportDialog.SETTINGS.setAttribute(KEY_SALDO_SHOW,value.booleanValue());
+        ExportDialog.SETTINGS.setAttribute(KEY_SALDO_SHOW,value);
       }
     });
     

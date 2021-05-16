@@ -92,7 +92,7 @@ public class UmsatzTypBean implements GenericObjectNode
   public int getLevel()
   {
     if (this.level != null)
-      return this.level.intValue();
+      return this.level;
 
     int depth = 0;
     UmsatzTypBean parent = this.getParent();
@@ -107,8 +107,8 @@ public class UmsatzTypBean implements GenericObjectNode
       parent = parent.getParent();
     }
     
-    this.level = Integer.valueOf(depth);
-    return this.level.intValue();
+    this.level = depth;
+    return this.level;
   }
   
   /**

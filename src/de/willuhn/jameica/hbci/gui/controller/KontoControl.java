@@ -453,7 +453,7 @@ public class KontoControl extends AbstractControl
   {
     try
     {
-      boolean offline = ((Boolean) getOffline().getValue()).booleanValue();
+      boolean offline = (Boolean) getOffline().getValue();
       getSaldo().setEnabled(offline);
       
       // Wir muessen die Aenderung sofort ins Konto uebernehmen, damit
@@ -746,7 +746,7 @@ public class KontoControl extends AbstractControl
 		try
 		{
 
-      boolean offline = ((Boolean)getOffline().getValue()).booleanValue();
+      boolean offline = (Boolean) getOffline().getValue();
       
       final Konto k = this.getKonto();
 
@@ -754,7 +754,7 @@ public class KontoControl extends AbstractControl
 			{
         k.setBackendClass(null);
 			  k.setPassportClass(null);
-			  k.setSaldo(((Double)getSaldo().getValue()).doubleValue());
+			  k.setSaldo((Double) getSaldo().getValue());
 			}
 			else
 			{

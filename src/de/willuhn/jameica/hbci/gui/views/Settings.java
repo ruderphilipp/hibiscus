@@ -113,7 +113,7 @@ public class Settings extends AbstractView implements Extendable
 
     // Mal checken, ob wir uns das zuletzt aktive Tab gemerkt haben.
     if (lastActiveTab != null)
-      getTabFolder().setSelection(lastActiveTab.intValue());
+      getTabFolder().setSelection(lastActiveTab);
   }
   
   /**

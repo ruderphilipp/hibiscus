@@ -517,8 +517,8 @@ public class SepaDauerauftragControl extends AbstractControl
       
       t.transactionBegin();
 
-      Double d = (Double) getBetrag().getValue();
-      t.setBetrag(d == null ? Double.NaN : d.doubleValue());
+      Double betrag = (Double) getBetrag().getValue();
+      t.setBetrag(betrag == null ? Double.NaN : betrag);
       
       t.setKonto((Konto)getKontoAuswahl().getValue());
       t.setErsteZahlung((Date)getErsteZahlung().getValue());
@@ -538,8 +538,7 @@ public class SepaDauerauftragControl extends AbstractControl
       t.store();
       
       {
-        final Boolean store = (Boolean) getStoreEmpfaenger().getValue();
-        this.aUpdate.setCreate(store.booleanValue());
+        this.aUpdate.setCreate((Boolean) getStoreEmpfaenger().getValue());
         HibiscusAddress e = (HibiscusAddress) Settings.getDBService().createObject(HibiscusAddress.class,null);
         e.setIban(kto);
         e.setName(name);

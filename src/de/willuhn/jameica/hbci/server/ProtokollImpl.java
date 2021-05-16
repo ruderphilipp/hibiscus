@@ -133,7 +133,7 @@ public class ProtokollImpl extends AbstractHibiscusDBObject implements Protokoll
 		Integer i = (Integer) getAttribute("typ");
 		if (i == null)
 			return TYP_UNKNOWN;
-		return i.intValue();
+		return i;
   }
 
   /**

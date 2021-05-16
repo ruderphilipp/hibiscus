@@ -235,7 +235,7 @@ public class PinTanConfigImpl implements PinTanConfig
    */
   public int getPort() throws RemoteException
   {
-    return this.getPassport().getPort().intValue();
+    return this.getPassport().getPort();
   }
 
   /**
@@ -243,7 +243,7 @@ public class PinTanConfigImpl implements PinTanConfig
    */
   public void setPort(int port) throws RemoteException
   {
-    this.getPassport().setPort(new Integer(port));
+    this.getPassport().setPort(port);
   }
 
   /**

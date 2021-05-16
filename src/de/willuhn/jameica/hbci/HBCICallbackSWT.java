@@ -238,7 +238,7 @@ public class HBCICallbackSWT extends AbstractHibiscusHBCICallback
 				case NEED_NEW_INST_KEYS_ACK:
 			    NewInstKeysDialog nikd = new NewInstKeysDialog(passport);
 			    Boolean b = (Boolean) nikd.open();
-			    retData.replace(0,retData.length(),b.booleanValue() ? "" : "ERROR");
+			    retData.replace(0,retData.length(),(b ? "" : "ERROR"));
 					break;
 
 				case HAVE_NEW_MY_KEYS:

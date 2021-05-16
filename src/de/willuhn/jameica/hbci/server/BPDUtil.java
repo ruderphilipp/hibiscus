@@ -350,7 +350,7 @@ public class BPDUtil
       }
     });
 
-    return support.booleanValue();
+    return support;
   }
 
   /**

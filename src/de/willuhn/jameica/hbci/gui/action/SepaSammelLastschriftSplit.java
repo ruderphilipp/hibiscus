@@ -81,7 +81,7 @@ public class SepaSammelLastschriftSplit implements Action
         SepaSammelTransferSplitDialog dialog = new SepaSammelTransferSplitDialog(SepaSammelTransferSplitDialog.POSITION_CENTER,buchungen.size(),inDb);
         Object o = dialog.open();
         if (o != null)
-          delete = ((Boolean)o).booleanValue();
+          delete = (Boolean) o;
       }
       
       int count = 0;

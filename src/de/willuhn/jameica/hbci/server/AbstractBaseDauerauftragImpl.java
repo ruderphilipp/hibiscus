@@ -77,9 +77,9 @@ public abstract class AbstractBaseDauerauftragImpl extends AbstractHibiscusTrans
 		if (ze == null || intervall == null || tag == null)
 			return null;
   	Turnus t = (Turnus) getService().createObject(Turnus.class,null);
-  	t.setIntervall(intervall.intValue());
-		t.setZeiteinheit(ze.intValue());
-		t.setTag(tag.intValue());
+  	t.setIntervall(intervall);
+		t.setZeiteinheit(ze);
+		t.setTag(tag);
 		return t;
   }
 

@@ -171,7 +171,7 @@ public class UmsatzImpl extends AbstractHibiscusDBObject implements Umsatz
 		Double d = (Double) getAttribute("betrag");
 		if (d == null)
 			return 0;
-		return d.doubleValue();
+		return d;
   }
 
   /**
@@ -335,7 +335,7 @@ public class UmsatzImpl extends AbstractHibiscusDBObject implements Umsatz
 		Double d = (Double) getAttribute("saldo");
 		if (d == null)
 			return 0;
-		return d.doubleValue();
+		return d;
   }
 
   /**

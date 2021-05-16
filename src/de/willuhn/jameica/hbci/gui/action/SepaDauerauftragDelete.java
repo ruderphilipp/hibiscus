@@ -73,8 +73,7 @@ public class SepaDauerauftragDelete implements Action
               public void handleEvent(Event event)
               {
                 // Warnhinweis anzeigen, dass der Auftrag nur lokal geloescht wird
-                Boolean b = (Boolean) check.getValue();
-                if (b.booleanValue())
+                if ((Boolean) check.getValue())
                   warn.setValue("");
                 else
                   warn.setValue(i18n.tr("Auftrag wird nur lokal gelöscht, bei der Bank bleibt er erhalten."));
@@ -90,8 +89,7 @@ public class SepaDauerauftragDelete implements Action
 	    d.setText(i18n.tr("Wollen Sie diesen Dauerauftrag wirklich löschen?"));
 	    d.setSize(350,SWT.DEFAULT);
 
-	    Boolean choice = (Boolean) d.open();
-	    if (!choice.booleanValue())
+	    if (!(Boolean) d.open())
 	      return;
 
 	    // Nur bei der Bank loeschen, wenn er aktiv ist und der User das will

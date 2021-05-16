@@ -171,7 +171,7 @@ public abstract class AbstractSepaSammelTransferImpl<T extends SepaSammelTransfe
     Integer i = (Integer) getAttribute("ausgefuehrt");
     if (i == null)
       return false;
-    return i.intValue() == 1;
+    return i == 1;
   }
 
   // Kleines Hilfsboolean damit uns der Status-Wechsel

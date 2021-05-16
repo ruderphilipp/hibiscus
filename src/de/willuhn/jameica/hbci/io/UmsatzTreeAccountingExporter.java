@@ -125,9 +125,9 @@ public class UmsatzTreeAccountingExporter extends AbstractUmsatzTreeExporter
     // Summen - nur die Summen der obersten Ebene zaehlen
     if (level == 0)
     {
-      this.einnahmen += de.doubleValue();
-      this.ausgaben  += da.doubleValue();
-      this.betrag    += db.doubleValue();
+      this.einnahmen += de;
+      this.ausgaben  += da;
+      this.betrag    += db;
     }
 
     for (UmsatzTreeNode child : node.getSubGroups())

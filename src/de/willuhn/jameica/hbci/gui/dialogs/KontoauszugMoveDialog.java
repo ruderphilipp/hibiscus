@@ -261,8 +261,8 @@ public class KontoauszugMoveDialog extends AbstractDialog<Kontoauszug>
    */
   private void startMove()
   {
-    final boolean overwrite = ((Boolean) this.getOverwrite().getValue()).booleanValue();
-    final boolean delete    = ((Boolean) this.getDelete().getValue()).booleanValue();
+    final boolean overwrite = (Boolean) this.getOverwrite().getValue();
+    final boolean delete    = (Boolean) this.getDelete().getValue();
     final File dir          = new File((String) this.getTarget().getValue());
     final String pfad       = dir.getAbsolutePath();
 

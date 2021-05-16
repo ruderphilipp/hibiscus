@@ -89,7 +89,7 @@ public class UmsatzTypChart implements Part
         {
           try
           {
-            int newStart = ((Integer)i.getValue()).intValue();
+            int newStart = (Integer) i.getValue();
             if (newStart == start)
               return;
 

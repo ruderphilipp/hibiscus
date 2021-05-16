@@ -175,8 +175,8 @@ public class SynchronizeOptionsDialog extends AbstractDialog
         
         if (!offline || syncAvail) // Entweder bei Online-Konten oder bei welchen mit neuem Scripting-Support
         {
-          options.setSyncSaldo(((Boolean)getSyncSaldo().getValue()).booleanValue());
-          options.setSyncKontoauszuege(((Boolean)getSyncUmsatz().getValue()).booleanValue());
+          options.setSyncSaldo((Boolean) getSyncSaldo().getValue());
+          options.setSyncKontoauszuege((Boolean) getSyncUmsatz().getValue());
           
           Support support = BPDUtil.getSupport(konto,Query.UmsatzCamt);
           if (support != null && support.isSupported())
@@ -196,15 +196,15 @@ public class SynchronizeOptionsDialog extends AbstractDialog
         
         if (offline)
         {
-          options.setSyncOffline(((Boolean)getSyncOffline().getValue()).booleanValue());
+          options.setSyncOffline((Boolean) getSyncOffline().getValue());
         }
         else
         {
-          options.setSyncKontoauszuegePdf(((Boolean)getSyncKontoauszug().getValue()).booleanValue());
-          options.setSyncMessages(((Boolean)getSyncMessages().getValue()).booleanValue());
-          options.setSyncSepaDauerauftraege(((Boolean)getSyncSepaDauer().getValue()).booleanValue());
-          options.setSyncAuslandsUeberweisungen(((Boolean)getSyncAueb().getValue()).booleanValue());
-          options.setSyncSepaLastschriften(((Boolean)getSyncSepaLast().getValue()).booleanValue());
+          options.setSyncKontoauszuegePdf((Boolean) getSyncKontoauszug().getValue());
+          options.setSyncMessages((Boolean) getSyncMessages().getValue());
+          options.setSyncSepaDauerauftraege((Boolean) getSyncSepaDauer().getValue());
+          options.setSyncAuslandsUeberweisungen((Boolean) getSyncAueb().getValue());
+          options.setSyncSepaLastschriften((Boolean) getSyncSepaLast().getValue());
         }
         
         try
@@ -453,12 +453,12 @@ public class SynchronizeOptionsDialog extends AbstractDialog
       @Override
       public void handleEvent(Event event)
       {
-        boolean b = ((Boolean) i1.getValue()).booleanValue();
-        b |= ((Boolean) i2.getValue()).booleanValue();
-        b |= ((Boolean) i3.getValue()).booleanValue();
-        b |= ((Boolean) i4.getValue()).booleanValue();
-        b |= ((Boolean) i5.getValue()).booleanValue();
-        b |= ((Boolean) i6.getValue()).booleanValue();
+        boolean b = (Boolean) i1.getValue();
+        b |= (Boolean) i2.getValue();
+        b |= (Boolean) i3.getValue();
+        b |= (Boolean) i4.getValue();
+        b |= (Boolean) i5.getValue();
+        b |= (Boolean) i6.getValue();
         syncMessages.setEnabled(b);
       }
     };
@@ -528,8 +528,8 @@ public class SynchronizeOptionsDialog extends AbstractDialog
       if (offline && syncAvail)
       {
         // Wir checken, ob beides aktiv ist und bringen einen Warnhinweis
-        boolean a = ((Boolean)getSyncOffline().getValue()).booleanValue();
-        boolean b = ((Boolean)getSyncUmsatz().getValue()).booleanValue();
+        boolean a = (Boolean) getSyncOffline().getValue();
+        boolean b = (Boolean) getSyncUmsatz().getValue();
         if (a && b)
           getErrorLabel().setValue(i18n.tr("Umsatzabruf und Anlegen von Gegenbuchungen\nkönnen nicht zusammen aktiviert werden."));
         else

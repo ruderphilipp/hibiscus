@@ -71,8 +71,7 @@ public class BaseDauerauftragDeleteDialog extends AbstractDialog
     {
       public void handleEvent(Event event)
       {
-        Boolean b = (Boolean) box.getValue();
-        if (b.booleanValue())
+        if ((Boolean) box.getValue())
           dateInput.disableButton();
         else
           dateInput.enableButton();
@@ -129,8 +128,7 @@ public class BaseDauerauftragDeleteDialog extends AbstractDialog
     {
       public void handleAction(Object context) throws ApplicationException
       {
-        Boolean b = (Boolean) box.getValue();
-        if (b.booleanValue())
+        if ((Boolean) box.getValue())
         {
           date = null;
         }

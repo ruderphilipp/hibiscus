@@ -131,7 +131,7 @@ public class CSVImportDialog extends AbstractDialog
         p.setFileEncoding((String)getFileEncoding().getValue());
         p.setQuotingChar((String)getQuoteChar().getValue());
         p.setSeparatorChar((String)getSeparatorChar().getValue());
-        p.setSkipLines(((Integer)getSkipLines().getValue()).intValue());
+        p.setSkipLines((Integer)getSkipLines().getValue());
         
         Profile pNew = ProfileUtil.add(format,p);
         if (pNew != null)
@@ -214,7 +214,7 @@ public class CSVImportDialog extends AbstractDialog
         result.setFileEncoding((String)getFileEncoding().getValue());
         result.setQuotingChar((String)getQuoteChar().getValue());
         result.setSeparatorChar((String)getSeparatorChar().getValue());
-        result.setSkipLines(((Integer)getSkipLines().getValue()).intValue());
+        result.setSkipLines((Integer)getSkipLines().getValue());
         result.setColumns(getColumns());
         
         settings.setAttribute(format.getType().getSimpleName() + ".defaultprofile",result.getName());
@@ -318,7 +318,7 @@ public class CSVImportDialog extends AbstractDialog
       }
 
       
-      int skip = ((Integer)this.getSkipLines().getValue()).intValue();
+      int skip = (Integer)this.getSkipLines().getValue();
       if (lines.size() <= skip)
       {
         this.getError().setValue(i18n.tr("CSV-Datei enthält nur {0} Zeilen",Integer.toString(lines.size())));

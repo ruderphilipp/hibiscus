@@ -102,7 +102,7 @@ public class TransferMergeDialog extends AbstractDialog
     container.addInput(this.getKonto());
     container.addInput(this.getBezeichnung());
 
-    final CheckboxInput delBox = new CheckboxInput(this.delete.booleanValue());
+    final CheckboxInput delBox = new CheckboxInput(this.delete);
     container.addCheckbox(delBox,i18n.tr("Einzelaufträge nach Übernahme in den Sammel-Auftrag löschen"));
 
     final LabelInput comment = new LabelInput("");
@@ -117,7 +117,7 @@ public class TransferMergeDialog extends AbstractDialog
         try
         {
           delete = (Boolean) delBox.getValue();
-          boolean use = ((Boolean) getUseExisting().getValue()).booleanValue();
+          boolean use = (Boolean) getUseExisting().getValue();
 
           if (use)
           {
@@ -178,7 +178,7 @@ public class TransferMergeDialog extends AbstractDialog
    */
   public boolean getDelete()
   {
-    return this.delete.booleanValue();
+    return this.delete;
   }
 
   /**
@@ -202,7 +202,7 @@ public class TransferMergeDialog extends AbstractDialog
       {
         try
         {
-          boolean use = ((Boolean)useExisting.getValue()).booleanValue();
+          boolean use = (Boolean) useExisting.getValue();
           getExistingList().setEnabled(use);
           getKonto().setEnabled(!use);
           getBezeichnung().setEnabled(!use);

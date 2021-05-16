@@ -78,7 +78,7 @@ public abstract class AbstractSepaSammelTransferExecute implements Action
 			SepaSammelTransferDialog d = new SepaSammelTransferDialog(u,SepaSammelTransferDialog.POSITION_CENTER);
 			try
 			{
-				if (!((Boolean)d.open()).booleanValue())
+				if (!(Boolean) d.open())
 					return;
 			}
       catch (OperationCanceledException oce)

@@ -125,10 +125,9 @@ public enum KontoType
     if (id == null)
       return null;
 
-    int i = id.intValue();
     for (KontoType type:values())
     {
-      if (i >= type.min && i <= type.max)
+      if (id >= type.min && id <= type.max)
         return type;
     }
     

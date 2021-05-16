@@ -506,7 +506,7 @@ public class KontoauszugPdfControl extends AbstractControl
           year.setValue(newest.getJahr());
         
         if (nummer.getValue() == null && newest.getNummer() != null)
-          nummer.setValue(newest.getNummer().intValue() + 1);
+          nummer.setValue(newest.getNummer() + 1);
       }
       catch (Exception e)
       {

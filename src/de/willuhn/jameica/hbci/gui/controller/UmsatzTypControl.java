@@ -160,7 +160,7 @@ public class UmsatzTypControl extends AbstractControl
             String p = (String) pattern.getValue();
             if (p == null || p.length() == 0)
               return;
-            boolean b = ((Boolean)getRegex().getValue()).booleanValue();
+            boolean b = (Boolean) getRegex().getValue();
             if (b)
             {
               try
@@ -217,7 +217,7 @@ public class UmsatzTypControl extends AbstractControl
         try
         {
           Boolean b = (Boolean) customColor.getValue();
-          getColor().setEnabled(b.booleanValue());
+          getColor().setEnabled(b);
         }
         catch (RemoteException re)
         {
@@ -333,7 +333,7 @@ public class UmsatzTypControl extends AbstractControl
       ut.setKommentar((String)getKommentar().getValue());
       ut.setNummer((String)getNummer().getValue());
       ut.setPattern((String)getPattern().getValue());
-      ut.setRegex(((Boolean)getRegex().getValue()).booleanValue());
+      ut.setRegex((Boolean) getRegex().getValue());
       ut.setParent((UmsatzTyp)getParent().getValue());
 
       //////////////////////////////////////////////////////////////
@@ -356,7 +356,7 @@ public class UmsatzTypControl extends AbstractControl
       
       //////////////////////////////////////////////////////////////
       // Skip-Reports-Flag
-      final boolean skip = ((Boolean)this.getSkipReport().getValue()).booleanValue();
+      final boolean skip = (Boolean) this.getSkipReport().getValue();
       final int flags = ut.getFlags();
       final boolean have = ut.hasFlag(UmsatzTyp.FLAG_SKIP_REPORTS);
       
@@ -367,8 +367,8 @@ public class UmsatzTypControl extends AbstractControl
       //
       //////////////////////////////////////////////////////////////
 
-      
-      boolean b = ((Boolean)getCustomColor().getValue()).booleanValue();
+
+      boolean b = (Boolean) getCustomColor().getValue();
       ut.setCustomColor(b);
       if (b)
       {

@@ -151,7 +151,7 @@ public class AuslandsUeberweisungImpl extends AbstractBaseUeberweisungImpl imple
   public boolean isTerminUeberweisung() throws RemoteException
   {
     Integer i = (Integer) getAttribute("banktermin");
-    return i != null && i.intValue() == 1;
+    return i != null && i == 1;
   }
 
   /**
@@ -168,7 +168,7 @@ public class AuslandsUeberweisungImpl extends AbstractBaseUeberweisungImpl imple
   public boolean isUmbuchung() throws RemoteException
   {
     Integer i = (Integer) getAttribute("umbuchung");
-    return i != null && i.intValue() == 1;
+    return i != null && i == 1;
   }
 
   /**
