@@ -45,7 +45,7 @@ public class SepaSammelLastschriftSearchProvider implements SearchProvider
   /**
    * @see de.willuhn.jameica.search.SearchProvider#search(java.lang.String)
    */
-  public List search(String search) throws RemoteException,
+  public List<Result> search(String search) throws RemoteException,
       ApplicationException
   {
     if (search == null || search.length() == 0)
@@ -54,7 +54,7 @@ public class SepaSammelLastschriftSearchProvider implements SearchProvider
     String text = "%" + search.toLowerCase() + "%";
     
     // Wir speichern die Daten erstmal in einem Hash, damit wir Duplikate rausfischen koennen
-    Hashtable hash = new Hashtable();
+    Hashtable<String, Result> hash = new Hashtable<>();
     
     // Schritt 1: Die Buchungen von Sammel-Auftraegen
     DBIterator list = Settings.getDBService().createList(SepaSammelLastBuchung.class);

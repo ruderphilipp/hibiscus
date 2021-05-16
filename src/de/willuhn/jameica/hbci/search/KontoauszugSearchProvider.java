@@ -47,7 +47,7 @@ public class KontoauszugSearchProvider implements SearchProvider
   /**
    * @see de.willuhn.jameica.search.SearchProvider#search(java.lang.String)
    */
-  public List search(String search) throws RemoteException, ApplicationException
+  public List<Result> search(String search) throws RemoteException, ApplicationException
   {
     if (search == null || search.length() == 0)
       return null;
@@ -67,7 +67,7 @@ public class KontoauszugSearchProvider implements SearchProvider
                   service.getSQLTimestamp("von") + " desc, " + 
                   service.getSQLTimestamp("ausgefuehrt_am") + " desc");
 
-    ArrayList results = new ArrayList();
+    ArrayList<Result> results = new ArrayList<>();
     while (list.hasNext())
     {
       results.add(new MyResult(list.next()));

@@ -41,7 +41,7 @@ public class AddressbookSearchProvider implements SearchProvider
   /**
    * @see de.willuhn.jameica.search.SearchProvider#search(java.lang.String)
    */
-  public List search(String search) throws RemoteException,
+  public List<Result> search(String search) throws RemoteException,
       ApplicationException
   {
     if (search == null || search.length() == 0)
@@ -54,7 +54,7 @@ public class AddressbookSearchProvider implements SearchProvider
       if (result == null)
         return null;
       
-      ArrayList al = new ArrayList();
+      ArrayList<Result> al = new ArrayList<>();
       for (int i=0;i<result.size();++i)
       {
         al.add(new MyResult((Address) result.get(i)));

@@ -45,7 +45,7 @@ public class SepaLastschriftSearchProvider implements SearchProvider
   /**
    * @see de.willuhn.jameica.search.SearchProvider#search(java.lang.String)
    */
-  public List search(String search) throws RemoteException, ApplicationException
+  public List<Result> search(String search) throws RemoteException, ApplicationException
   {
     if (search == null || search.length() == 0)
       return null;
@@ -62,7 +62,7 @@ public class SepaLastschriftSearchProvider implements SearchProvider
                    text,text,text,text,text,text);
     list.setOrder("ORDER BY " + service.getSQLTimestamp("termin") + " DESC");
 
-    ArrayList results = new ArrayList();
+    ArrayList<Result> results = new ArrayList<>();
     while (list.hasNext())
     {
       results.add(new MyResult((SepaLastschrift)list.next()));
