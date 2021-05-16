@@ -45,7 +45,7 @@ public class SepaDauerauftragSearchProvider implements SearchProvider
   /**
    * @see de.willuhn.jameica.search.SearchProvider#search(java.lang.String)
    */
-  public List search(String search) throws RemoteException,
+  public List<Result> search(String search) throws RemoteException,
       ApplicationException
   {
     if (search == null || search.length() == 0)
@@ -61,7 +61,7 @@ public class SepaDauerauftragSearchProvider implements SearchProvider
                    text,text,text,text);
     list.setOrder("ORDER BY " + service.getSQLTimestamp("erste_zahlung") + " DESC");
 
-    ArrayList results = new ArrayList();
+    ArrayList<Result> results = new ArrayList<>();
     while (list.hasNext())
     {
       results.add(new MyResult((SepaDauerauftrag)list.next()));
