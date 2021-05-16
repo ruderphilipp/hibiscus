@@ -123,8 +123,10 @@ public class PinTanConfigFactory
       ArrayList<String> newList = new ArrayList<>();
       String id = config.getID();
 
-      for (String existingID : existing) {
-        if (id.equals(existingID)) {
+      for (String existingID : existing)
+      {
+        if (id.equals(existingID))
+        {
           Logger.info("deleting config for file " + id);
           continue;
         }
