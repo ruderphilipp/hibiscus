@@ -97,7 +97,8 @@ public class SepaLastschriftMerger
       // OK, wir duerfen weiter machen. Erstmal die Sammelauftraege anlegen
       for (SepaSammelLastschrift s : map.values())
       {
-        if (tx == null) {
+        if (tx == null)
+        {
           tx = s;
           tx.transactionBegin();
         }
