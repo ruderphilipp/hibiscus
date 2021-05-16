@@ -35,7 +35,7 @@ public class AccountInput extends TextInput
       public void handleEvent(Event event)
       {
         String s = (String) getValue();
-        if (s == null || s.length() == 0 || s.indexOf(" ") == -1)
+        if (s == null || s.length() == 0 || !s.contains(" "))
           return;
         AccountInput.super.setValue(s.replaceAll(" ",""));
       }

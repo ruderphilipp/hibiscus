@@ -55,11 +55,11 @@ public class ValueSerializer extends DefaultSerializer<Double>
         throw new Exception();
       
       // Wenn der Text jetzt Punkt UND Komma enthaelt, entfernen wir die Punkte
-      if (value.indexOf(".") != -1 && value.indexOf(",") != -1)
+      if (value.contains(".") && value.contains(","))
         value = value.replaceAll("\\.","");
       
       // Wenn jetzt immer ein Punkt drin sind, muss es ein Komma sein
-      if (value.indexOf(".") != -1)
+      if (value.contains("."))
         value = value.replaceFirst("\\.",",");
       
       // Wenn jetzt immer noch ein Punkt drin ist, sah der Text

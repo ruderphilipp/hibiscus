@@ -45,7 +45,7 @@ public class CustomDateFormat extends SimpleDateFormat
       case 8:
       {
         // Wir muessen noch checken, ob es d.m.yyyy oder ddmmyyyy ist
-        if (source.indexOf(".") != -1) // enthaelt Punkte
+        if (source.contains(".")) // enthaelt Punkte
           return super.parse(source);
         return HBCI.FASTDATEFORMAT.parse(source);
       }

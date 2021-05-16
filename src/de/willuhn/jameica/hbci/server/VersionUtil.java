@@ -65,7 +65,7 @@ public class VersionUtil
     if (prefix == null || prefix.length() == 0)
       throw new RemoteException("no prefix given");
 
-    if (prefix.indexOf("%") != -1 || prefix.indexOf("_") != -1)
+    if (prefix.contains("%") || prefix.contains("_"))
       throw new RemoteException("no wildcards allowed in prefix");
     
     return service.executeUpdate("delete from version where name like ?",prefix + ".%");

@@ -328,16 +328,16 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
       for (String value : list)
       {
         String test = value.trim();
-        if (zweck.indexOf(test) != -1 ||
-            name.indexOf(test) != -1 ||
-            name2.indexOf(test) != -1 ||
-            kto.indexOf(test)  != -1 ||
-            kom.indexOf(test) != -1 ||
-            art.indexOf(test) != -1 ||
-            purp.indexOf(test) != -1 ||
-            ref.indexOf(test) != -1 ||
-            e2eid.indexOf(test) != -1 ||
-            mid.indexOf(test) != -1 ||
+        if (zweck.contains(test) ||
+            name.contains(test) ||
+            name2.contains(test) ||
+            kto.contains(test) ||
+            kom.contains(test) ||
+            art.contains(test) ||
+            purp.contains(test) ||
+            ref.contains(test) ||
+            e2eid.contains(test) ||
+            mid.contains(test) ||
             id.equals(test))
         {
           return true;

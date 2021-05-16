@@ -113,7 +113,7 @@ public abstract class AbstractSammelTransferBuchungControl extends AbstractContr
       public void handleEvent(Event event)
       {
         String s = (String)gkNummer.getValue();
-        if (s == null || s.length() == 0 || s.indexOf(" ") == -1)
+        if (s == null || s.length() == 0 || !s.contains(" "))
           return;
         gkNummer.setValue(s.replaceAll(" ",""));
       }

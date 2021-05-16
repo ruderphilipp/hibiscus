@@ -194,7 +194,7 @@ public class AccountContainerDialog extends AbstractDialog
             if (bi != null)
             {
               String clazz = passport.getClass().getName();
-              if (clazz.toUpperCase().indexOf("PINTAN") != -1)
+              if (clazz.toUpperCase().contains("PINTAN"))
               {
                 String s = bi.getPinTanAddress();
                 if (s != null && s.startsWith("https://"))
@@ -310,7 +310,7 @@ public class AccountContainerDialog extends AbstractDialog
       this.filter.setComment(i18n.tr("Bei PIN/TAN meist \"Base64\", sonst \"None\""));
 
       String clazz = this.passport.getClass().getName();
-      if (clazz.toUpperCase().indexOf("PINTAN") != -1)
+      if (clazz.toUpperCase().contains("PINTAN"))
         this.filter.setPreselected("Base64");
 		}
     return this.filter;

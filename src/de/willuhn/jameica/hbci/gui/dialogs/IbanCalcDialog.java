@@ -142,7 +142,7 @@ public class IbanCalcDialog extends AbstractDialog
         if (s == null || s.length() == 0)
           return;
         
-        if (s.indexOf(" ") != -1)
+        if (s.contains(" "))
           konto.setValue(s.replaceAll(" ",""));
       }
     });

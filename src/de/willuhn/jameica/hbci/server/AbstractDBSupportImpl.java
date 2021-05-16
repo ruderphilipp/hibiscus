@@ -120,7 +120,7 @@ public abstract class AbstractDBSupportImpl implements DBSupport
       // nicht (das muellt uns nur das Log voll) Also fangen wir sie und werfen eine neue
       // saubere mit kurzem Fehlertext
       String msg = e.getMessage();
-      if (msg != null && msg.indexOf("\n") != -1)
+      if (msg != null && msg.contains("\n"))
         msg = msg.substring(0,msg.indexOf("\n"));
       throw new RemoteException(msg);
     }

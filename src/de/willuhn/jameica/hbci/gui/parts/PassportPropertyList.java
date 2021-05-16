@@ -144,9 +144,9 @@ public class PassportPropertyList implements Part
         if (value == null) value = "";
         if (lower == null) lower = text.toLowerCase();
         
-        if (name.toLowerCase().indexOf(lower) != -1 || 
-            value.toLowerCase().indexOf(lower) != -1 ||
-            prefix.toLowerCase().indexOf(lower) != -1)
+        if (name.toLowerCase().contains(lower) ||
+            value.toLowerCase().contains(lower) ||
+            prefix.toLowerCase().contains(lower))
           table.addItem(v);
       }
     }
