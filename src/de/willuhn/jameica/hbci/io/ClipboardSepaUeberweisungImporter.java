@@ -10,7 +10,6 @@
 package de.willuhn.jameica.hbci.io;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 

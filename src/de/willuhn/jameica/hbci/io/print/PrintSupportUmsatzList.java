@@ -13,7 +13,6 @@ package de.willuhn.jameica.hbci.io.print;
 import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;

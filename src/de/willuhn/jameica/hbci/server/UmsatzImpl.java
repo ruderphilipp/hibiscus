@@ -11,7 +11,6 @@ package de.willuhn.jameica.hbci.server;
 
 import java.rmi.RemoteException;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.zip.CRC32;
 
 import org.apache.commons.lang.StringUtils;

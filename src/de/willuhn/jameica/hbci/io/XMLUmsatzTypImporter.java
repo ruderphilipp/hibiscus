@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.rmi.RemoteException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import de.willuhn.datasource.GenericObject;

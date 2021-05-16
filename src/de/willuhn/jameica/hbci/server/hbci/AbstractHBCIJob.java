@@ -16,7 +16,6 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
 
 import org.kapott.hbci.GV_Result.HBCIJobResult;

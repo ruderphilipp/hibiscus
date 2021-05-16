@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.swt.SWT;

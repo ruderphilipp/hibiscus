@@ -13,7 +13,6 @@ package de.willuhn.jameica.hbci.io;
 import java.io.IOException;
 import java.io.InputStream;
 import java.rmi.RemoteException;
-import java.util.Iterator;
 import java.util.Map;
 
 import de.willuhn.datasource.GenericObject;
