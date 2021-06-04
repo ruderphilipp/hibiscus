@@ -34,7 +34,7 @@ Die Nutzung von neueren Methoden ermöglicht auch, dass der Compiler besser opti
 Gleichzeitig wird die Lesbarkeit erhöht, was der Wartbarkeit zugutekommt und somit hoffentlich die Fehlerbehebung vereinfacht.
 
 Geplant ist unter anderem:
-* Umstellung auf aktuelle Java-Version
+* Umstellung auf aktuelle Java-Version (sukzessive: Java 5 -> Java 8 -> Java 11 -> Java 16)
 * Beseitigen der `deprecated`-Warnungen
 * Anpassung Code-Stil
 	* Raw-Types um passende Typdeklarationen ergänzen
@@ -45,6 +45,11 @@ Geplant ist unter anderem:
 * [Checkstyle](https://checkstyle.org/)-Prüfungen durchführen und Warnungen beheben
 * Nutzung von [Gradle](https://gradle.org/) statt Jar-Dateien in den Ordnern `lib` und `lib.src` (ggf. sogar das [ANT-Script](/build/build.xml) ersetzen?)
 
+Zuerst wird auf das Sprachlevel von Java 8 fokussiert und eine möglichst hohe Abarbeitung der Auffälligkeiten.
+Erst danach werden die höheren Versionen von Java adressiert.
+Bereits für Java 8 liefert IntelliJ bereits eine nicht ganz kleine Liste (Stand 2021-05-16):
+
+![Inspection Result Java8](./.github/20210516_codeinspections_java8.png)
 ## Testbarkeit
 Zum Zeitpunkt des Forks hat die Codebasis exakt zwei (!) Testklassen.
 Jene erzeugen eine Code-Coverage von 0,6%.
