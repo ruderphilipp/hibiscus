@@ -23,17 +23,17 @@ public interface Protokoll extends HibiscusDBObject {
 	/**
 	 * Protokoll-Typ unbekannt (Default).
 	 */
-	final static int TYP_UNKNOWN = 0;
+	int TYP_UNKNOWN = 0;
 
 	/**
 	 * Protokoll-Typ bei Erfolg.
 	 */
-	final static int TYP_SUCCESS = 1;
+	int TYP_SUCCESS = 1;
 
 	/**
 	 * Protokoll-Typ bei einem Fehler.
 	 */
-	final static int TYP_ERROR   = 2;
+	int TYP_ERROR   = 2;
 
 	/**
 	 * Liefert das Konto, zu dem dieser Protokoll-Eointrag gehoert.

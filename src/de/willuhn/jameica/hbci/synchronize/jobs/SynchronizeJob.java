@@ -21,7 +21,7 @@ public interface SynchronizeJob
   /**
    * Der Context-Name fuer das Fachobjekt.
    */
-  final static String CTX_ENTITY = "ctx.entity";
+  String CTX_ENTITY = "ctx.entity";
   
   /**
    * Liefert einen sprechenden Namen fuer den Job.

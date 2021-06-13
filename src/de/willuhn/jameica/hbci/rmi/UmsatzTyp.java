@@ -24,33 +24,33 @@ public interface UmsatzTyp extends DBObjectNode
   /**
    * Umsatzkategorie vom Typ "Ausgabe".
    */
-  final static int TYP_AUSGABE  = 0;
-  
+  int TYP_AUSGABE = 0;
+
   /**
    * Umsatzkategorie vom Typ "Einnahme".
    */
-  final static int TYP_EINNAHME = 1;
+  int TYP_EINNAHME = 1;
 
   /**
    * Umsatzkategorie vom Typ "Egal".
    */
-  final static int TYP_EGAL     = 2;
-  
+  int TYP_EGAL = 2;
+
   /**
    * Maximale Laenge des Pattern.
    */
-  final static int MAXLENGTH_PATTERN = 1000;
-  
+  int MAXLENGTH_PATTERN = 1000;
+
   /**
    * Flag "kein Flag".
    */
-  final static int FLAG_NONE    = 0;
+  int FLAG_NONE = 0;
 
   /**
    * Flag "In Auswertungen ignorieren".
    */
-  final static int FLAG_SKIP_REPORTS = 1 << 0;
-  
+  int FLAG_SKIP_REPORTS = 1 << 0;
+
 	/**
 	 * Liefert den Namen des Umsatz-Typs.
    * @return Name des Umsatz-Typs.

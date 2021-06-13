@@ -20,12 +20,12 @@ public interface Turnus extends HibiscusDBObject, Checksum
 	/**
 	 * Konstante fuer Zeiteinheit woechentlich.
 	 */
-	final static int ZEITEINHEIT_WOECHENTLICH			= 1;
-	
+	int ZEITEINHEIT_WOECHENTLICH = 1;
+
 	/**
 	 * Konstante fuer Zeiteinheit monatlich.
 	 */
-	final static int ZEITEINHEIT_MONATLICH					= 2;
+	int ZEITEINHEIT_MONATLICH = 2;
 
 
 	/**

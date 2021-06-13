@@ -25,17 +25,17 @@ public interface Umsatz extends HibiscusTransfer, HibiscusDBObject, Checksum, Fl
   /**
    * Flag "kein Flag".
    */
-  final static int FLAG_NONE    = 0;
+  int FLAG_NONE = 0;
 
   /**
    * Flag "Geprueft".
    */
-  final static int FLAG_CHECKED = 1 << 0;
+  int FLAG_CHECKED = 1 << 0;
 
   /**
    * Flag "Vorgemerkt".
    */
-  final static int FLAG_NOTBOOKED = 1 << 1;
+  int FLAG_NOTBOOKED = 1 << 1;
 
   /**
 	 * Liefert das Datum der Buchung.

@@ -24,7 +24,7 @@ public interface BaseDauerauftrag extends HibiscusTransfer, Checksum
    * keine Order-ID liefern. Dann koennen wir trotzdem wenigstens erkennen,
    * ob der Auftrag eingereicht wurde.
    */
-  final static String ORDERID_PLACEHOLDER = "9999999999";
+  String ORDERID_PLACEHOLDER = "9999999999";
 
 	/**
 	 * Liefert das Datum der ersten Zahlung.

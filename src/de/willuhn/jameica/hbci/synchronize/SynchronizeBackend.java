@@ -28,7 +28,7 @@ public interface SynchronizeBackend
   /**
    * Queue, an die der aktuelle Prozess-Status der Synchronisierung (RUNNING, ERROR, DONE, CANCEL) geschickt wird.
    */
-  final static String QUEUE_STATUS = "hibiscus.sync.status";
+  String QUEUE_STATUS = "hibiscus.sync.status";
   
   /**
    * Queue, die im Fehlerfall benachrichtigt wird. Die Message wird synchron als QueryMessage
@@ -36,7 +36,7 @@ public interface SynchronizeBackend
    * trotz Fehler nur in diesem Fall beim naechsten Konto dennoch fortgesetzt. Andernfalls
    * wird sie abgebrochen.
    */
-  final static String QUEUE_ERROR  = "hibiscus.sync.error";
+  String QUEUE_ERROR  = "hibiscus.sync.error";
   
   /**
    * Liefert true, wenn das Backend den angegebenen Job-Typ fuer das angegebene Konto unterstuetzt.

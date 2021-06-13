@@ -31,7 +31,7 @@ public interface AddressFilter extends Filter<Address>
   /**
    * Adressfilter, der alle Adressen zulaesst.
    */
-  final static AddressFilter ALL = new AddressFilter()
+  AddressFilter ALL = new AddressFilter()
   {
     /**
      * @see de.willuhn.jameica.hbci.gui.filter.AddressFilter#accept(de.willuhn.jameica.hbci.rmi.Address)
@@ -45,7 +45,7 @@ public interface AddressFilter extends Filter<Address>
   /**
    * Adressfilter, der nur Adressen mit deutscher Bankverbindung zulaesst.
    */
-  final static AddressFilter INLAND = new AddressFilter()
+  AddressFilter INLAND = new AddressFilter()
   {
     /**
      * @see de.willuhn.jameica.hbci.gui.filter.AddressFilter#accept(de.willuhn.jameica.hbci.rmi.Address)
@@ -65,7 +65,7 @@ public interface AddressFilter extends Filter<Address>
   /**
    * Adressfilter, der nur Adressen zulaesst, die eine IBAN haben.
    */
-  final static AddressFilter FOREIGN = new AddressFilter()
+  AddressFilter FOREIGN = new AddressFilter()
   {
     /**
      * @see de.willuhn.jameica.hbci.gui.filter.AddressFilter#accept(de.willuhn.jameica.hbci.rmi.Address)

@@ -24,7 +24,7 @@ public interface HBCIDBService extends DBService
   /**
    * Einstellungen fuer die DB-Services.
    */
-  final static Settings SETTINGS = new Settings(HBCIDBService.class);
+  Settings SETTINGS = new Settings(HBCIDBService.class);
 
   /**
    * Initialisiert/erzeugt die Datenbank.

@@ -29,12 +29,12 @@ public interface KeyFormat extends Comparable<KeyFormat>
   /**
    * Konstante fuer das Feature "Schluessel importieren".
    */
-  final static int FEATURE_IMPORT = 1;
+  int FEATURE_IMPORT = 1;
   
   /**
    * Konstante fuer das Feature "Schluessel erstellen".
    */
-  final static int FEATURE_CREATE = 2;
+  int FEATURE_CREATE = 2;
   
   /**
    * Liefert einen sprechenden Namen des Formats.

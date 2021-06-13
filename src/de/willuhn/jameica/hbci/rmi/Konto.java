@@ -22,17 +22,17 @@ public interface Konto extends HibiscusDBObject, Checksum, Flaggable
   /**
    * Flag "kein Flag".
    */
-  final static int FLAG_NONE    = 0;
+  int FLAG_NONE    = 0;
 
   /**
    * Flag "Deaktiviert".
    */
-  final static int FLAG_DISABLED = 1 << 0;
+  int FLAG_DISABLED = 1 << 0;
 
   /**
    * Flag "Offline".
    */
-  final static int FLAG_OFFLINE = 1 << 1;
+  int FLAG_OFFLINE = 1 << 1;
 
   /**
 	 * Liefert die Kontonummer fuer diese Bankverbindung.

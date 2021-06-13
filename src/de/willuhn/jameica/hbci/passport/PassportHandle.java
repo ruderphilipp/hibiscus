@@ -28,22 +28,22 @@ public interface PassportHandle extends Remote
    * Identifier fuer den Persistent-Parameter mit der Config, aus der
    * der Passport erstellt wurde.
    */
-  final static String CONTEXT_CONFIG = "hibiscus.context.config";
+  String CONTEXT_CONFIG = "hibiscus.context.config";
   
   /**
    * Identifier fuer den Persistent-Parameter mit ggf geaenderter Kunden- und Benutzerkennung.
    */
-  final static String CONTEXT_USERID_CHANGED = "hibiscus.context.userid.changed";
+  String CONTEXT_USERID_CHANGED = "hibiscus.context.userid.changed";
   
   /**
    * Identifier fuer den Persistent-Parameter der Liste der TAN-Verfahren
    */
-  final static String CONTEXT_SECMECHLIST = "hibiscus.context.secmechlist";
+  String CONTEXT_SECMECHLIST = "hibiscus.context.secmechlist";
 
   /**
    * Identifier fuer den Persistent-Parameter mit der Liste der TAN-Medienbezeichnungen.
    */
-  final static String CONTEXT_TANMEDIALIST = "hibiscus.context.tanmedialist";
+  String CONTEXT_TANMEDIALIST = "hibiscus.context.tanmedialist";
 
   /**
    * Oeffnet den Passport und liefert den HBCIHandler zrueck.
