@@ -29,5 +29,5 @@ public interface HBCISynchronizeJob extends SynchronizeJob
    * @throws RemoteException
    * @throws ApplicationException
    */
-  public AbstractHBCIJob[] createHBCIJobs() throws RemoteException, ApplicationException;
+  AbstractHBCIJob[] createHBCIJobs() throws RemoteException, ApplicationException;
 }

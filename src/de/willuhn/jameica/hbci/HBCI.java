@@ -341,7 +341,7 @@ public class HBCI extends AbstractPlugin
      * @throws ApplicationException
      * @throws RemoteException
      */
-    public void call(HBCIDBService service) throws ApplicationException, RemoteException;
+    void call(HBCIDBService service) throws ApplicationException, RemoteException;
   }
   
   /**

@@ -23,56 +23,56 @@ public interface Nachricht extends HibiscusDBObject
    * @return BLZ
    * @throws RemoteException
    */
-  public String getBLZ() throws RemoteException;
+  String getBLZ() throws RemoteException;
 
   /**
    * Liefert das Datum der Nachricht.
    * @return Datum
    * @throws RemoteException
    */
-  public Date getDatum() throws RemoteException;
+  Date getDatum() throws RemoteException;
 
   /**
    * Prueft, ob die Nachricht bereits gelesen wurde.
    * @return true, wenn sie gelesen wurde.
    * @throws RemoteException
    */
-  public boolean isGelesen() throws RemoteException;
+  boolean isGelesen() throws RemoteException;
 
   /**
    * Liefert den Nachrichtentext.
    * @return Nachrichtentext.
    * @throws RemoteException
    */
-  public String getNachricht() throws RemoteException;
+  String getNachricht() throws RemoteException;
 
   /**
    * Speichert die BLZ.
    * @param blz
    * @throws RemoteException
    */
-  public void setBLZ(String blz) throws RemoteException;
+  void setBLZ(String blz) throws RemoteException;
 
   /**
    * Speichert das Datum.
    * @param datum
    * @throws RemoteException
    */
-  public void setDatum(Date datum) throws RemoteException;
+  void setDatum(Date datum) throws RemoteException;
 
   /**
    * Markiert die Nachricht als gelesen/ungelesen.
    * @param b
    * @throws RemoteException
    */
-  public void setGelesen(boolean b) throws RemoteException;
+  void setGelesen(boolean b) throws RemoteException;
 
   /**
    * Speichert den Nachrichtentext.
    * @param nachricht
    * @throws RemoteException
    */
-  public void setNachricht(String nachricht) throws RemoteException;
+  void setNachricht(String nachricht) throws RemoteException;
 
 }
 

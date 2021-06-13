@@ -20,42 +20,41 @@ import de.willuhn.util.ApplicationException;
  */
 public interface Terminable
 {
-
 	/**
 	 * Liefert den Termin der Ueberweisung.
    * @return Termin der Ueberweisung.
    * @throws RemoteException
    */
-  public Date getTermin() throws RemoteException;
-	
+  Date getTermin() throws RemoteException;
+
 	/**
 	 * Speichert den Termin, an dem die Ueberweisung ausgefuehrt werden soll.
    * @param termin Termin der Ueberweisung.
    * @throws RemoteException
    */
-  public void setTermin(Date termin) throws RemoteException;
+  void setTermin(Date termin) throws RemoteException;
 
   /**
    * Prueft, ob die Ueberweisung ueberfaellig ist.
    * @return true, wenn sie ueberfaellig ist.
    * @throws RemoteException
    */
-  public boolean ueberfaellig() throws RemoteException;
-	
+  boolean ueberfaellig() throws RemoteException;
+
   /**
    * Prueft, ob das Objekt ausgefuehrt wurde.
    * @return true, wenn das Objekt bereits ausgefuehrt wurde.
    * @throws RemoteException
    */
-  public boolean ausgefuehrt() throws RemoteException;
-  
+  boolean ausgefuehrt() throws RemoteException;
+
   /**
    * Liefert das Datum, zu dem der Auftrag ausgefuehrt wurde.
    * @return das Datum zu dem der Auftrag ausgefuehrt wurde.
    * @throws RemoteException
    */
-  public Date getAusfuehrungsdatum() throws RemoteException;
-  
+  Date getAusfuehrungsdatum() throws RemoteException;
+
   /**
    * Markiert das Objekt als ausgefuehrt/nicht ausgefuehrt und speichert die Aenderung
    * unmittelbar.
@@ -63,6 +62,5 @@ public interface Terminable
    * @throws RemoteException
    * @throws ApplicationException
    */
-  public void setAusgefuehrt(boolean b) throws RemoteException, ApplicationException;
-
+  void setAusgefuehrt(boolean b) throws RemoteException, ApplicationException;
 }

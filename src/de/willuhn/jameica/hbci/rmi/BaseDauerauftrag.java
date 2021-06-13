@@ -24,21 +24,21 @@ public interface BaseDauerauftrag extends HibiscusTransfer, Checksum
    * keine Order-ID liefern. Dann koennen wir trotzdem wenigstens erkennen,
    * ob der Auftrag eingereicht wurde.
    */
-  public final static String ORDERID_PLACEHOLDER = "9999999999";
+  final static String ORDERID_PLACEHOLDER = "9999999999";
 
 	/**
 	 * Liefert das Datum der ersten Zahlung.
    * @return erste Zahlung.
    * @throws RemoteException
    */
-  public Date getErsteZahlung() throws RemoteException;
+  Date getErsteZahlung() throws RemoteException;
 	
 	/**
 	 * Liefert das Datum der letzten Zahlung oder <code>null</code>, wenn kein Zahlungsende definiert ist.
    * @return Datum der letzten Zahlung oder <code>null</code>.
    * @throws RemoteException
    */
-  public Date getLetzteZahlung() throws RemoteException;
+  Date getLetzteZahlung() throws RemoteException;
 
   /**
    * BUGZILLA 204
@@ -51,14 +51,14 @@ public interface BaseDauerauftrag extends HibiscusTransfer, Checksum
    * @return Datum der naechsten Zahlung.
    * @throws RemoteException
    */
-  public Date getNaechsteZahlung() throws RemoteException;
+  Date getNaechsteZahlung() throws RemoteException;
   
 	/**
 	 * Liefert den Zahlungsturnus fuer diesen Dauerauftrag.
    * @return Zahlungsturnus des Dauerauftrags.
    * @throws RemoteException
    */
-  public Turnus getTurnus() throws RemoteException;
+  Turnus getTurnus() throws RemoteException;
 
 	/**
 	 * Liefert die eindeutige ID von der Bank.
@@ -66,35 +66,35 @@ public interface BaseDauerauftrag extends HibiscusTransfer, Checksum
    * @return Order-ID.
    * @throws RemoteException
    */
-  public String getOrderID() throws RemoteException;
+  String getOrderID() throws RemoteException;
 
   /**
 	 * Speichert die Order-ID des Dauerauftrages.
    * @param id die Order-ID.
    * @throws RemoteException
    */
-  public void setOrderID(String id) throws RemoteException;
+  void setOrderID(String id) throws RemoteException;
 
 	/**
 	 * Legt das Datum fuer die erste Zahlung fest.
    * @param datum Datum fuer die erste Zahlung.
    * @throws RemoteException
    */
-  public void setErsteZahlung(Date datum) throws RemoteException;
+  void setErsteZahlung(Date datum) throws RemoteException;
 
 	/**
 	 * Legt das Datum fuer die letzte Zahlung fest.
    * @param datum Datum fuer die letzte Zahlung. Kann <code>null</code> sein, wenn kein End-Datum definiert ist.
    * @throws RemoteException
    */
-  public void setLetzteZahlung(Date datum) throws RemoteException;
+  void setLetzteZahlung(Date datum) throws RemoteException;
 
 	/**
 	 * Legt den Zahlungsturnus fest.
    * @param turnus Zahlungsturnus des Dauerauftrags.
    * @throws RemoteException
    */
-  public void setTurnus(Turnus turnus) throws RemoteException;
+  void setTurnus(Turnus turnus) throws RemoteException;
 
 	/**
 	 * Liefert <code>true</code> wenn der Dauerauftrag bei der Bank aktiv ist.
@@ -104,7 +104,7 @@ public interface BaseDauerauftrag extends HibiscusTransfer, Checksum
 	 * @return true, wenn der Dauerauftrag bei der Bank aktiv ist.
 	 * @throws RemoteException
 	 */
-	public boolean isActive() throws RemoteException;
+	boolean isActive() throws RemoteException;
 
   /**
    * Loescht den Dauerauftrag lediglich im lokalen Datenbestand, nicht jedoch bei der Bank.
@@ -112,6 +112,5 @@ public interface BaseDauerauftrag extends HibiscusTransfer, Checksum
    * verwendet werden.
    * @see de.willuhn.datasource.rmi.Changeable#delete()
    */
-  public void delete() throws RemoteException, ApplicationException;
-
+  void delete() throws RemoteException, ApplicationException;
 }

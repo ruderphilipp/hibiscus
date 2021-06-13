@@ -22,19 +22,19 @@ public interface HBCIVariant
    * Liefert einen sprechenden Namen fuer die HBCI-Variante.
    * @return sprechender Name fuer die HBCI-Variante.
    */
-  public String getName();
+  String getName();
   
   /**
    * Liefert ein vorausgefuelltes Info-Panel fuer die HBCI-Variante.
    * @return ein vorausgefuelltes Info-Panel fuer die HBCI-Variante.
    */
-  public InfoPanel getInfo();
+  InfoPanel getInfo();
   
   /**
    * Startet den Assistenten zur Erzeugung eines Bankzugangs mit der Variante.
    * @throws ApplicationException
    */
-  public void create() throws ApplicationException;
+  void create() throws ApplicationException;
 }
 
 

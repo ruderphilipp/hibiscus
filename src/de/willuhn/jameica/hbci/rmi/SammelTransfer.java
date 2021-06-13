@@ -25,7 +25,7 @@ public interface SammelTransfer extends HibiscusDBObject, Terminable
    * @return Liste der Buchungen.
    * @throws RemoteException
    */
-  public DBIterator getBuchungen() throws RemoteException;
+  DBIterator getBuchungen() throws RemoteException;
 
   /**
    * Liefert die Buchungen des Sammeltransfers als Array.
@@ -34,42 +34,42 @@ public interface SammelTransfer extends HibiscusDBObject, Terminable
    * @return Liste der Buchungen.
    * @throws RemoteException
    */
-  public SammelTransferBuchung[] getBuchungenAsArray() throws RemoteException;
+  SammelTransferBuchung[] getBuchungenAsArray() throws RemoteException;
   
   /**
    * Liefert die Summe der enthaltenen Buchungen.
    * @return Summe der enthaltenen Buchungen.
    * @throws RemoteException
    */
-  public double getSumme() throws RemoteException;
+  double getSumme() throws RemoteException;
 
   /**
 	 * Liefert das Konto, ueber das der Transfer gebucht wird.
    * @return Konto.
    * @throws RemoteException
    */
-  public Konto getKonto() throws RemoteException;
+  Konto getKonto() throws RemoteException;
 
 	/**
 	 * Speichert das Konto, ueber das der Transfer gebucht werden soll.
    * @param konto Konto.
    * @throws RemoteException
    */
-  public void setKonto(Konto konto) throws RemoteException;
+        void setKonto(Konto konto) throws RemoteException;
 
   /**
    * Liefert eine Bezeichnung des Transfers.
    * @return Bezeichnung.
    * @throws RemoteException
    */
-  public String getBezeichnung() throws RemoteException;
+  String getBezeichnung() throws RemoteException;
 
   /**
    * Speichert die Bezeichnung.
    * @param bezeichnung
    * @throws RemoteException
    */
-  public void setBezeichnung(String bezeichnung) throws RemoteException;
+  void setBezeichnung(String bezeichnung) throws RemoteException;
   
   /**
    * Erzeugt eine neue Buchung auf dem Sammeltransfer.
@@ -77,20 +77,19 @@ public interface SammelTransfer extends HibiscusDBObject, Terminable
    * @throws RemoteException
    * @throws ApplicationException
    */
-  public SammelTransferBuchung createBuchung() throws RemoteException, ApplicationException;
+  SammelTransferBuchung createBuchung() throws RemoteException, ApplicationException;
   
   /**
    * Prueft, ob bei der Ausfuehrung des Auftrages Warnungen auftraten.
    * @return true, wenn Warnungen auftraten.
    * @throws RemoteException
    */
-  public boolean hasWarnings() throws RemoteException;
+  boolean hasWarnings() throws RemoteException;
   
   /**
    * Legt fest, ob bei der Ausfuehrung Warnungen auftraten.
    * @param b true, wenn Warnungen auftraten.
    * @throws RemoteException
    */
-  public void setWarning(boolean b) throws RemoteException;
-
+  void setWarning(boolean b) throws RemoteException;
 }

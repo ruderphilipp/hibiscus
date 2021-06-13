@@ -24,40 +24,40 @@ public interface SepaSammelLastBuchung extends SepaSammelTransferBuchung<SepaSam
    * @return die Mandats-ID.
    * @throws RemoteException
    */
-  public String getMandateId() throws RemoteException;
+  String getMandateId() throws RemoteException;
   
   /**
    * Speichert die Mandats-ID.
    * @param id die Mandats-ID.
    * @throws RemoteException
    */
-  public void setMandateId(String id) throws RemoteException;
+  void setMandateId(String id) throws RemoteException;
   
   /**
    * Liefert die Glaeubiger-ID.
    * @return die Glaeubiger-ID.
    * @throws RemoteException
    */
-  public String getCreditorId() throws RemoteException;
+  String getCreditorId() throws RemoteException;
   
   /**
    * Speichert die Glaeubiger-ID.
    * @param id die Glaeubiger-ID.
    * @throws RemoteException
    */
-  public void setCreditorId(String id) throws RemoteException;
+  void setCreditorId(String id) throws RemoteException;
 
   /**
    * Liefert das Datum der Unterschrift des Mandats.
    * @return das Datum der Unterschrift des Mandats.
    * @throws RemoteException
    */
-  public Date getSignatureDate() throws RemoteException;
+  Date getSignatureDate() throws RemoteException;
   
   /**
    * Speichert das Datum der Unterschrift des Mandats.
    * @param date das Datum der Unterschrift des Mandats.
    * @throws RemoteException
    */
-  public void setSignatureDate(Date date) throws RemoteException;
+  void setSignatureDate(Date date) throws RemoteException;
 }

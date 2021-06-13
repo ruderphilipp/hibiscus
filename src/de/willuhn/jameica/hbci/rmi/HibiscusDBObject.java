@@ -26,7 +26,7 @@ public interface HibiscusDBObject extends DBObject
    * @return der Wert des Attributes.
    * @throws RemoteException
    */
-  public String getMeta(String name, String defaultValue) throws RemoteException;
+  String getMeta(String name, String defaultValue) throws RemoteException;
   
   /**
    * Speichert den Wert des Meta-Attributes.
@@ -43,7 +43,7 @@ public interface HibiscusDBObject extends DBObject
    * @param value Wert des Attributes.
    * @throws RemoteException
    */
-  public void setMeta(String name, String value) throws RemoteException;
+  void setMeta(String name, String value) throws RemoteException;
 }
 
 

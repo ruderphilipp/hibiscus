@@ -22,49 +22,49 @@ public interface Transfer extends Remote
    * @return Kontonummer des Empfaengers.
    * @throws RemoteException
    */
-  public String getGegenkontoNummer() throws RemoteException;
+  String getGegenkontoNummer() throws RemoteException;
 
 	/**
 	 * Liefert die BLZ des Gegenkontos.
 	 * @return BLZ des Gegenkontos.
 	 * @throws RemoteException
 	 */
-	public String getGegenkontoBLZ() throws RemoteException;
-	
+  String getGegenkontoBLZ() throws RemoteException;
+
 	/**
 	 * Liefert den Namen des Kontoinhabers des Gegenkontos.
 	 * @return Name des Kontoinhabers des Gegenkontos.
 	 * @throws RemoteException
 	 */
-	public String getGegenkontoName() throws RemoteException;
+  String getGegenkontoName() throws RemoteException;
 
 	/**
 	 * Liefert den Betrag.
    * @return Betrag.
    * @throws RemoteException
    */
-  public double getBetrag() throws RemoteException;
-	
+  double getBetrag() throws RemoteException;
+
 	/**
 	 * Liefert die Zeile 1 des Verwendungszwecks.
    * @return Zeile 1 des Verwendungszwecks.
    * @throws RemoteException
    */
-  public String getZweck() throws RemoteException;
-	
+  String getZweck() throws RemoteException;
+
 	/**
 	 * Liefert die Zeile 2 des Verwendungszwecks.
 	 * @return Zeile 2 des Verwendungszwecks.
 	 * @throws RemoteException
 	 */
-	public String getZweck2() throws RemoteException;
-  
+  String getZweck2() throws RemoteException;
+
   /**
    * Liefert eine Liste erweiterter Verwendungszwecke.
    * @return Liste erweiterter Verwendungszwecke.
    * @throws RemoteException
    */
-  public String[] getWeitereVerwendungszwecke() throws RemoteException;
+  String[] getWeitereVerwendungszwecke() throws RemoteException;
 }
 
 

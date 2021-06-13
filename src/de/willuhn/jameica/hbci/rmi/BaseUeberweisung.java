@@ -22,14 +22,14 @@ public interface BaseUeberweisung extends HibiscusTransfer, Terminable
    * @return Textschluessel.
    * @throws RemoteException
    */
-  public String getTextSchluessel() throws RemoteException;
+  String getTextSchluessel() throws RemoteException;
 
   /**
    * Speichert den Textschluessel.
    * @param schluessel
    * @throws RemoteException
    */
-  public void setTextSchluessel(String schluessel) throws RemoteException;
+  void setTextSchluessel(String schluessel) throws RemoteException;
 }
 
 

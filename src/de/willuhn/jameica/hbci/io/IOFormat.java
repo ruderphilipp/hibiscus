@@ -26,14 +26,14 @@ public interface IOFormat
    * Zum Beispiel &quot;CSV-Datei&quot;
    * @return Sprechender Name des Datei-Formats.
    */
-  public String getName();
+  String getName();
 
   /**
    * Liefert die Datei-Endungen des Formats.
    * Zum Beispiel "*.csv" oder "*.txt".
    * @return Datei-Endung.
    */
-  public String[] getFileExtensions();
+  String[] getFileExtensions();
 }
 
 

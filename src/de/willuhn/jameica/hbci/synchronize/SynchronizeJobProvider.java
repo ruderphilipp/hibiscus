@@ -28,14 +28,14 @@ public interface SynchronizeJobProvider extends Comparable
    * Wenn kein Konto angegeben ist, werden die Jobs aller Konten zurueckgeliefert.
    * @return Liste der auszufuehrenden Jobs.
    */
-  public List<SynchronizeJob> getSynchronizeJobs(Konto k);
+  List<SynchronizeJob> getSynchronizeJobs(Konto k);
   
   /**
    * Liefert eine Liste der implementierenden Klassen der Jobs, die
    * dieser Provider unterstuetzt.
    * @return Liste der implementierenden Klassen der Jobs des Providers.
    */
-  public List<Class<? extends SynchronizeJob>> getJobTypes();
+  List<Class<? extends SynchronizeJob>> getJobTypes();
   
   /**
    * Prueft, ob der Job-Provider diesen Job fuer das angegebene Konto beherrscht.
@@ -43,7 +43,7 @@ public interface SynchronizeJobProvider extends Comparable
    * @param k das konkrete Konto.
    * @return true, wenn er es beherrscht.
    */
-  public boolean supports(Class<? extends SynchronizeJob> type, Konto k);
+  boolean supports(Class<? extends SynchronizeJob> type, Konto k);
 }
 
 

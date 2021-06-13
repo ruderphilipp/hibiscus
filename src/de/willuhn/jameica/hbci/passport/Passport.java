@@ -40,7 +40,7 @@ public interface Passport extends Remote {
    * @throws RemoteException
    * BUGZILLA #7 http://www.willuhn.de/bugzilla/show_bug.cgi?id=7
    */
-  public void init(Konto konto) throws RemoteException;
+	void init(Konto konto) throws RemoteException;
 
 	/**
 	 * Liefert den sprechenden Namen des Passports.
@@ -48,7 +48,7 @@ public interface Passport extends Remote {
    * @return Name des Passports.
    * @throws RemoteException
    */
-  public String getName() throws RemoteException;
+	String getName() throws RemoteException;
   
   /**
    * Liefert einen Info-Text, den die Passport-Klasse frei implementieren kann.
@@ -58,7 +58,7 @@ public interface Passport extends Remote {
    * @return Info-Text zu dem Sicherheitsmedium.
    * @throws RemoteException
    */
-  public String getInfo() throws RemoteException;
+  String getInfo() throws RemoteException;
 	
 	/**
 	 * Liefert das Passport-Handle.
@@ -66,7 +66,7 @@ public interface Passport extends Remote {
    * @return Handle.
    * @throws RemoteException
    */
-  public PassportHandle getHandle() throws RemoteException;
+	PassportHandle getHandle() throws RemoteException;
 
 	/**
 	 * Liefert die Klasse des Konfigurationsdialogs.
@@ -79,12 +79,12 @@ public interface Passport extends Remote {
    * Muss von <code>AbstractView</code> abgeleitet sein.
    * @throws RemoteException
    */
-  public Class getConfigDialog() throws RemoteException;
+	Class getConfigDialog() throws RemoteException;
   
   /**
    * Liefert die Liste der Konfigurationen.
    * @return die Liste der Konfigurationen.
    * @throws RemoteException
    */
-  public List<? extends Configuration> getConfigurations() throws RemoteException;
+  List<? extends Configuration> getConfigurations() throws RemoteException;
 }

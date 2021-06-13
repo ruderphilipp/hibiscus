@@ -29,18 +29,18 @@ public interface KeyFormat extends Comparable<KeyFormat>
   /**
    * Konstante fuer das Feature "Schluessel importieren".
    */
-  public final static int FEATURE_IMPORT = 1;
+  final static int FEATURE_IMPORT = 1;
   
   /**
    * Konstante fuer das Feature "Schluessel erstellen".
    */
-  public final static int FEATURE_CREATE = 2;
+  final static int FEATURE_CREATE = 2;
   
   /**
    * Liefert einen sprechenden Namen des Formats.
    * @return Sprechender Name.
    */
-  public String getName();
+  String getName();
   
   /**
    * Importiert einen Schluessel.
@@ -51,7 +51,7 @@ public interface KeyFormat extends Comparable<KeyFormat>
    * @throws ApplicationException Fehler.
    * @throws OperationCanceledException wenn der Import abgebrochen werden soll.
    */
-  public RDHKey importKey(File file) throws ApplicationException, OperationCanceledException;
+  RDHKey importKey(File file) throws ApplicationException, OperationCanceledException;
   
   /**
    * Erzeugt einen neuen Schluessel.
@@ -60,14 +60,14 @@ public interface KeyFormat extends Comparable<KeyFormat>
    * @throws ApplicationException
    * @throws OperationCanceledException
    */
-  public RDHKey createKey(File file) throws ApplicationException, OperationCanceledException;
+  RDHKey createKey(File file) throws ApplicationException, OperationCanceledException;
   
   /**
    * Prueft, ob das Format das angegebene Feature unterstuetzt.
    * @param feature das geforderte Feature.
    * @return true, wenn es unterstuetzt wird.
    */
-  public boolean hasFeature(int feature);
+  boolean hasFeature(int feature);
   
   /**
    * Laedt einen Schluessel.
@@ -76,12 +76,12 @@ public interface KeyFormat extends Comparable<KeyFormat>
    * @throws ApplicationException
    * @throws OperationCanceledException
    */
-  public HBCIPassport load(RDHKey key) throws ApplicationException, OperationCanceledException;
+  HBCIPassport load(RDHKey key) throws ApplicationException, OperationCanceledException;
   
   /**
    * Liefert einen numerischen Wert fuer die Sortierung.
    * @return numerischer Wert fuer die Sortierung.
    * Je hoeher der Wert ist, desto weiter hinten ist er einsortiert.
    */
-  public int getOrder();
+  int getOrder();
 }

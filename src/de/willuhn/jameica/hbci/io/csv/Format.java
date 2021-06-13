@@ -22,19 +22,19 @@ public interface Format<T>
    * Liefert den Typ des Fachobjektes, der mit diesem Format importiert werden kann.
    * @return Typ des Fachobjektes.
    */
-  public Class<T> getType();
+  Class<T> getType();
   
   /**
    * Liefert das Default-Profil fuer den Import.
    * @return das Default-Profil.
    */
-  public Profile getDefaultProfile();
+  Profile getDefaultProfile();
 
   /**
    * Liefert einen optionalen Import-Listener.
    * @return optionaler Import-Listener.
    */
-  public ImportListener getImportListener();
+  ImportListener getImportListener();
 }
 
 

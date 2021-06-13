@@ -22,12 +22,12 @@ public interface PassportLoader
    * Er darf intern gecached werden.
    * @return der Passport.
    */
-  public HBCIPassport load();
+  HBCIPassport load();
   
   /**
    * Forciert ein Reload des Passports.
    */
-  public void reload();
+  void reload();
 
 }
 

@@ -21,7 +21,7 @@ public interface Restriction
    * @throws ApplicationException wird geworfen, wenn der Test fehlschlug.
    * Die Exception muss eine fuer den Benutzer verstaendliche Fehlermeldung enthalten.
    */
-  public void test() throws ApplicationException;
+  void test() throws ApplicationException;
 }
 
 

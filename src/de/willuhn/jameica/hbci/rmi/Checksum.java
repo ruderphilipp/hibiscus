@@ -24,8 +24,7 @@ public interface Checksum
    * @return Checksumme.
    * @throws RemoteException
    */
-  public long getChecksum() throws RemoteException;
-
+  long getChecksum() throws RemoteException;
 }
 
 

@@ -21,13 +21,13 @@ public interface SepaSammelUeberweisung extends SepaSammelTransfer<SepaSammelUeb
    * @return true, wenn es eine bankseitige Termin-Ueberweisung ist.
    * @throws RemoteException
    */
-  public boolean isTerminUeberweisung() throws RemoteException;
+  boolean isTerminUeberweisung() throws RemoteException;
   
   /**
    * Legt fest, ob es sich um eine bankseitige Termin-Ueberweisung handelt.
    * @param termin true, wenn es eine bankseitige Terminueberweisung sein soll.
    * @throws RemoteException
    */
-  public void setTerminUeberweisung(boolean termin) throws RemoteException;
+  void setTerminUeberweisung(boolean termin) throws RemoteException;
 
 }

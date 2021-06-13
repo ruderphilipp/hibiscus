@@ -26,7 +26,7 @@ public interface ScheduleProvider<T extends HibiscusDBObject>
    * Liefert einen sprechenden Namen fuer den Provider.
    * @return sprechender Name fuer den Provider.
    */
-  public String getName();
+  String getName();
   
   /**
    * Liefert die Termine fuer den angegebenen Zeitraum.
@@ -37,7 +37,7 @@ public interface ScheduleProvider<T extends HibiscusDBObject>
    * @return Liste der gefundendenen Termine.
    * Die Funktion darf NICHT NULL liefern sondern hoechstens eine leere Liste.
    */
-  public List<Schedule<T>> getSchedules(Konto k, Date from, Date to);
+  List<Schedule<T>> getSchedules(Konto k, Date from, Date to);
 }
 
 

@@ -28,7 +28,7 @@ public interface Filter<T>
    * False, wenn es uebersprungen werden soll.
    * @throws RemoteException
    */
-  public boolean accept(T object) throws RemoteException;
+  boolean accept(T object) throws RemoteException;
 }
 
 

@@ -28,22 +28,22 @@ public interface PassportHandle extends Remote
    * Identifier fuer den Persistent-Parameter mit der Config, aus der
    * der Passport erstellt wurde.
    */
-  public final static String CONTEXT_CONFIG = "hibiscus.context.config";
+  final static String CONTEXT_CONFIG = "hibiscus.context.config";
   
   /**
    * Identifier fuer den Persistent-Parameter mit ggf geaenderter Kunden- und Benutzerkennung.
    */
-  public final static String CONTEXT_USERID_CHANGED = "hibiscus.context.userid.changed";
+  final static String CONTEXT_USERID_CHANGED = "hibiscus.context.userid.changed";
   
   /**
    * Identifier fuer den Persistent-Parameter der Liste der TAN-Verfahren
    */
-  public final static String CONTEXT_SECMECHLIST = "hibiscus.context.secmechlist";
+  final static String CONTEXT_SECMECHLIST = "hibiscus.context.secmechlist";
 
   /**
    * Identifier fuer den Persistent-Parameter mit der Liste der TAN-Medienbezeichnungen.
    */
-  public final static String CONTEXT_TANMEDIALIST = "hibiscus.context.tanmedialist";
+  final static String CONTEXT_TANMEDIALIST = "hibiscus.context.tanmedialist";
 
   /**
    * Oeffnet den Passport und liefert den HBCIHandler zrueck.
@@ -57,7 +57,7 @@ public interface PassportHandle extends Remote
    * Die Exeption sollte einen sinnvollen Fehlertext enthalten.
    * @throws ApplicationException
    */
-  public HBCIHandler open() throws RemoteException, ApplicationException;
+  HBCIHandler open() throws RemoteException, ApplicationException;
 
   /**
    * Schliesst den Passport.
@@ -66,14 +66,14 @@ public interface PassportHandle extends Remote
    * HBCIHandler geschlossen werden.
    * @throws RemoteException
    */
-  public void close() throws RemoteException;
+  void close() throws RemoteException;
 
   /**
    * Prueft, ob der Passport offen ist.
    * @return true, wenn er offen ist.
    * @throws RemoteException
    */
-  public boolean isOpen() throws RemoteException;
+  boolean isOpen() throws RemoteException;
 
   /**
    * Liefert ein Array mit Konto-Objekten, die aus dem Medium gelesen wurden.
@@ -88,7 +88,7 @@ public interface PassportHandle extends Remote
    * @throws RemoteException
    * @throws ApplicationException
    */
-  public Konto[] getKonten() throws RemoteException, ApplicationException;
+  Konto[] getKonten() throws RemoteException, ApplicationException;
 
   /**
    * Durch Implementierung dieses Callback-Aufrufs, kann sich das Passport-Handle
@@ -105,7 +105,7 @@ public interface PassportHandle extends Remote
    * @return true, wenn der Handler den Callback behandeln konnte.
    * @throws Exception
    */
-  public boolean callback(HBCIPassport passport, int reason, String msg, int datatype, StringBuffer retData) throws Exception;
+  boolean callback(HBCIPassport passport, int reason, String msg, int datatype, StringBuffer retData) throws Exception;
 
 }
 

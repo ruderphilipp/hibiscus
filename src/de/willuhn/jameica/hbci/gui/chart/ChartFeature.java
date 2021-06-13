@@ -47,12 +47,12 @@ public interface ChartFeature
    * @param e das Event.
    * @return true, wenn es auf das angegebene Event reagieren soll.
    */
-  public boolean onEvent(Event e);
+  boolean onEvent(Event e);
   
   /**
    * Wird aufgerufen, wenn das angegebene Event ausgeloest wurde.
    * @param e das Event.
    * @param ctx Context-Infos.
    */
-  public void handleEvent(Event e, Context ctx);
+  void handleEvent(Event e, Context ctx);
 }

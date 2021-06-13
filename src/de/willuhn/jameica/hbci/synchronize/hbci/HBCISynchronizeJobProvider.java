@@ -32,5 +32,5 @@ public interface HBCISynchronizeJobProvider extends SynchronizeJobProvider
    * @return Liste von lesbaren Property-Namen. Die werden dem Benutzer 1:1 als
    * Label von Eingabefeldern angezeigt.
    */
-  public List<String> getPropertyNames(Konto k);
+  List<String> getPropertyNames(Konto k);
 }

@@ -20,12 +20,12 @@ public interface Turnus extends HibiscusDBObject, Checksum
 	/**
 	 * Konstante fuer Zeiteinheit woechentlich.
 	 */
-	public final static int ZEITEINHEIT_WOECHENTLICH			= 1;
+	final static int ZEITEINHEIT_WOECHENTLICH			= 1;
 	
 	/**
 	 * Konstante fuer Zeiteinheit monatlich.
 	 */
-	public final static int ZEITEINHEIT_MONATLICH					= 2;
+	final static int ZEITEINHEIT_MONATLICH					= 2;
 
 
 	/**
@@ -33,7 +33,7 @@ public interface Turnus extends HibiscusDBObject, Checksum
    * @return Bezeichnung des Intervalls.
    * @throws RemoteException
    */
-  public String getBezeichnung() throws RemoteException;
+  String getBezeichnung() throws RemoteException;
 
 	/**
 	 * Liefert die Anzahl der Intervalle zwischen den Zahlungen.
@@ -47,14 +47,14 @@ public interface Turnus extends HibiscusDBObject, Checksum
    * @return Anzahl der Intervalle zwischen den Zahlungen.
    * @throws RemoteException
    */
-  public int getIntervall() throws RemoteException;
+  int getIntervall() throws RemoteException;
 
   /**
    * Speichert die Anzahl der Intervalle zwischen den Zahlungen.
    * @param intervall Anzahl der Intervalle.
    * @throws RemoteException
    */
-  public void setIntervall(int intervall) throws RemoteException;
+  void setIntervall(int intervall) throws RemoteException;
 
 	/**
 	 * Liefert eine Konstante fuer die Zeiteinheit.
@@ -65,7 +65,7 @@ public interface Turnus extends HibiscusDBObject, Checksum
    * @return Zeiteinheit.
    * @throws RemoteException
    */
-  public int getZeiteinheit() throws RemoteException;
+  int getZeiteinheit() throws RemoteException;
 
 	/**
 	 * Speichert die Zeiteinheit.
@@ -73,7 +73,7 @@ public interface Turnus extends HibiscusDBObject, Checksum
    * oder <code>ZEITEINHEIT_MONATLICH</code> besitzen.
    * @throws RemoteException
    */
-  public void setZeiteinheit(int zeiteinheit) throws RemoteException;
+  void setZeiteinheit(int zeiteinheit) throws RemoteException;
   
   /**
    * Liefert den Tag, an dem die Zahlung innerhalb der Zeiteinheit ausgefuehrt werden soll.
@@ -84,14 +84,14 @@ public interface Turnus extends HibiscusDBObject, Checksum
    * 1 und 7 zurueckgeliefert (Wochentag) wobei 1 Montag ist und 7 demzufolge Sonntag.
    * @throws RemoteException
    */
-  public int getTag() throws RemoteException;
+  int getTag() throws RemoteException;
   
   /**
    * Speichert den Tag, an dem die Zahlung innerhalb der Zeiteinheit ausgefuehrt werden soll.
    * @param tag Tag, an dem die Zahlung erfolgt.
    * @throws RemoteException
    */
-  public void setTag(int tag) throws RemoteException;
+  void setTag(int tag) throws RemoteException;
   
   /**
    * Liefert <code>true</code> wenn es sich bei dem Turnus um Initial-Daten
@@ -99,7 +99,7 @@ public interface Turnus extends HibiscusDBObject, Checksum
    * @return true, wenn der Datensatz nicht geloescht werden kann.
    * @throws RemoteException
    */
-  public boolean isInitial() throws RemoteException;
+  boolean isInitial() throws RemoteException;
 }
 
 

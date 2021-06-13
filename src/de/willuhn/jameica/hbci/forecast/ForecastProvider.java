@@ -26,7 +26,7 @@ public interface ForecastProvider
    * Liefert einen sprechenden Namen fuer den Provider.
    * @return sprechender Name.
    */
-  public String getName();
+  String getName();
   
   /**
    * Liefert die voraussichtlichen Zahlungen fuer den angegebenen Zeitraum.
@@ -39,7 +39,7 @@ public interface ForecastProvider
    * @return Liste der voraussichtlichen Zahlungen.
    * @throws Exception
    */
-  public List<Value> getData(Konto k, Date from, Date to) throws Exception;
+  List<Value> getData(Konto k, Date from, Date to) throws Exception;
 }
 
 

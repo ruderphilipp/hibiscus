@@ -21,7 +21,7 @@ public interface IO
    * Z.Bsp. "Swift MT-940 Format".
    * @return Name
    */
-  public String getName();
+  String getName();
 
   /**
    * Liefert eine Liste der von diesem unterstuetzten Datei-Formate.
@@ -31,7 +31,7 @@ public interface IO
    * Liste von Dateiformaten liefern, die er zu dieser Objektart unterstuetzt.
    * @return Liste der Export-Formate.
    */
-  public IOFormat[] getIOFormats(Class objectType);
+  IOFormat[] getIOFormats(Class objectType);
 
 
 }

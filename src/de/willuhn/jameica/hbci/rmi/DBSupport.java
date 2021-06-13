@@ -26,32 +26,32 @@ public interface DBSupport extends Serializable
    * Liefert die JDBC-URL.
    * @return die JDBC-URL.
    */
-  public String getJdbcUrl();
+  String getJdbcUrl();
 
   /**
    * Liefert den Klassennamen des JDBC-Treibers.
    * @return der JDBC-Treiber.
    */
-  public String getJdbcDriver();
+  String getJdbcDriver();
 
   /**
    * Liefert den Usernamen des Datenbank-Users.
    * @return Username.
    */
-  public String getJdbcUsername();
+  String getJdbcUsername();
 
   /**
    * Liefert das Passwort des Datenbank-Users.
    * @return das Passwort.
    */
-  public String getJdbcPassword();
+  String getJdbcPassword();
   
   /**
    * Prueft die Datenbankverbindung.
    * @param conn die Datenbank-Connection.
    * @throws RemoteException Wenn die Verbindung defekt ist und vom DB-Service neu erzeugt werden muss.
    */
-  public void checkConnection(Connection conn) throws RemoteException;
+  void checkConnection(Connection conn) throws RemoteException;
 
   /**
    * Fuehrt ein SQL-Update-Script auf der Datenbank aus.
@@ -59,14 +59,14 @@ public interface DBSupport extends Serializable
    * @param sqlScript das SQL-Script.
    * @throws RemoteException
    */
-  public void execute(Connection conn, File sqlScript) throws RemoteException;
+  void execute(Connection conn, File sqlScript) throws RemoteException;
   
   /**
    * Liefert einen Dateinamens-Prefix, der SQL-Scripts vorangestellt werden soll.
    * @return Dateinamens-Prefix.
    * @throws RemoteException
    */
-  public String getScriptPrefix() throws RemoteException;
+  String getScriptPrefix() throws RemoteException;
 
   /**
    * Liefert den Namen der SQL-Funktion, mit der die Datenbank aus einem DATE-Feld einen UNIX-Timestamp macht.
@@ -75,7 +75,7 @@ public interface DBSupport extends Serializable
    * @return Name der SQL-Funktion samt Parameter. Also zum Beispiel "TONUMBER(datum)".
    * @throws RemoteException
    */
-  public String getSQLTimestamp(String content) throws RemoteException;
+  String getSQLTimestamp(String content) throws RemoteException;
   
   /**
    * Legt fest, ob SQL-Insert-Queries mit oder ohne ID erzeugt werden sollen.
@@ -83,14 +83,14 @@ public interface DBSupport extends Serializable
    * @throws RemoteException
    * Siehe auch: de.willuhn.datasource.db.DBServiceImpl#getInsertWithID()
    */
-  public boolean getInsertWithID() throws RemoteException;
+  boolean getInsertWithID() throws RemoteException;
 
   /**
    * Liefert das Transaction-Isolation-Level.
    * @return das Transaction-Isolation-Level.
    * @throws RemoteException
    */
-  public int getTransactionIsolationLevel() throws RemoteException;
+  int getTransactionIsolationLevel() throws RemoteException;
 
 }
 

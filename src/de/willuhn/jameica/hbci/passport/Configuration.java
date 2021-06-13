@@ -26,7 +26,7 @@ public interface Configuration
    * Liefert einen Beschreibungstext fuer die Konfiguration.
    * @return Beschreibungstext.
    */
-  public String getDescription();
+  String getDescription();
 
   /**
    * Liefert die Klasse des Konfigurationsdialogs.
@@ -39,13 +39,13 @@ public interface Configuration
    * Muss von <code>AbstractView</code> abgeleitet sein.
    * @throws RemoteException
    */
-  public Class getConfigDialog() throws RemoteException;
+  Class getConfigDialog() throws RemoteException;
   
   /**
    * Loescht die Konfiguration.
    * @throws ApplicationException
    */
-  public void delete() throws ApplicationException;
+  void delete() throws ApplicationException;
 
 }
 

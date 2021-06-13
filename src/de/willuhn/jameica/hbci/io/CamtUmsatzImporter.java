@@ -315,7 +315,7 @@ public class CamtUmsatzImporter implements Importer
      * Liefert true, wenn es eine ZIP-Datei ist.
      * @return true, wenn es eine ZIP-Datei ist.
      */
-    public boolean isZip();
+    boolean isZip();
   }
   
 }

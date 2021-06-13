@@ -22,27 +22,27 @@ public interface SepaBooking extends Transfer
    * @return die optionale End2End-ID fuer SEPA.
    * @throws RemoteException
    */
-  public String getEndtoEndId() throws RemoteException;
+  String getEndtoEndId() throws RemoteException;
   
   /**
    * Speichert die optionale End2End-ID fuer SEPA.
    * @param id die optionale End2End-ID fuer SEPA.
    * @throws RemoteException
    */
-  public void setEndtoEndId(String id) throws RemoteException;
+  void setEndtoEndId(String id) throws RemoteException;
 
   /**
    * Liefert den optionalen Purpose-Code.
    * @return der optionale Purpose-Code.
    * @throws RemoteException
    */
-  public String getPurposeCode() throws RemoteException;
+  String getPurposeCode() throws RemoteException;
   
   /**
    * Speichert den optionalen Purpose-Code.
    * @param code der optionale Purpose-Code.
    * @throws RemoteException
    */
-  public void setPurposeCode(String code) throws RemoteException;
+  void setPurposeCode(String code) throws RemoteException;
 
 }

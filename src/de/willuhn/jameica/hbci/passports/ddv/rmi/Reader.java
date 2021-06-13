@@ -21,7 +21,7 @@ public interface Reader
   /**
    * Typ-Definition fuer die verschiedenen Arten von Karten.
    */
-  public static enum Type
+  static enum Type
   {
     /**
      * DDV-Karte via CTAPI.
@@ -104,50 +104,48 @@ public interface Reader
 	 * Liefert den Namen des Chipkartenlesers.
    * @return Name des Lesers.
    */
-  public String getName();
+  String getName();
 
 	/**
 	 * Liefert Pfad und Dateiname des CTAPI-Treibers.
    * @return Pfad und Dateiname des CTAPI-Treibers.
    */
-  public String getCTAPIDriver();
+  String getCTAPIDriver();
   
   /**
    * Liefert einen vordefinierten Port.
    * @return Port.
    */
-  public String getPort();
+  String getPort();
   
   /**
    * Liefert den Index des Readers.
    * @return Index des Readers.
    */
-  public int getCTNumber();
+  int getCTNumber();
 
   /**
 	 * Prueft, ob dieser Leser von der aktuellen System-Umgebung unterstuetzt wird.
    * @return <code>true</code>, wenn er unterstuetzt wird.
    */
-  public boolean isSupported();
+  boolean isSupported();
 
 	/**
 	 * Liefert true, wenn die Tastatur des PCs zur Eingabe der PIN verwendet werden soll.
    * @return <code>true</code> wenn die Tastatur des PCs zur Eingabe der PIN verwendet werden soll.
    */
-  public boolean useSoftPin();
+  boolean useSoftPin();
   
   /**
    * Liefert die Art des Kartenlesers.
    * @return die Art des Kartenlesers.
    */
-  public Type getType();
+  Type getType();
   
   /**
    * Liefert die Default-HBCI-Version, die verwendet werden soll, wenn keine bekannt ist.
    * Wird zum Beispiel bei der Suche nach Kartenlesern verwendet.
    * @return die Default-HBCI-Version.
    */
-  public String getDefaultHBCIVersion();
-  
-
+  String getDefaultHBCIVersion();
 }

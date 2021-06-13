@@ -24,7 +24,7 @@ public interface Duplicatable<T>
    * @return neues Objekt mit den gleichen Eigenschaften.
    * @throws RemoteException
    */
-  public T duplicate() throws RemoteException;
+  T duplicate() throws RemoteException;
 
 }
 

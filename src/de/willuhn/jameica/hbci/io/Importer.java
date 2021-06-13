@@ -36,5 +36,5 @@ public interface Importer extends IO
    * @throws RemoteException
    * @throws ApplicationException 
    */
-  public void doImport(Object context, IOFormat format, InputStream is, ProgressMonitor monitor, BackgroundTask t) throws RemoteException, ApplicationException;
+  void doImport(Object context, IOFormat format, InputStream is, ProgressMonitor monitor, BackgroundTask t) throws RemoteException, ApplicationException;
 }

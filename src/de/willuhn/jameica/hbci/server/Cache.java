@@ -195,7 +195,7 @@ class Cache
      * @return die Objekte.
      * @throws RemoteException
      */
-    public DBIterator load() throws RemoteException;
+    DBIterator load() throws RemoteException;
   }
 }
 

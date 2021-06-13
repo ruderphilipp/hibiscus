@@ -25,28 +25,28 @@ public interface Version extends DBObject
    * @return Name der Version.
    * @throws RemoteException
    */
-  public String getName() throws RemoteException;
+  String getName() throws RemoteException;
   
   /**
    * Speichert den Namen der Version.
    * @param name Name der Version.
    * @throws RemoteException
    */
-  public void setName(String name) throws RemoteException;
+  void setName(String name) throws RemoteException;
   
   /**
    * Liefert den aktuellen Stand der Version.
    * @return Stand der Version.
    * @throws RemoteException
    */
-  public int getVersion() throws RemoteException;
+  int getVersion() throws RemoteException;
   
   /**
    * Legt die neue Versionsnummer fest.
    * @param newVersion die neue Versionsnummer.
    * @throws RemoteException
    */
-  public void setVersion(int newVersion) throws RemoteException;
+  void setVersion(int newVersion) throws RemoteException;
 
 }
 

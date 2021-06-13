@@ -26,7 +26,7 @@ public interface Serializer<T>
    * @return das serialisierte Objekt.
    * @throws IOException
    */
-  public String serialize(Object context, T value) throws IOException;
+  String serialize(Object context, T value) throws IOException;
   
   /**
    * Deserialisiert den uebergebenen Text.
@@ -36,7 +36,7 @@ public interface Serializer<T>
    * @return das deserialisierte Objekt.
    * @throws IOException
    */
-  public T unserialize(Object context, String value) throws IOException;
+  T unserialize(Object context, String value) throws IOException;
 }
 
 

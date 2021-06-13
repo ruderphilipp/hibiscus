@@ -25,7 +25,7 @@ public interface Address extends Remote
    * @return Kontonummer.
    * @throws RemoteException
    */
-  public String getKontonummer() throws RemoteException;
+  String getKontonummer() throws RemoteException;
   
   /**
    * Liefert die BLZ.
@@ -33,42 +33,42 @@ public interface Address extends Remote
    * @throws RemoteException
    * BUGZILLA 534
    */
-  public String getBlz() throws RemoteException;
+  String getBlz() throws RemoteException;
 
   /**
    * Liefert den Namen.
    * @return Name.
    * @throws RemoteException
    */
-  public String getName() throws RemoteException;
+  String getName() throws RemoteException;
   
   /**
    * Liefert einen zusaetzlichen Kommentar fuer den Adressbuch-Eintrag.
    * @return Kommentar.
    * @throws RemoteException
    */
-  public String getKommentar() throws RemoteException;
+  String getKommentar() throws RemoteException;
   
   /**
    * Liefert die BIC.
    * @return die BIC.
    * @throws RemoteException
    */
-  public String getBic() throws RemoteException;
+  String getBic() throws RemoteException;
 
   /**
    * Liefert die IBAN.
    * @return die IBAN.
    * @throws RemoteException
    */
-  public String getIban() throws RemoteException;
+  String getIban() throws RemoteException;
   
   /**
    * Liefert einen Freitext mit der Kategorie.
    * @return Freitext mit der Kategorie.
    * @throws RemoteException
    */
-  public String getKategorie() throws RemoteException;
+  String getKategorie() throws RemoteException;
   
 }
 

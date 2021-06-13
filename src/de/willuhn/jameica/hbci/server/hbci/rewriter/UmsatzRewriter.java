@@ -31,14 +31,14 @@ public interface UmsatzRewriter
    * Liefert die Liste der BLZ, fuer die der Rewriter zustaendig ist.
    * @return Liste der BLZS.
    */
-  public List<String> getBlzList();
+  List<String> getBlzList();
   
   /**
    * Schreibt den Umsatz um.
    * @param u der zu umschreibende Umsatz.
    * @throws Exception
    */
-  public void rewrite(Umsatz u) throws Exception;
+  void rewrite(Umsatz u) throws Exception;
 }
 
 

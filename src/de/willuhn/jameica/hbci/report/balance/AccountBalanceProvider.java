@@ -30,7 +30,7 @@ public interface AccountBalanceProvider
    * @param konto Zu ueberpruefendes Konto
    * @return
    */
-  public boolean supports(Konto konto);
+  boolean supports(Konto konto);
 
   /**
    * Gibt die taeglichen Salden fuer ein Konto als Liste von Werten zurueck.
@@ -39,7 +39,7 @@ public interface AccountBalanceProvider
    * @param end Enddatum der Salden
    * @return die taeglichen Salden fuer ein Konto als Liste von Werten
    */
-  public List<Value> getBalanceData(Konto konto, Date start, Date end);
+  List<Value> getBalanceData(Konto konto, Date start, Date end);
   
   /**
    * Gibt die taeglichen Salden fuer ein Konto als Chart-Datenreihe zurueck.
@@ -48,13 +48,13 @@ public interface AccountBalanceProvider
    * @param end Enddatum der Salden
    * @return die taeglichen Salden fuer ein Konto als Chart-Datenreihe
    */
-  public AbstractChartDataSaldo getBalanceChartData(Konto konto, Date start, Date end);
+  AbstractChartDataSaldo getBalanceChartData(Konto konto, Date start, Date end);
 
   /**
    * Liefert einen Namen für Anzeige und Sortierung
    * @return einen Namen für Anzeige und Sortierung
    */
-  public String getName();
+  String getName();
 }
 
 

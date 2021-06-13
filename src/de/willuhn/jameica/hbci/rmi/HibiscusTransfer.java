@@ -22,70 +22,70 @@ public interface HibiscusTransfer extends Transfer, HibiscusDBObject
    * @return Konto.
    * @throws RemoteException
    */
-  public Konto getKonto() throws RemoteException;
-	
+	Konto getKonto() throws RemoteException;
+
 	/**
 	 * Speichert das Konto, das zur Bezahlung verwendet werden soll.
    * @param konto Konto, das verwendet werden soll.
    * @throws RemoteException
    */
-  public void setKonto(Konto konto) throws RemoteException;
-	
+	void setKonto(Konto konto) throws RemoteException;
+
 	/**
 	 * Speichert die Kontonummer des Gegenkontos.
    * @param konto Kontonummer des Gegenkontos.
    * @throws RemoteException
    */
-  public void setGegenkontoNummer(String konto) throws RemoteException;
-	
+	void setGegenkontoNummer(String konto) throws RemoteException;
+
 	/**
 	 * Speichert die BLZ des Gegenkontos.
 	 * @param blz BLZ des Gegenkontos.
 	 * @throws RemoteException
 	 */
-	public void setGegenkontoBLZ(String blz) throws RemoteException;
+	void setGegenkontoBLZ(String blz) throws RemoteException;
 
 	/**
 	 * Speichert den Namen des Kontoinhabers des Gegenkontos.
 	 * @param name Name des Kontoinhabers des Gegenkontos.
 	 * @throws RemoteException
 	 */
-	public void setGegenkontoName(String name) throws RemoteException;
+	void setGegenkontoName(String name) throws RemoteException;
 
 	/**
 	 * Setzt alle drei oben genannten Gegenkonto-Eigenschaften auf einmal.
    * @param e
    * @throws RemoteException
    */
-  public void setGegenkonto(Address e) throws RemoteException;
+	void setGegenkonto(Address e) throws RemoteException;
 
 	/**
 	 * Speichert den zu ueberweisenden Betrag.
    * @param betrag Betrag.
    * @throws RemoteException
    */
-  public void setBetrag(double betrag) throws RemoteException;
-	
+	void setBetrag(double betrag) throws RemoteException;
+
 	/**
 	 * Speichert den Zweck der Ueberweisung.
    * @param zweck Zweck der Ueberweisung.
    * @throws RemoteException
    */
-  public void setZweck(String zweck) throws RemoteException;
-	
+	void setZweck(String zweck) throws RemoteException;
+
 	/**
 	 * Speichert Zeile 2 des Verwendungszwecks.
    * @param zweck2 Zeile 2 des Verwendungszwecks.
    * @throws RemoteException
    */
-  public void setZweck2(String zweck2) throws RemoteException;
+	void setZweck2(String zweck2) throws RemoteException;
 
   /**
    * Speichert eine Liste erweiterter Verwendungszwecke.
    * @param list Liste erweiterter Verwendungszwecke.
    * @throws RemoteException
    */
-  public void setWeitereVerwendungszwecke(String[] list) throws RemoteException;
+	void setWeitereVerwendungszwecke(String[] list) throws RemoteException;
 }
 
 

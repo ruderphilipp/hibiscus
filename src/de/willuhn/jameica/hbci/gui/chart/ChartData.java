@@ -23,14 +23,14 @@ public interface ChartData
    * @return Datenreihe.
    * @throws RemoteException
    */
-  public List getData() throws RemoteException;
+  List getData() throws RemoteException;
   
   /**
    * Liefert das Label der Datenreihe.
    * @return Label der Datenreihe.
    * @throws RemoteException
    */
-  public String getLabel() throws RemoteException;
+  String getLabel() throws RemoteException;
   
   /**
    * Liefert den Namen des Attributs, welches fuer die Werte
@@ -38,7 +38,7 @@ public interface ChartData
    * @return Name des Werte-Attributs.
    * @throws RemoteException
    */
-  public String getDataAttribute() throws RemoteException;
+  String getDataAttribute() throws RemoteException;
   
   /**
    * Liefert den Namen des Attributs fuer die Beschriftung.
@@ -46,7 +46,7 @@ public interface ChartData
    * Der Wert des Attributes muss vom Typ java.lang.Date sein.
    * @throws RemoteException
    */
-  public String getLabelAttribute() throws RemoteException;
+  String getLabelAttribute() throws RemoteException;
 }
 
 

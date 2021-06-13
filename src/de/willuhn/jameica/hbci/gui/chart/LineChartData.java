@@ -23,19 +23,19 @@ public interface LineChartData extends ChartData
    * @return true, wenn die Punkte zu einer geschwungenen Linie verbunden werden sollen.
    * @throws RemoteException
    */
-  public boolean getCurve() throws RemoteException;
+  boolean getCurve() throws RemoteException;
   
   /**
    * Liefert ein Array mit den Farbwerten (0-255) fuer Ror, Gruen und Blau.
    * @return Array mit den Farbwerten oder null, wenn eine zufaellige Farbe gewaehlt werden soll.
    * @throws RemoteException
    */
-  public int[] getColor() throws RemoteException;
+  int[] getColor() throws RemoteException;
   
   /**
    * Legt fest, ob die Flaeche unter der Linie gefüllt ist oder nicht.
    * @return true falls gefuellt.
    * @throws RemoteException
    */
-  public boolean isFilled() throws RemoteException;
+  boolean isFilled() throws RemoteException;
 }

@@ -22,7 +22,7 @@ public interface HibiscusAddress extends Address, HibiscusDBObject
    * @param kontonummer Kontonummer.
    * @throws RemoteException
    */
-  public void setKontonummer(String kontonummer) throws RemoteException;
+  void setKontonummer(String kontonummer) throws RemoteException;
 	
   /**
    * Speichert die BLZ des Empfaengers.
@@ -30,21 +30,21 @@ public interface HibiscusAddress extends Address, HibiscusDBObject
    * @throws RemoteException
    * BUGZILLA 534
    */
-  public void setBlz(String blz) throws RemoteException;
+  void setBlz(String blz) throws RemoteException;
 
   /**
 	 * Speichert den Namen des Empfaengers.
    * @param name Name.
    * @throws RemoteException
    */
-  public void setName(String name) throws RemoteException;
+  void setName(String name) throws RemoteException;
   
   /**
    * Speichert einen zusaetzlichen Kommentar fuer den Adressbuch-Eintrag.
    * @param kommentar
    * @throws RemoteException
    */
-  public void setKommentar(String kommentar) throws RemoteException;
+  void setKommentar(String kommentar) throws RemoteException;
   
   /**
    * Liefert den Namen der Bank.
@@ -53,7 +53,7 @@ public interface HibiscusAddress extends Address, HibiscusDBObject
    * @return Name der Bank.
    * @throws RemoteException
    */
-  public String getBank() throws RemoteException;
+  String getBank() throws RemoteException;
   
   /**
    * Speichert den Namen der Bank.
@@ -62,28 +62,28 @@ public interface HibiscusAddress extends Address, HibiscusDBObject
    * @param name Name der Bank.
    * @throws RemoteException
    */
-  public void setBank(String name) throws RemoteException;
+  void setBank(String name) throws RemoteException;
   
   /**
    * Speichert die BIC.
    * @param bic die BIC.
    * @throws RemoteException
    */
-  public void setBic(String bic) throws RemoteException;
+  void setBic(String bic) throws RemoteException;
   
   /**
    * Speichert die IBAN.
    * @param iban die IBAN.
    * @throws RemoteException
    */
-  public void setIban(String iban) throws RemoteException;
+  void setIban(String iban) throws RemoteException;
   
   /**
    * Speichert die Kategorie.
    * @param kategorie die Kategorie.
    * @throws RemoteException
    */
-  public void setKategorie(String kategorie) throws RemoteException;
+  void setKategorie(String kategorie) throws RemoteException;
 }
 
 

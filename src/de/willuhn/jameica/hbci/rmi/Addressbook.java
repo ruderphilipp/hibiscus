@@ -28,7 +28,7 @@ public interface Addressbook extends Remote
    * @return Name des Adressbuches.
    * @throws RemoteException
    */
-  public String getName() throws RemoteException;
+  String getName() throws RemoteException;
   
   /**
    * Sucht nach Adressen und liefert die gefundenen zurueck.
@@ -44,7 +44,7 @@ public interface Addressbook extends Remote
    * @throws RemoteException
    * @see AddressbookService#findAddresses(String)
    */
-  public List findAddresses(String text) throws RemoteException;
+  List findAddresses(String text) throws RemoteException;
   
   /**
    * Prueft, ob im Adressbuch eine Adresse <b>mit diesen Eigenschaften</b> enthalten ist.
@@ -52,7 +52,7 @@ public interface Addressbook extends Remote
    * @return die Adresse mit den gleichen Eigenschaften aus dem Adressbuch oder <code>null</code>.
    * @throws RemoteException
    */
-  public Address contains(Address address) throws RemoteException;
+  Address contains(Address address) throws RemoteException;
 }
 
 

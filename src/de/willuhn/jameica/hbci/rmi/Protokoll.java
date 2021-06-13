@@ -23,70 +23,68 @@ public interface Protokoll extends HibiscusDBObject {
 	/**
 	 * Protokoll-Typ unbekannt (Default).
 	 */
-	public final static int TYP_UNKNOWN = 0;
+	final static int TYP_UNKNOWN = 0;
 
 	/**
 	 * Protokoll-Typ bei Erfolg.
 	 */
-	public final static int TYP_SUCCESS = 1;
+	final static int TYP_SUCCESS = 1;
 
 	/**
 	 * Protokoll-Typ bei einem Fehler.
 	 */
-	public final static int TYP_ERROR   = 2;
+	final static int TYP_ERROR   = 2;
 
 	/**
 	 * Liefert das Konto, zu dem dieser Protokoll-Eointrag gehoert.
    * @return Konto.
    * @throws RemoteException
    */
-  public Konto getKonto() throws RemoteException;
-	
+  Konto getKonto() throws RemoteException;
+
 	/**
 	 * Liefert den Kommentar des Log-Eintrages.
    * @return Kommentar.
    * @throws RemoteException
    */
-  public String getKommentar() throws RemoteException;
-	
+  String getKommentar() throws RemoteException;
+
 	/**
 	 * Liefert das Datum, an dem der Log-Eintrag erzeugt wurde.
    * @return Datum.
    * @throws RemoteException
    */
-  public Date getDatum() throws RemoteException;
-	
+  Date getDatum() throws RemoteException;
+
 	/**
 	 * Liefert den Typ des Log-Eintrages.
 	 * Zur Codierung siehe die Konstanten TYP_*.
    * @return Typ.
    * @throws RemoteException
    */
-  public int getTyp() throws RemoteException;
-	
+  int getTyp() throws RemoteException;
+
 	/**
 	 * Speichert das Konto, zu dem dieser Log-Eintrag gehoert.
    * @param konto Konto.
    * @throws RemoteException
    */
-  public void setKonto(Konto konto) throws RemoteException;
-	
+  void setKonto(Konto konto) throws RemoteException;
+
 	/**
 	 * Speichert den Kommentar zu diesem Log-Eintrag.
    * @param kommentar Kommentar.
    * @throws RemoteException
    */
-  public void setKommentar(String kommentar) throws RemoteException;
-	
+  void setKommentar(String kommentar) throws RemoteException;
+
 	/**
 	 * Speichert den Typ des Log-Eintrages.
 	 * Zur Codierung siehe die Konstanten TYP_*.
    * @param typ Typ.
    * @throws RemoteException
    */
-  public void setTyp(int typ) throws RemoteException;
-	
-	
+  void setTyp(int typ) throws RemoteException;
 }
 
 

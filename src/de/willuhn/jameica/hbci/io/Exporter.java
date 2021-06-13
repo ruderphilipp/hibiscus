@@ -29,7 +29,7 @@ public interface Exporter extends IO
   /**
    * Eine Session fuer zusaetzliche Parameter.
    */
-  public final static Session SESSION = new Session();
+  Session SESSION = new Session();
   
   /**
    * Exportiert die genannten Objekte in den angegebenen OutputStream.
@@ -42,7 +42,7 @@ public interface Exporter extends IO
    * @throws RemoteException
    * @throws ApplicationException 
    */
-  public void doExport(Object[] objects, IOFormat format, OutputStream os, ProgressMonitor monitor) throws RemoteException, ApplicationException;
+  void doExport(Object[] objects, IOFormat format, OutputStream os, ProgressMonitor monitor) throws RemoteException, ApplicationException;
   
   /**
    * Liefert true, wenn der Exporter die angegebene Extension unterstuetzt.
@@ -53,5 +53,5 @@ public interface Exporter extends IO
    * @param ext der Name der Extension.
    * @return true, wenn er die Extension unterstuetzt.
    */
-  public boolean suppportsExtension(String ext);
+  boolean suppportsExtension(String ext);
 }

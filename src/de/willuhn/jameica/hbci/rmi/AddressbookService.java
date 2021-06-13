@@ -40,7 +40,7 @@ public interface AddressbookService extends Service, Addressbook
    * enthalten sein. 
    * @throws RemoteException
    */
-  public Addressbook[] getAddressbooks() throws RemoteException;
+  Addressbook[] getAddressbooks() throws RemoteException;
   
   /**
    * Liefert true, wenn neben dem Hibiscus-eigenen Adressbuch noch weitere gefunden wurden.
@@ -49,7 +49,7 @@ public interface AddressbookService extends Service, Addressbook
    * @return true, wenn weitere Adressbuecher existieren.
    * @throws RemoteException
    */
-  public boolean hasExternalAddressbooks() throws RemoteException;
+  boolean hasExternalAddressbooks() throws RemoteException;
 }
 
 

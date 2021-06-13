@@ -24,28 +24,28 @@ public interface DBProperty extends DBObject
    * @return Name des Parameters.
    * @throws RemoteException
    */
-  public String getName() throws RemoteException;
+  String getName() throws RemoteException;
   
   /**
    * Speichert den Namen des Parameters.
    * @param name Name des Parameters.
    * @throws RemoteException
    */
-  public void setName(String name) throws RemoteException;
+  void setName(String name) throws RemoteException;
   
   /**
    * Liefert den Wert des Parameters.
    * @return Wert des Parameters.
    * @throws RemoteException
    */
-  public String getValue() throws RemoteException;
+  String getValue() throws RemoteException;
   
   /**
    * Speichert den Wert des Parameters.
    * @param value Wert des Parameters.
    * @throws RemoteException
    */
-  public void setValue(String value) throws RemoteException;
+  void setValue(String value) throws RemoteException;
 
 }
 

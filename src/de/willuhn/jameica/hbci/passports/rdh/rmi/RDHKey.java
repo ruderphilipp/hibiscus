@@ -30,14 +30,14 @@ public interface RDHKey extends GenericObject, Configuration
    * @return Pfad- und Dateiname des Schluessels.
    * @throws RemoteException
    */
-  public String getFilename() throws RemoteException;
+  String getFilename() throws RemoteException;
 
   /**
    * Speichert den Pfad- und Dateinamen des Schluessels.
    * @param filename Pfad- und Dateiname des Schluessels.
    * @throws RemoteException
    */
-  public void setFilename(String filename) throws RemoteException;
+  void setFilename(String filename) throws RemoteException;
 
   /**
    * Liefert eine optionale Liste von hart verdrahteten Konten.
@@ -50,7 +50,7 @@ public interface RDHKey extends GenericObject, Configuration
    * BUGZILLA 314
    * @throws RemoteException
    */
-  public Konto[] getKonten() throws RemoteException;
+  Konto[] getKonten() throws RemoteException;
 
   /**
    * Speichert eine optionale Liste von festzugeordneten Konten.
@@ -59,21 +59,21 @@ public interface RDHKey extends GenericObject, Configuration
    * @param k Liste der Konten.
    * @throws RemoteException
    */
-  public void setKonten(Konto[] k) throws RemoteException;
+  void setKonten(Konto[] k) throws RemoteException;
 
   /**
    * Liefert die HBCI-Version des Schluessels.
    * @return HBCI-Version des Schluessels oder null, wenn noch keine bekannt ist.
    * @throws RemoteException
    */
-  public String getHBCIVersion() throws RemoteException;
+  String getHBCIVersion() throws RemoteException;
 
   /**
    * Speichert die zu verwendende HBCI-Version.
    * @param version HBCI-Version.
    * @throws RemoteException
    */
-  public void setHBCIVersion(String version) throws RemoteException;
+  void setHBCIVersion(String version) throws RemoteException;
 
 	/**
 	 * Prueft, ob der Schluessel zum aktiven Datenbestand gehoert und somit
@@ -81,28 +81,28 @@ public interface RDHKey extends GenericObject, Configuration
    * @return true, wenn er verwendet werden kann.
    * @throws RemoteException
    */
-  public boolean isEnabled() throws RemoteException;
+  boolean isEnabled() throws RemoteException;
 
 	/**
 	 * Aktiviert oder deaktiviert den Schluessel fuer die Verwendung.
    * @param enabled true, wenn der Schluessel aktiv ist
    * @throws RemoteException
    */
-  public void setEnabled(boolean enabled) throws RemoteException;
+  void setEnabled(boolean enabled) throws RemoteException;
   
   /**
    * Liefert einen optionalen Alias-Namen fuer den Schluessel.
    * @return Alias-Name.
    * @throws RemoteException
    */
-  public String getAlias() throws RemoteException;
+  String getAlias() throws RemoteException;
   
   /**
    * Speichert einen zusaetzlichen Alias-Namen fuer den Schluessel.
    * @param alias Alias-Name.
    * @throws RemoteException
    */
-  public void setAlias(String alias) throws RemoteException;
+  void setAlias(String alias) throws RemoteException;
   
   /**
    * Liefert den Passport des Schluessels.
@@ -111,5 +111,5 @@ public interface RDHKey extends GenericObject, Configuration
    * @throws ApplicationException
    * @throws OperationCanceledException
    */
-  public HBCIPassport load() throws RemoteException, ApplicationException, OperationCanceledException;
+  HBCIPassport load() throws RemoteException, ApplicationException, OperationCanceledException;
 }
