@@ -93,7 +93,7 @@ public class ClipboardSepaUeberweisungImporter
           u.setZweck(value);
       }
       return u;
-		}
+    }
     catch (Throwable t)
     {
       Logger.debug("unable to parse clipboard data: " + t.getMessage());

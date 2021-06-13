@@ -147,7 +147,8 @@ public class TextSchluessel
     if (code == null || code.length() == 0)
       return null;
 
-    for (TextSchluessel ts : list) {
+    for (TextSchluessel ts : list)
+    {
       if (code.equals(ts.getCode()))
         return ts;
     }

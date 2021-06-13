@@ -32,7 +32,8 @@ public class XMLSammelTransferExporter extends XMLExporter
   {
     SammelTransfer[] transfers = (SammelTransfer[]) objects;
     List<Object> all = new ArrayList<>();
-    for (SammelTransfer transfer : transfers) {
+    for (SammelTransfer transfer : transfers)
+    {
       all.add(transfer);
       DBIterator buchungen = transfer.getBuchungen();
       while (buchungen.hasNext())
