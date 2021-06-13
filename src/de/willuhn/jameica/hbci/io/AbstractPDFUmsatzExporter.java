@@ -15,6 +15,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -50,24 +51,30 @@ public abstract class AbstractPDFUmsatzExporter<T extends GenericObject> impleme
    */
   public void doExport(Object[] objects, IOFormat format, OutputStream os, ProgressMonitor monitor) throws RemoteException, ApplicationException
   {
-    
-    if (objects == null || objects.length == 0)
+    if (objects == null)
       throw new ApplicationException(i18n.tr("Bitte wählen Sie die zu exportierenden Umsätze aus"));
 
-    Umsatz first = (Umsatz) objects[0];
+    // Annahme: alle Elemente in objects sind vom Typ Umsatz
+    List<Umsatz> input = new LinkedList<>();
+    for (final Object o : objects)
+    {
+      if (o instanceof Umsatz)
+        input.add((Umsatz) o);
+    }
+    if (input.isEmpty())
+      throw new ApplicationException(i18n.tr("Bitte wählen Sie die zu exportierenden Umsätze aus"));
 
-    Date startDate     = first.getDatum();
-    Date endDate       = first.getDatum();
-    Map<String,List> umsaetze = new HashMap<String,List>();
-    
-    if (monitor != null) 
+    if (monitor != null)
     {
       monitor.setStatusText(i18n.tr("Ermittle zu exportierende Umsätze und Konten"));
       monitor.addPercentComplete(1);
     }
-    
-    Map<String,T> groupMap = new HashMap<String,T>();
 
+    Umsatz first = input.get(0);
+    Date startDate     = first.getDatum();
+    Date endDate       = first.getDatum();
+    Map<String,List<Umsatz>> umsaetze = new HashMap<>();
+    Map<String,T> groupMap = new HashMap<>();
 
     for (final Umsatz u : input)
     {
@@ -75,21 +82,19 @@ public abstract class AbstractPDFUmsatzExporter<T extends GenericObject> impleme
       Date date = u.getDatum();
       if (date != null)
       {
-        if (endDate != null && date.after(endDate))    endDate = date;
-        if (startDate != null && date.before(startDate)) startDate = date;
+        if (endDate != null && date.after(endDate))
+          endDate = date;
+        if (startDate != null && date.before(startDate))
+          startDate = date;
       }
 
       // Wir gruppieren die Umsaetze nach Kategorie.
       T group = this.getGroup(u);
       String key = group != null ? group.getID() : null;
       groupMap.put(key,group);
-      List<Umsatz> list = umsaetze.get(key);
-      if (list == null)
-      {
-        list = new ArrayList<Umsatz>();
-        umsaetze.put(key,list);
-      }
-      list.add(u);
+      if (!umsaetze.containsKey(key))
+        umsaetze.put(key, new ArrayList<>());
+      umsaetze.get(key).add(u);
     }
 
     // Falls wir die Datumsfelder als optionale Parameter erhalten haben,

@@ -141,17 +141,7 @@ public class UmsatzTreeNode implements GenericObjectNode, Comparable
    */
   public boolean hasChild(GenericObjectNode node) throws RemoteException
   {
-    for (Umsatz u : this.umsaetze)
-    {
-      if (u.equals(node))
-        return true;
-    }
-    for (UmsatzTreeNode g : this.children)
-    {
-      if (g.equals(node))
-        return true;
-    }
-    return false;
+    return umsaetze.contains(node) || children.contains(node);
   }
 
   /**

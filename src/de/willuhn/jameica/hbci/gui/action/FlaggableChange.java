@@ -19,6 +19,10 @@ import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import de.willuhn.util.I18N;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Setz oder entfermnt die genannten Flags in ein oder mehreren Objekten.
  */
@@ -49,22 +53,20 @@ public class FlaggableChange implements Action
 		if (context == null)
       throw new ApplicationException(i18n.tr("Bitte wählen Sie einen oder mehrere Datensätze aus"));
 
-    if (!(context instanceof Flaggable) && !(context instanceof Flaggable[]))
-      throw new ApplicationException(i18n.tr("Bitte wählen Sie einen oder mehrere Datensätze aus"));
-
-    Flaggable[] objects = null;
-    
+    // Annahme: alle Elemente in objects sind vom Typ Flaggable oder Flaggable[]
+    List<Flaggable> input = new LinkedList<>();
     if (context instanceof Flaggable)
-      objects = new Flaggable[]{(Flaggable) context};
-    else
-      objects = (Flaggable[]) context;
+      input.add((Flaggable) context);
+    else if (context instanceof Flaggable[])
+      input.addAll(Arrays.asList((Flaggable[]) context));
 
-    if (objects.length == 0)
+    if (input.isEmpty())
       throw new ApplicationException(i18n.tr("Bitte wählen Sie einen oder mehrere Datensätze aus"));
 
+    Flaggable handle = input.get(0);
     try
     {
-      objects[0].transactionBegin();
+      handle.transactionBegin();
       for (final Flaggable f : input)
       {
         final int current = f.getFlags();
@@ -79,13 +81,13 @@ public class FlaggableChange implements Action
 
         Application.getMessagingFactory().sendMessage(new ObjectChangedMessage(f));
       }
-      objects[0].transactionCommit();
+      handle.transactionCommit();
       Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Änderungen gespeichert"), StatusBarMessage.TYPE_SUCCESS));
     }
 		catch (Exception e)
 		{
 	    try {
-	      objects[0].transactionRollback();
+              handle.transactionRollback();
 	    }
 	    catch (Exception e1) {
 	      Logger.error("unable to rollback transaction",e1);
