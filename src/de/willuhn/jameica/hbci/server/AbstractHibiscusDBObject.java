@@ -65,7 +65,7 @@ public abstract class AbstractHibiscusDBObject extends AbstractDBObject implemen
   /**
    * @see de.willuhn.datasource.db.AbstractDBObject#delete()
    */
-  public void delete() throws RemoteException, ApplicationException
+  public void delete() throws ApplicationException, RemoteException
   {
     if (this.isNewObject())
       return; // Nichts zu loeschen
@@ -83,15 +83,10 @@ public abstract class AbstractHibiscusDBObject extends AbstractDBObject implemen
       super.delete();
       this.transactionCommit();
     }
-    catch (RemoteException e)
+    catch (ApplicationException | RemoteException e)
     {
       this.transactionRollback();
       throw e;
-    }
-    catch (ApplicationException e2)
-    {
-      this.transactionRollback();
-      throw e2;
     }
   }
   

@@ -145,20 +145,16 @@ public class CSVImportDialog extends AbstractDialog
     b.addButton(i18n.tr("Profil löschen..."), new Action() {
       
       @Override
-      public void handleAction(Object context) throws ApplicationException
+      public void handleAction(Object context) throws ApplicationException, OperationCanceledException
       {
         try
         {
           if (!Application.getCallback().askUser(i18n.tr("Soll das Profil wirklich gelöscht werden?"),false))
             return;
         }
-        catch (ApplicationException ae)
+        catch (ApplicationException | OperationCanceledException e)
         {
-          throw ae;
-        }
-        catch (OperationCanceledException oce)
-        {
-          throw oce;
+          throw e;
         }
         catch (Exception e)
         {

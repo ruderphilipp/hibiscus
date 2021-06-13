@@ -41,10 +41,8 @@ import de.willuhn.util.ApplicationException;
  */
 public class AuslandsUeberweisungNew implements Action
 {
-  /**
-   * @see de.willuhn.jameica.gui.Action#handleAction(java.lang.Object)
-   */
-  public void handleAction(Object context) throws ApplicationException
+  @Override
+  public void handleAction(Object context) throws ApplicationException, OperationCanceledException
   {
     AuslandsUeberweisung u = null;
 
@@ -145,13 +143,9 @@ public class AuslandsUeberweisungNew implements Action
         u = i.getUeberweisung();
       }
     }
-    catch (ApplicationException ae)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw ae;
-    }
-    catch (OperationCanceledException oce)
-    {
-      throw oce;
+      throw e;
     }
     catch (Exception e)
     {

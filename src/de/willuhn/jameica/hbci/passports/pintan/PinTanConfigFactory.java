@@ -104,7 +104,7 @@ public class PinTanConfigFactory
    * @param config die zu loeschende Config.
    * @throws ApplicationException
    */
-  public static synchronized void delete(PinTanConfig config) throws ApplicationException
+  public static synchronized void delete(PinTanConfig config) throws ApplicationException, OperationCanceledException
   {
     try
     {
@@ -178,13 +178,9 @@ public class PinTanConfigFactory
         // Das kann passieren, wenn der Passport unvollstaendig ist
       }
     }
-    catch (ApplicationException ae)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw ae;
-    }
-    catch (OperationCanceledException oce)
-    {
-      throw oce;
+      throw e;
     }
     catch (Exception e)
     {

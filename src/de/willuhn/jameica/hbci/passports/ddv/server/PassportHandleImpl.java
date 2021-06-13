@@ -78,7 +78,7 @@ public class PassportHandleImpl extends UnicastRemoteObject implements PassportH
   /**
    * @see de.willuhn.jameica.hbci.passport.PassportHandle#open()
    */
-  public HBCIHandler open() throws RemoteException, ApplicationException
+  public HBCIHandler open() throws ApplicationException, OperationCanceledException, RemoteException
   {
 
 		if (isOpen())
@@ -152,21 +152,11 @@ public class PassportHandleImpl extends UnicastRemoteObject implements PassportH
       Logger.info("ddv handler opened");
       
 			return handler;
-		}
-    catch (RemoteException re)
-    {
-      close();
-      throw re;
     }
-    catch (OperationCanceledException oce)
+    catch (ApplicationException | OperationCanceledException| RemoteException e)
     {
       close();
-      throw oce;
-    }
-    catch (ApplicationException ae)
-    {
-      close();
-      throw ae;
+      throw e;
     }
 		catch (Exception e)
 		{

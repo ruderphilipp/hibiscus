@@ -32,9 +32,9 @@ public class KontoFetchFromPassport implements Action
 
   /**
    * Erwartet ein Objekt vom Typ <code>de.willuhn.jameica.hbci.passport.Passport</code>.
-   * @see de.willuhn.jameica.gui.Action#handleAction(java.lang.Object)
    */
-  public void handleAction(Object context) throws ApplicationException
+  @Override
+  public void handleAction(Object context) throws ApplicationException, OperationCanceledException
   {
     Passport passport = null;
     
@@ -67,13 +67,9 @@ public class KontoFetchFromPassport implements Action
         passport = (Passport) d.open();
       }
     }
-    catch (ApplicationException ae)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw ae;
-    }
-    catch (OperationCanceledException oce)
-    {
-      throw oce;
+      throw e;
     }
     catch (Exception e)
     {

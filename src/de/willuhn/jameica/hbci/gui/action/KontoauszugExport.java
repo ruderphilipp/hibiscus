@@ -34,7 +34,7 @@ public class KontoauszugExport extends Export
    * @see de.willuhn.jameica.hbci.gui.action.Export#handleAction(java.lang.Object)
    */
   @Override
-  public void handleAction(Object context) throws ApplicationException
+  public void handleAction(Object context) throws ApplicationException, OperationCanceledException
   {
     if (!(context instanceof Kontoauszug) && !(context instanceof Kontoauszug[]))
       throw new ApplicationException(i18n.tr("Bitte wählen Sie die zu exportierenden Kontoauszüge aus"));
@@ -47,13 +47,9 @@ public class KontoauszugExport extends Export
       if (!Application.getCallback().askUser(note,true))
         return;
     }
-    catch (OperationCanceledException oce)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw oce;
-    }
-    catch (ApplicationException ae)
-    {
-      throw ae;
+      throw e;
     }
     catch (Exception e)
     {

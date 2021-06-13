@@ -41,7 +41,7 @@ public class SepaConvertAddress implements Action
   /**
    * @see de.willuhn.jameica.gui.Action#handleAction(java.lang.Object)
    */
-  public void handleAction(Object context) throws ApplicationException
+  public void handleAction(Object context) throws ApplicationException, OperationCanceledException
   {
     List<HibiscusAddress> list = new ArrayList<HibiscusAddress>();
     if (context instanceof HibiscusAddress)
@@ -62,13 +62,9 @@ public class SepaConvertAddress implements Action
       if (!Application.getCallback().askUser(q))
         return;
     }
-    catch (ApplicationException ae)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw ae;
-    }
-    catch (OperationCanceledException oce)
-    {
-      throw oce;
+      throw e;
     }
     catch (Exception e)
     {

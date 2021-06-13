@@ -29,20 +29,16 @@ public class KontoauszugSettings implements Action
    * @see de.willuhn.jameica.gui.Action#handleAction(java.lang.Object)
    */
   @Override
-  public void handleAction(Object context) throws ApplicationException
+  public void handleAction(Object context) throws ApplicationException, OperationCanceledException
   {
     try
     {
       KontoauszugSettingsDialog d = new KontoauszugSettingsDialog();
       d.open();
     }
-    catch (ApplicationException ae)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw ae;
-    }
-    catch (OperationCanceledException oce)
-    {
-      throw oce;
+      throw e;
     }
     catch (Exception e)
     {

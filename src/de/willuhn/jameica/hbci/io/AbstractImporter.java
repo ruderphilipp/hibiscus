@@ -37,7 +37,7 @@ public abstract class AbstractImporter implements Importer
    * @see de.willuhn.jameica.hbci.io.Importer#doImport(java.lang.Object, de.willuhn.jameica.hbci.io.IOFormat, java.io.InputStream, de.willuhn.util.ProgressMonitor, de.willuhn.jameica.system.BackgroundTask)
    */
   @Override
-  public void doImport(Object context, IOFormat format, InputStream is, ProgressMonitor monitor, BackgroundTask t) throws RemoteException, ApplicationException
+  public void doImport(Object context, IOFormat format, InputStream is, ProgressMonitor monitor, BackgroundTask t) throws ApplicationException, OperationCanceledException, RemoteException
   {
     try
     {
@@ -74,13 +74,9 @@ public abstract class AbstractImporter implements Importer
       this.commit(objects,format,is,monitor);
       monitor.log(i18n.tr("{0} importiert, {1} fehlerhaft",Integer.toString(success),Integer.toString(failed)));
     }
-    catch (OperationCanceledException oce)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw oce;
-    }
-    catch (ApplicationException ae)
-    {
-      throw ae;
+      throw e;
     }
     catch (Exception e)
     {

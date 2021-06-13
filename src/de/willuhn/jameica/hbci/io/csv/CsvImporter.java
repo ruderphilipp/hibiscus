@@ -58,7 +58,7 @@ public class CsvImporter implements Importer
   /**
    * @see de.willuhn.jameica.hbci.io.Importer#doImport(java.lang.Object, de.willuhn.jameica.hbci.io.IOFormat, java.io.InputStream, de.willuhn.util.ProgressMonitor, de.willuhn.jameica.system.BackgroundTask)
    */
-  public void doImport(Object context, IOFormat format, InputStream is, ProgressMonitor monitor, BackgroundTask t) throws RemoteException, ApplicationException
+  public void doImport(Object context, IOFormat format, InputStream is, ProgressMonitor monitor, BackgroundTask t) throws ApplicationException, OperationCanceledException, RemoteException
   {
     ICsvListReader csv = null;
     
@@ -257,13 +257,9 @@ public class CsvImporter implements Importer
       // Fertig.
       monitor.setStatusText(i18n.tr("{0} importiert, {1} fehlerhaft, {2} übersprungen", new String[]{Integer.toString(created),Integer.toString(error),Integer.toString(skipped)}));
     }
-    catch (OperationCanceledException oce)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw oce;
-    }
-    catch (ApplicationException ae)
-    {
-      throw ae;
+      throw e;
     }
     catch (Exception e)
     {

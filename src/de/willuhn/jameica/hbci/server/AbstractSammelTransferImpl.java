@@ -219,7 +219,7 @@ public abstract class AbstractSammelTransferImpl extends AbstractHibiscusDBObjec
   /**
    * @see de.willuhn.datasource.rmi.Changeable#delete()
    */
-  public void delete() throws RemoteException, ApplicationException
+  public void delete() throws ApplicationException, RemoteException
   {
     // Wir muessen auch alle Buchungen mitloeschen
     // da Constraints dorthin existieren.
@@ -247,15 +247,10 @@ public abstract class AbstractSammelTransferImpl extends AbstractHibiscusDBObjec
 
       this.transactionCommit();
     }
-    catch (RemoteException e)
+    catch (ApplicationException | RemoteException e)
     {
       this.transactionRollback();
       throw e;
-    }
-    catch (ApplicationException e2)
-    {
-      this.transactionRollback();
-      throw e2;
     }
   }
 

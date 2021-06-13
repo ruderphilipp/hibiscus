@@ -248,7 +248,7 @@ public class KontoImpl extends AbstractHibiscusDBObject implements Konto
   /**
    * @see de.willuhn.datasource.rmi.DBObject#delete()
    */
-  public void delete() throws RemoteException, ApplicationException
+  public void delete() throws ApplicationException, RemoteException
   {
     if (this.isNewObject())
       return;
@@ -393,15 +393,10 @@ public class KontoImpl extends AbstractHibiscusDBObject implements Konto
       super.delete();
       this.transactionCommit();
     }
-    catch (RemoteException e)
+    catch (ApplicationException | RemoteException e)
     {
       this.transactionRollback();
       throw e;
-    }
-    catch (ApplicationException e2)
-    {
-      this.transactionRollback();
-      throw e2;
     }
   }
 

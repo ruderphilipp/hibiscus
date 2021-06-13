@@ -34,7 +34,7 @@ public abstract class AbstractExporter implements Exporter
    * @see de.willuhn.jameica.hbci.io.Exporter#doExport(java.lang.Object[], de.willuhn.jameica.hbci.io.IOFormat, java.io.OutputStream, de.willuhn.util.ProgressMonitor)
    */
   @Override
-  public void doExport(Object[] objects, IOFormat format, OutputStream os, ProgressMonitor monitor) throws RemoteException, ApplicationException
+  public void doExport(Object[] objects, IOFormat format, OutputStream os, ProgressMonitor monitor) throws ApplicationException, OperationCanceledException, RemoteException
   {
     try
     {
@@ -54,13 +54,9 @@ public abstract class AbstractExporter implements Exporter
       this.commit(objects,format,os,monitor);
       Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Daten exportiert"),StatusBarMessage.TYPE_SUCCESS));
     }
-    catch (OperationCanceledException oce)
+    catch (ApplicationException | OperationCanceledException e)
     {
-      throw oce;
-    }
-    catch (ApplicationException ae)
-    {
-      throw ae;
+      throw e;
     }
     catch (Exception e)
     {

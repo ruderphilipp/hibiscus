@@ -533,7 +533,7 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
   /**
    * @see de.willuhn.datasource.db.AbstractDBObject#delete()
    */
-  public void delete() throws RemoteException, ApplicationException
+  public void delete() throws ApplicationException, RemoteException
   {
     if (this.isNewObject())
       return;
@@ -568,15 +568,10 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
       super.delete();
       transactionCommit();
     }
-    catch (RemoteException e)
+    catch (ApplicationException | RemoteException e)
     {
       this.transactionRollback();
       throw e;
-    }
-    catch (ApplicationException e2)
-    {
-      this.transactionRollback();
-      throw e2;
     }
   }
 
