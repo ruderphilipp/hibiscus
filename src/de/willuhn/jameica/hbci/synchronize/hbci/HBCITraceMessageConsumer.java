@@ -28,7 +28,7 @@ import de.willuhn.util.History;
 @Lifecycle(Type.CONTEXT) // Noetig, damit wir an die selbe Instanz kommen, die der MessageService verwendet
 public class HBCITraceMessageConsumer implements MessageConsumer
 {
-  private Map<String,History> history = new HashMap<String,History>();
+  private Map<String, History> history = new HashMap<>();
   private History current = null;
   
   /**
@@ -95,7 +95,7 @@ public class HBCITraceMessageConsumer implements MessageConsumer
   public List<HBCITraceMessage> getTrace(String id)
   {
     History h = this.history.get(id);
-    List<HBCITraceMessage> list = new ArrayList<HBCITraceMessage>();
+    List<HBCITraceMessage> list = new ArrayList<>();
     
     if (h != null)
       list.addAll(h.elements());

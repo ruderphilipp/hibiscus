@@ -50,7 +50,7 @@ public class KontoMerge implements Action
       // anlegen. Tritt z.Bsp. bei Demo-Konten auf
       Settings.setKontoCheck(false);
       
-      List<Konto> konten = new ArrayList<Konto>();
+      List<Konto> konten = new ArrayList<>();
 
       if (context instanceof Konto)        konten.add((Konto) context);
       else if (context instanceof Konto[]) konten.addAll(Arrays.asList((Konto[])context));

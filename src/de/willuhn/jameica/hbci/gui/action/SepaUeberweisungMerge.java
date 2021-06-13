@@ -63,7 +63,7 @@ public class SepaUeberweisungMerge implements Action
     try
     {
       HBCIDBService service = Settings.getDBService();
-      Map<String,SepaSammelUeberweisung> map = new HashMap<String,SepaSammelUeberweisung>();
+      Map<String,SepaSammelUeberweisung> map = new HashMap<>();
       boolean inDb = false;
       ////////////////////////////////////////
       // 1. Iterieren ueber die Auftraege, um herauszufinden, wieviele Sammel-Auftraege es werden

@@ -68,8 +68,8 @@ public class LineChart extends AbstractChart<LineChartData>
     List<LineChartData> data = getData();
     for (int i=0;i<data.size();++i)
     {
-      final List<Date> labelLine   = new LinkedList<Date>();
-      final List<Number> dataLine  = new LinkedList<Number>();
+      final List<Date> labelLine   = new LinkedList<>();
+      final List<Number> dataLine  = new LinkedList<>();
       
       LineChartData cd      = data.get(i);
       List list             = cd.getData();

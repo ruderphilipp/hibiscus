@@ -40,7 +40,7 @@ public class SepaDauerauftragScheduleProvider implements ScheduleProvider<SepaDa
    */
   public List<Schedule<SepaDauerauftrag>> getSchedules(Konto k, Date from, Date to)
   {
-    List<Schedule<SepaDauerauftrag>> result = new LinkedList<Schedule<SepaDauerauftrag>>();
+    List<Schedule<SepaDauerauftrag>> result = new LinkedList<>();
     
     try
     {

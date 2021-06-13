@@ -45,9 +45,9 @@ import de.willuhn.logging.Logger;
 public class MarkOverdueMessageConsumer implements MessageConsumer
 {
   private final static ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
-  private final static Map<String,AtomicLong> counters = new HashMap<String, AtomicLong>();
+  private final static Map<String, AtomicLong> counters = new HashMap<>();
   
-  private final static Map<Class,String> types = new HashMap<Class,String>()
+  private final static Map<Class, String> types = new HashMap<Class,String>()
   {{
     put(AuslandsUeberweisung.class,   "hibiscus.navi.transfer.uebforeign");
     put(SepaLastschrift.class,        "hibiscus.navi.transfer.sepalast");

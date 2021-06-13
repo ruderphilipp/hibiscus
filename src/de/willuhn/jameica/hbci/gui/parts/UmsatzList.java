@@ -526,7 +526,7 @@ public class UmsatzList extends TablePart implements Extendable
    */
   public class UmsatzChangedMessageConsumer implements MessageConsumer
   {
-    private List<Umsatz> bulk = new LinkedList<Umsatz>();
+    private List<Umsatz> bulk = new LinkedList<>();
     private DelayedListener delay = new DelayedListener(70,new Listener()
     {
       public void handleEvent(Event event)

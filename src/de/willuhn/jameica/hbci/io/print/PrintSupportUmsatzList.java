@@ -89,7 +89,7 @@ public class PrintSupportUmsatzList extends AbstractPrintSupport
 
       // Gruppieren der Umsaetze nach Konto
       Umsatz[] all = (Umsatz[]) data;
-      Map<String,List<Umsatz>> groups = new HashMap<String,List<Umsatz>>();
+      Map<String, List<Umsatz>> groups = new HashMap<>();
       
       for (Umsatz u:all)
       {
@@ -105,7 +105,7 @@ public class PrintSupportUmsatzList extends AbstractPrintSupport
         List<Umsatz> list = groups.get(k.getID());
         if (list == null)
         {
-          list = new LinkedList<Umsatz>();
+          list = new LinkedList<>();
           groups.put(k.getID(),list);
         }
         list.add(u);

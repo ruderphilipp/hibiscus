@@ -183,7 +183,7 @@ public class UmsatzTypVerlauf implements Part
     Menu groupMenu = new Menu(groupMenuItem);
     groupMenuItem.setMenu(groupMenu);
 
-    final List<MenuItem> items = new ArrayList<MenuItem>();
+    final List<MenuItem> items = new ArrayList<>();
     SelectionListener l = new SelectionAdapter()
     {
       /**
@@ -232,13 +232,13 @@ public class UmsatzTypVerlauf implements Part
   private class ChartDataUmsatz implements LineChartData
   {
     private UmsatzTreeNode group = null;
-    private List<Entry> entries  = new ArrayList<Entry>();
+    private List<Entry> entries  = new ArrayList<>();
     private boolean hasData      = false;
     private Date chartStartDate  = null;
     private Date chartStopDate   = null;
     
     private List<Umsatz> getRecursiveUmsaetze(UmsatzTreeNode group) {
-      List<Umsatz> result = new ArrayList<Umsatz>();
+      List<Umsatz> result = new ArrayList<>();
       result.addAll(group.getUmsaetze());
       for (UmsatzTreeNode unterkategorie: group.getSubGroups()) {
         result.addAll(getRecursiveUmsaetze(unterkategorie));
@@ -254,7 +254,7 @@ public class UmsatzTypVerlauf implements Part
      */
     private ChartDataUmsatz(UmsatzTreeNode group, final Interval interval) throws RemoteException
     {
-      HashMap<Date,Double> verteilung = new HashMap<Date, Double>();
+      HashMap<Date, Double> verteilung = new HashMap<>();
       Calendar calendar = Calendar.getInstance();
       this.group = group;
       this.entries.clear();

@@ -78,7 +78,7 @@ public class ScriptingSynchronizeBackend extends AbstractSynchronizeBackend<Scri
   public List<Konto> getSynchronizeKonten(Konto k)
   {
     List<Konto> list = super.getSynchronizeKonten(k);
-    List<Konto> result = new ArrayList<Konto>();
+    List<Konto> result = new ArrayList<>();
     
     // Wir wollen nur die Offline-Konten und jene, bei denen Scripting explizit konfiguriert ist
     for (Konto konto:list)
@@ -186,7 +186,7 @@ public class ScriptingSynchronizeBackend extends AbstractSynchronizeBackend<Scri
         return null;
       }
       
-      List<String> result = new ArrayList<String>();
+      List<String> result = new ArrayList<>();
       List list = (data instanceof List) ? (List) data : Arrays.asList(data);
       for (Object o:list)
       {

@@ -87,7 +87,7 @@ public class UeberweisungControl extends AbstractBaseUeberweisungControl
       return this.typ;
     final Ueberweisung u = (Ueberweisung) getTransfer();
     
-    List<Typ> list = new ArrayList<Typ>();
+    List<Typ> list = new ArrayList<>();
     list.add(new Typ(false,false));
     list.add(new Typ(true,false));
     list.add(new Typ(false,true));

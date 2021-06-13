@@ -41,7 +41,7 @@ public class DauerauftragUtil
     if (from == null)
       from = new Date();
     
-    List<Date> result = new ArrayList<Date>();
+    List<Date> result = new ArrayList<>();
     
     // Auftrag faengt erst spaeter an
     if (de != null && to != null && de.after(to))

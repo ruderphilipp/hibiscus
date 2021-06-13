@@ -52,7 +52,7 @@ public class MoneyplexUmsatzImporter implements Importer
   private final static I18N i18n             = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   private final static DateFormat DATEFORMAT = new SimpleDateFormat("dd.MM.yy");
 
-  private Map<String,UmsatzTyp> cache = new HashMap<String,UmsatzTyp>();
+  private Map<String, UmsatzTyp> cache = new HashMap<>();
 
   /**
    * @see de.willuhn.jameica.hbci.io.Importer#doImport(java.lang.Object, de.willuhn.jameica.hbci.io.IOFormat, java.io.InputStream, de.willuhn.util.ProgressMonitor, de.willuhn.jameica.system.BackgroundTask)

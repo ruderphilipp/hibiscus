@@ -91,7 +91,7 @@ public class HBCISynchronizeBackend extends AbstractSynchronizeBackend<HBCISynch
   public List<Konto> getSynchronizeKonten(Konto k)
   {
     List<Konto> list = super.getSynchronizeKonten(k);
-    List<Konto> result = new ArrayList<Konto>();
+    List<Konto> result = new ArrayList<>();
 
     // Wir wollen nur die Online-Konten haben
     for (Konto konto:list)
@@ -170,7 +170,7 @@ public class HBCISynchronizeBackend extends AbstractSynchronizeBackend<HBCISynch
       if (konto == null || konto.hasFlag(Konto.FLAG_DISABLED))
         return null;
       
-      List<String> result = new ArrayList<String>();
+      List<String> result = new ArrayList<>();
       
       // Wir fragen mal die Job-Provider
       List<HBCISynchronizeJobProvider> providers = this.getJobProviders();
@@ -275,7 +275,7 @@ public class HBCISynchronizeBackend extends AbstractSynchronizeBackend<HBCISynch
 
         Logger.info("processing jobs");
         
-        List<AbstractHBCIJob> hbciJobs = new ArrayList<AbstractHBCIJob>();
+        List<AbstractHBCIJob> hbciJobs = new ArrayList<>();
         for (SynchronizeJob job:this.jobs)
         {
           this.checkInterrupted();
@@ -378,7 +378,7 @@ public class HBCISynchronizeBackend extends AbstractSynchronizeBackend<HBCISynch
         // Job-Ergebnisse auswerten.
         // Waehrend der Ergebnis-Auswertung findet KEIN "checkInterrupted" Check statt,
         // da sonst Job-Ergebnisse verloren gehen wuerden.
-        List<AbstractHBCIJob> followers = new ArrayList<AbstractHBCIJob>();
+        List<AbstractHBCIJob> followers = new ArrayList<>();
         for (AbstractHBCIJob hbciJob:hbciJobs)
         {
           String name = null;

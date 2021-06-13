@@ -48,7 +48,7 @@ public class PassportPropertyList implements Part
   private final static String PREFIX_UPD = "UPD";
   
   private HBCIPassport passport = null;
-  private List<Value> list      = new ArrayList<Value>();
+  private List<Value> list      = new ArrayList<>();
   private PropertyTable table   = null;
   private TextInput search      = null;
 
@@ -86,7 +86,7 @@ public class PassportPropertyList implements Part
    */
   public synchronized void clearBPD()
   {
-    List<Value> newList = new ArrayList<Value>();
+    List<Value> newList = new ArrayList<>();
     for (Value value:this.list)
     {
       if (!PREFIX_BPD.equals(value.prefix))
@@ -104,7 +104,7 @@ public class PassportPropertyList implements Part
    */
   private static List<Value> init(String prefix, Properties props)
   {
-    List<Value> l = new ArrayList<Value>();
+    List<Value> l = new ArrayList<>();
     if (props == null)
       return l;
 

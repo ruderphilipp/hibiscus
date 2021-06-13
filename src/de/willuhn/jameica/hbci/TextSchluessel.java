@@ -93,7 +93,7 @@ public class TextSchluessel
    */
   public final static String[] SET_UEB = new String[]{TS_UEB,TS_LOHN,TS_VL,TS_RUECKUEB,TS_BZU};
 
-  private final static List<TextSchluessel> list = new ArrayList<TextSchluessel>();
+  private final static List<TextSchluessel> list = new ArrayList<>();
   
   static
   {
@@ -122,7 +122,7 @@ public class TextSchluessel
     if (codes == null || codes.length == 0)
       return list.toArray(new TextSchluessel[list.size()]);
 
-    List<TextSchluessel> l = new ArrayList<TextSchluessel>();
+    List<TextSchluessel> l = new ArrayList<>();
     for (String code : codes)
     {
       for (TextSchluessel ts : list)

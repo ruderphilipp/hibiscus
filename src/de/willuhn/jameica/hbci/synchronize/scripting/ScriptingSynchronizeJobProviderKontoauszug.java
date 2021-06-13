@@ -45,7 +45,7 @@ public class ScriptingSynchronizeJobProviderKontoauszug implements ScriptingSync
   {
     Class<SynchronizeJobKontoauszug> type = SynchronizeJobKontoauszug.class;
     
-    List<SynchronizeJob> jobs = new LinkedList<SynchronizeJob>();
+    List<SynchronizeJob> jobs = new LinkedList<>();
     for (Konto kt:backend.getSynchronizeKonten(k))
     {
       try

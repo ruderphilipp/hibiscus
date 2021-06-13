@@ -51,7 +51,7 @@ public class UmsatzTypList extends TablePart implements Part
   private I18N i18n = null;
   private MessageConsumer mc = null;
   
-  private static Hashtable<String,Color> colorCache = new Hashtable<String,Color>();
+  private static Hashtable<String, Color> colorCache = new Hashtable<>();
 
   /**
    * ct.

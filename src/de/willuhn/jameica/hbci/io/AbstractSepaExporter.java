@@ -41,7 +41,7 @@ public abstract class AbstractSepaExporter extends AbstractExporter
 {
   private final static String SYSPROP_FORMATTED = "sepa.pain.formatted";
   
-  private Map<OutputStream,JobContext> jobs = Collections.synchronizedMap(new HashMap<OutputStream,JobContext>());
+  private Map<OutputStream, JobContext> jobs = Collections.synchronizedMap(new HashMap<>());
   
   /**
    * @see de.willuhn.jameica.hbci.io.IO#getName()
@@ -70,7 +70,7 @@ public abstract class AbstractSepaExporter extends AbstractExporter
     super.setup(objects, format, os, monitor);
     
     // Checken, ob die Auftraege zum selben Konto gehoeren
-    Set<String> ids = new HashSet<String>();
+    Set<String> ids = new HashSet<>();
     for (Object o:objects)
     {
       Konto k = this.getKonto(o);

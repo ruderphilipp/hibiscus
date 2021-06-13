@@ -59,7 +59,7 @@ public class SelectSizEntryDialog extends AbstractDialog
     Container group = new SimpleContainer(parent);
     group.addText(i18n.tr("Bitte wählen Sie den zu verwendenden Schlüssel aus"),true);
     
-    List<Entry> list = new ArrayList<Entry>();
+    List<Entry> list = new ArrayList<>();
 
     StringTokenizer tok = new StringTokenizer(data,"|");
     while (tok.hasMoreTokens())

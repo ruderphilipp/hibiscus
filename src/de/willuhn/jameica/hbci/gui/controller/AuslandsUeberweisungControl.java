@@ -405,7 +405,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
       return this.typ;
     final AuslandsUeberweisung u = getTransfer();
     
-    List<Typ> list = new ArrayList<Typ>();
+    List<Typ> list = new ArrayList<>();
     list.add(new Typ(false,false));
     list.add(new Typ(true,false));
     list.add(new Typ(false,true));

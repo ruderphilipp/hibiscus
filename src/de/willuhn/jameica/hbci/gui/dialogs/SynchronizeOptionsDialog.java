@@ -82,7 +82,7 @@ public class SynchronizeOptionsDialog extends AbstractDialog
   private LabelInput error              = null;
   private Button apply                  = null;
   
-  private Map<SynchronizeBackend,List<Input>> properties = new HashMap<SynchronizeBackend,List<Input>>();
+  private Map<SynchronizeBackend,List<Input>> properties = new HashMap<>();
 
   /**
    * ct.
@@ -112,7 +112,7 @@ public class SynchronizeOptionsDialog extends AbstractDialog
         List<String> names = backend.getPropertyNames(konto);
         if (names != null && names.size() > 0)
         {
-          List<Input> props = new ArrayList<Input>();
+          List<Input> props = new ArrayList<>();
           this.properties.put(backend,props);
           for (String name:names)
           {

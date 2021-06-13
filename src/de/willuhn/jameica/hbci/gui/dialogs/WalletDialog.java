@@ -62,7 +62,7 @@ public class WalletDialog extends AbstractDialog
   protected void paint(Composite parent) throws Exception
   {
     Wallet wallet = Settings.getWallet();
-    List<Entry> entries = new ArrayList<Entry>();
+    List<Entry> entries = new ArrayList<>();
     Enumeration e = wallet.getKeys();
     while (e.hasMoreElements())
     {

@@ -53,13 +53,13 @@ public class SepaLastschriftMerger
     if (lastschriften == null || lastschriften.size() == 0)
       throw new ApplicationException(i18n.tr("Bitte wählen Sie einen oder mehrere Aufträge aus"));
     
-    List<SepaSammelLastschrift> result = new ArrayList<SepaSammelLastschrift>();
+    List<SepaSammelLastschrift> result = new ArrayList<>();
     SepaSammelLastschrift tx = null;
     
     try
     {
       HBCIDBService service = Settings.getDBService();
-      Map<String,SepaSammelLastschrift> map = new HashMap<String,SepaSammelLastschrift>();
+      Map<String, SepaSammelLastschrift> map = new HashMap<>();
       boolean inDb = false;
       ////////////////////////////////////////
       // 1. Iterieren ueber die Auftraege, um herauszufinden, wieviele Sammel-Auftraege es werden

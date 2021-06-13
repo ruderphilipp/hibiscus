@@ -65,7 +65,7 @@ public class ChartDataUmsatzTyp implements ChartData
     if (this.type != UmsatzTyp.TYP_EGAL)
       list.addFilter("umsatztyp = " + this.type);
     
-    List<Entry> result = new ArrayList<Entry>();
+    List<Entry> result = new ArrayList<>();
     while (list.hasNext())
     {
       result.add(new Entry((UmsatzTyp)list.next()));

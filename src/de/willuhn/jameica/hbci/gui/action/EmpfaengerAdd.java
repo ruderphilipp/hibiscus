@@ -60,7 +60,7 @@ public class EmpfaengerAdd implements Action
         !(context instanceof Umsatz[]))
       throw new ApplicationException(i18n.tr("Bitte wählen Sie ein oder mehrere Aufträge aus"));
 
-    List<HibiscusAddress> items = new ArrayList<HibiscusAddress>();
+    List<HibiscusAddress> items = new ArrayList<>();
 		try {
 
       ///////////////////////////////////////////////////////////////

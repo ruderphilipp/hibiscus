@@ -198,7 +198,7 @@ public class ChartFeatureTooltip implements ChartFeature
     ISeries[] series = chart.getSeriesSet().getSeries();
     double minDist = Double.MAX_VALUE;
     
-    Collection<SeriesData> foundSeries = new ArrayList<SeriesData>();
+    Collection<SeriesData> foundSeries = new ArrayList<>();
 
     for (int k=0;k<series.length;++k)
     {

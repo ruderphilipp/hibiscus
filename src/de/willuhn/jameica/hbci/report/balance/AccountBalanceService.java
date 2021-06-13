@@ -46,7 +46,7 @@ public class AccountBalanceService
     if (this.providers != null)
       return this.providers;
     
-    this.providers = new LinkedList<AccountBalanceProvider>();
+    this.providers = new LinkedList<>();
     
     try
     {

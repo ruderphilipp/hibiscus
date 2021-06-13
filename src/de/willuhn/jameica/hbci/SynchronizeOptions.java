@@ -37,7 +37,7 @@ public class SynchronizeOptions implements Serializable
    */
   public static List<Konto> getSynchronizeKonten()
   {
-    List<Konto> l = new LinkedList<Konto>();
+    List<Konto> l = new LinkedList<>();
     
     try
     {

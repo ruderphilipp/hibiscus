@@ -184,7 +184,7 @@ public class TanMediaDialog extends AbstractDialog
     if (this.media != null)
       return this.media;
 
-    Set<String> set = new HashSet<String>();
+    Set<String> set = new HashSet<>();
     
     // Die Namen von der Bank
     if (this.options != null)
@@ -213,7 +213,7 @@ public class TanMediaDialog extends AbstractDialog
       }
     }
     
-    List<String> result = new ArrayList<String>();
+    List<String> result = new ArrayList<>();
     result.addAll(set);
     Collections.sort(result);
     

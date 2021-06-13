@@ -40,7 +40,7 @@ import de.willuhn.util.ApplicationException;
  */
 public class Open implements Action
 {
-  private final static Map<Class,Class<? extends Action>> actionMap = new HashMap<Class,Class<? extends Action>>();
+  private final static Map<Class,Class<? extends Action>> actionMap = new HashMap<>();
   
   static
   {

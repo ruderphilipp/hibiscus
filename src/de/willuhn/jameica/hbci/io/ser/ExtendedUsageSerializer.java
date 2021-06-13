@@ -47,7 +47,7 @@ public class ExtendedUsageSerializer extends DefaultSerializer<String[]>
     if (value == null || value.length() == 0)
       return null;
 
-    List<String> lines = new ArrayList<String>();
+    List<String> lines = new ArrayList<>();
     
     // Checken, ob wir schon vorherige Zeilen haben
     if (context != null && (context instanceof String[]))

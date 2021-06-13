@@ -51,10 +51,10 @@ public abstract class AbstractChart<T extends ChartData> implements Chart<T>
   final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
 
   private String title                = null;
-  private Map<RGB,Color> colors       = new HashMap<RGB,Color>();
-  private List<T> data                = new ArrayList<T>();
+  private Map<RGB,Color> colors       = new HashMap<>();
+  private List<T> data                = new ArrayList<>();
   private org.eclipse.swtchart.Chart chart = null;
-  private List<ChartFeature> features = new ArrayList<ChartFeature>();
+  private List<ChartFeature> features = new ArrayList<>();
 
   /**
    * @see de.willuhn.jameica.hbci.gui.chart.Chart#setTitle(java.lang.String)

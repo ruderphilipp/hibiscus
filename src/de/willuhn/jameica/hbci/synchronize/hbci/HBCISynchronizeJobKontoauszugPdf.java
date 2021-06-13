@@ -45,7 +45,7 @@ public class HBCISynchronizeJobKontoauszugPdf extends SynchronizeJobKontoauszugP
     Konto k       = (Konto) this.getContext(CTX_ENTITY);
     Boolean force = (Boolean) this.getContext(CTX_FORCE);
 
-    List<AbstractHBCIJob> jobs = new ArrayList<AbstractHBCIJob>();
+    List<AbstractHBCIJob> jobs = new ArrayList<>();
 
     SynchronizeOptions o = new SynchronizeOptions(k);
 

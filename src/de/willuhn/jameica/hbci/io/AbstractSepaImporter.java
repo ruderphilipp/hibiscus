@@ -43,7 +43,7 @@ import de.willuhn.util.ProgressMonitor;
  */
 public abstract class AbstractSepaImporter extends AbstractImporter
 {
-  private Map<String,Konto> kontenCache = new HashMap<String,Konto>();
+  private Map<String, Konto> kontenCache = new HashMap<>();
 
   /**
    * @see de.willuhn.jameica.hbci.io.IO#getName()
@@ -96,7 +96,7 @@ public abstract class AbstractSepaImporter extends AbstractImporter
         throw new OperationCanceledException();
     }
     
-    List<Properties> props = new ArrayList<Properties>();
+    List<Properties> props = new ArrayList<>();
     ISEPAParser parser = SEPAParserFactory.get(version);
     parser.parse(new ByteArrayInputStream(bos.toByteArray()),props);
     

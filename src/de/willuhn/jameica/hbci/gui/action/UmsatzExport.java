@@ -56,13 +56,13 @@ public class UmsatzExport implements Action
       else if (context instanceof UmsatzTreeNode)
       {
         UmsatzTreeNode node = (UmsatzTreeNode) context;
-        List<Umsatz> result = new ArrayList<Umsatz>();
+        List<Umsatz> result = new ArrayList<>();
         collect(node,result);
         u = result.toArray(new Umsatz[result.size()]);
       }
       else if (context instanceof UmsatzTreeNode[])
       {
-        List<Umsatz> result = new ArrayList<Umsatz>();
+        List<Umsatz> result = new ArrayList<>();
         for (UmsatzTreeNode node:(UmsatzTreeNode[])context)
         {
           collect(node,result);

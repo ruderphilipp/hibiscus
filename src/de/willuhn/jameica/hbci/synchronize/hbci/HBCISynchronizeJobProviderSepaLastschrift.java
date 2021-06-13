@@ -48,7 +48,7 @@ public class HBCISynchronizeJobProviderSepaLastschrift extends AbstractHBCISynch
    */
   public List<SynchronizeJob> getSynchronizeJobs(Konto k)
   {
-    List<SynchronizeJob> jobs = new LinkedList<SynchronizeJob>();
+    List<SynchronizeJob> jobs = new LinkedList<>();
     
     for (Konto kt:backend.getSynchronizeKonten(k))
     {

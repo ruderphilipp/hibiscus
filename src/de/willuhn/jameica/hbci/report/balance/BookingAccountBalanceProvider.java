@@ -60,7 +60,7 @@ public class BookingAccountBalanceProvider implements AccountBalanceProvider
   {
     start = DateUtil.startOfDay(start == null ? new Date() : start);
     end = DateUtil.endOfDay(end == null ? new Date() : end);
-    ArrayList<Value> data = new ArrayList<Value>();
+    ArrayList<Value> data = new ArrayList<>();
     
     try
     {

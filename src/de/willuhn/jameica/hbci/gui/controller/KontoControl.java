@@ -642,7 +642,7 @@ public class KontoControl extends AbstractControl
     if (this.kategorie != null)
       return this.kategorie;
     
-    List<String> groups = new LinkedList<String>();
+    List<String> groups = new LinkedList<>();
     groups.add(""); // <Keine Kategorie>
     groups.addAll(KontoUtil.getGroups());
 

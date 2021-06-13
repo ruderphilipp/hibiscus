@@ -47,7 +47,7 @@ public class IORegistry
   private static synchronized <T extends IO> List<T> load(Class<? extends IO> type)
   {
     BeanService service = Application.getBootLoader().getBootable(BeanService.class);
-    List<T> l = new ArrayList<T>();
+    List<T> l = new ArrayList<>();
     try
     {
       ClassFinder finder = Application.getPluginLoader().getPlugin(HBCI.class).getManifest().getClassLoader().getClassFinder();

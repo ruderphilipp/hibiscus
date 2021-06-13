@@ -123,7 +123,7 @@ public class ReminderStorageProviderHibiscus extends AbstractReminderStorageProv
     return (String[]) Settings.getDBService().execute("select uuid from reminder",null,new ResultSetExtractor() {
       public Object extract(ResultSet rs) throws RemoteException, SQLException
       {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         while (rs.next())
         {
           list.add(rs.getString(1));

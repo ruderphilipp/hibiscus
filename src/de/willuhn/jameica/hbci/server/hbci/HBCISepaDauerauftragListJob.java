@@ -114,7 +114,7 @@ public class HBCISepaDauerauftragListJob extends AbstractHBCIJob
     
     // Hier drin merken wir uns alle SepaDauerauftraege, die beim Abgleich
     // gefunden wurden. Denn die muessen garantiert nicht lokal geloescht werden.
-    Map<SepaDauerauftrag,Boolean> matches = new HashMap<SepaDauerauftrag,Boolean>();
+    Map<SepaDauerauftrag, Boolean> matches = new HashMap<>();
 
     ////////////////////////////////////////////////////////////////////////////
     // 1. Nach neuen und geaenderten Dauerauftraegen suchen

@@ -51,7 +51,7 @@ public abstract class AbstractTransferScheduleProvider<T extends Terminable & Hi
    */
   public List<Schedule<T>> getSchedules(Konto k, Date from, Date to)
   {
-    List<Schedule<T>> result = new LinkedList<Schedule<T>>();
+    List<Schedule<T>> result = new LinkedList<>();
 
     Class type = BeanUtil.getType(this.getClass());
     if (type == null)

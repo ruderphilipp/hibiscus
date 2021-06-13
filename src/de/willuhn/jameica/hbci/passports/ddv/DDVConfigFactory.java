@@ -64,7 +64,7 @@ public class DDVConfigFactory
   public static List<DDVConfig> getConfigs()
   {
     String[] ids = settings.getList("config",new String[0]);
-    List<DDVConfig> configs = new ArrayList<DDVConfig>();
+    List<DDVConfig> configs = new ArrayList<>();
     for (String id:ids)
     {
       configs.add(new DDVConfig(id));
@@ -81,7 +81,7 @@ public class DDVConfigFactory
     if (presets != null)
       return presets;
 
-    presets = new ArrayList<Reader>();
+    presets = new ArrayList<>();
     try
     {
       Logger.info("searching for reader presets");
@@ -128,7 +128,7 @@ public class DDVConfigFactory
     
     // Wir holen uns erstmal die Liste der Konfigurationen
     String[] ids = settings.getList("config",new String[0]);
-    List<String> newIds = new ArrayList<String>();
+    List<String> newIds = new ArrayList<>();
 
     // Jetzt checken wir, ob wir die ID schon haben
     boolean found = false;
@@ -162,7 +162,7 @@ public class DDVConfigFactory
 
     // Aus der Liste der Konfigurationen entfernen
     String[] ids = settings.getList("config",new String[0]);
-    List<String> newIds = new ArrayList<String>();
+    List<String> newIds = new ArrayList<>();
 
     for (String id:ids)
     {

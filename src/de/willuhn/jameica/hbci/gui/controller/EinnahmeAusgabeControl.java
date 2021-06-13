@@ -360,7 +360,7 @@ public class EinnahmeAusgabeControl extends AbstractControl
     List<EinnahmeAusgabeTreeNode> result = createEmptyNodes(start, end, konten, interval);
     addData(result, umsatzList, saldenProKonto);
 
-    this.werte = new ArrayList<EinnahmeAusgabeZeitraum>();
+    this.werte = new ArrayList<>();
     if (interval == Interval.ALL)
     {
       // Es gibt nur einen Zweig - da reichen uns die darunterliegenden Elemente
@@ -374,7 +374,7 @@ public class EinnahmeAusgabeControl extends AbstractControl
 
   private List<Umsatz> getUmsaetze(List<Konto> konten, Date start, Date end) throws RemoteException
   {
-    List<String> kontoIds = new ArrayList<String>();
+    List<String> kontoIds = new ArrayList<>();
     for (Konto konto : konten)
     {
       kontoIds.add(konto.getID());
@@ -390,7 +390,7 @@ public class EinnahmeAusgabeControl extends AbstractControl
     }
     // TODO funktioniert das mit allen unterstützten Datenbankversionen?
     umsaetze.addFilter("konto_id in (" + Joiner.on(",").join(kontoIds) + ")");
-    List<Umsatz> umsatzList = new ArrayList<Umsatz>();
+    List<Umsatz> umsatzList = new ArrayList<>();
     while (umsaetze.hasNext())
     {
       Umsatz u = (Umsatz) umsaetze.next();
@@ -419,7 +419,7 @@ public class EinnahmeAusgabeControl extends AbstractControl
   {
     final BeanService bs = Application.getBootLoader().getBootable(BeanService.class);
     final AccountBalanceService balanceService = bs.get(AccountBalanceService.class);
-    Map<String, List<Value>> saldenProKonto = new HashMap<String, List<Value>>();
+    Map<String, List<Value>> saldenProKonto = new HashMap<>();
     final Calendar cal = Calendar.getInstance();
     cal.setTime(start);
     cal.add(Calendar.DAY_OF_MONTH, -1); // Salden um einen Tag nach vorne verlängern, weil die Salden immer nur für das Ende eines Tages berechnet werden

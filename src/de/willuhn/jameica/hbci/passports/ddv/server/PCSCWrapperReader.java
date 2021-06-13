@@ -22,7 +22,7 @@ import de.willuhn.jameica.system.Platform;
  */
 public class PCSCWrapperReader extends AbstractReader
 {
-  private final static Map<Integer,String[]> LOCATIONS = new HashMap<Integer,String[]>();
+  private final static Map<Integer, String[]> LOCATIONS = new HashMap<>();
   
   static
   {

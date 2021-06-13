@@ -449,7 +449,7 @@ public class DBPropertyUtil
     DBIterator<DBProperty> list = Settings.getDBService().createList(DBProperty.class);
     list.addFilter("name like ?",localPrefix + "%");
     
-    Map<String,DBProperty> result = new HashMap<String,DBProperty>();
+    Map<String, DBProperty> result = new HashMap<>();
     while (list.hasNext())
     {
       DBProperty prop = list.next();
@@ -500,7 +500,7 @@ public class DBPropertyUtil
     scope = replaceWildcards(scope);
     
     Map<String,DBProperty> current = getScope(prefix,scope);
-    Set<String> updateKeys = new HashSet<String>();
+    Set<String> updateKeys = new HashSet<>();
     
     //////////////////////////////////////////////////////////////////////////////////////////////
     // Neue und geaenderte Schluessel

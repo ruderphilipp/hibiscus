@@ -87,8 +87,8 @@ public class SparQuote implements Part
   private Input to                     = null;
   private RangeInput range             = null;
 
-  private List<UmsatzEntry> data       = new ArrayList<UmsatzEntry>();
-  private List<UmsatzEntry> trend      = new ArrayList<UmsatzEntry>();
+  private List<UmsatzEntry> data       = new ArrayList<>();
+  private List<UmsatzEntry> trend      = new ArrayList<>();
 
   private Listener listener            = null; // BUGZILLA 575
 
@@ -239,7 +239,7 @@ public class SparQuote implements Part
       return this.range;
     
     // Wir wollen hier nur die Zeitraume haben, die mindestens 2 Monate umfassen
-    List<Range> ranges = new ArrayList<Range>();
+    List<Range> ranges = new ArrayList<>();
     for (Range r:Range.getActiveRanges(Range.CATEGORY_AUSWERTUNG))
     {
       // Zeitraeume ohne Startdatum sind immer lang genug

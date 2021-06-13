@@ -31,11 +31,11 @@ class Cache
   private static int timeout = 0;
   
   // Enthaelt alle Caches.
-  private final static Map<Class,Cache> caches = new HashMap<Class,Cache>();
+  private final static Map<Class, Cache> caches = new HashMap<>();
   
   // Der konkrete Cache
-  private Map<String,DBObject> data = new HashMap<String,DBObject>(); // Als Map fuer schnellen Zugriff auf einzelne Werte
-  private List<DBObject> values = new LinkedList<DBObject>();         // Als Liste fuer die Sicherstellung der Reihenfolge
+  private Map<String, DBObject> data = new HashMap<>(); // Als Map fuer schnellen Zugriff auf einzelne Werte
+  private List<DBObject> values = new LinkedList<>();         // Als Liste fuer die Sicherstellung der Reihenfolge
   private Class<? extends DBObject> type = null;
   private long validTo = 0;
   

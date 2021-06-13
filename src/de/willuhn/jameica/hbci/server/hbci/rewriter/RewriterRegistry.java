@@ -58,7 +58,7 @@ public class RewriterRegistry
 
     if (umsatzRewriters == null)
     {
-      umsatzRewriters = new HashMap<String,Class<UmsatzRewriter>>();
+      umsatzRewriters = new HashMap<>();
       try
       {
         ClassFinder finder = Application.getPluginLoader().getManifest(HBCI.class).getClassLoader().getClassFinder();

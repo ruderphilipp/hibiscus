@@ -58,8 +58,8 @@ public class Synchronize implements Action
       throw new ApplicationException(i18n.tr("Keine Synchronisierungsaufgaben ausgewählt"));
 
     Logger.info("backends to synchronize: " + list.size());
-    List<Synchronization> result = new ArrayList<Synchronization>();
-    List<SynchronizeJob> nonRecurring = new ArrayList<SynchronizeJob>();
+    List<Synchronization> result = new ArrayList<>();
+    List<SynchronizeJob> nonRecurring = new ArrayList<>();
     for (Object o:list)
     {
       if (!(o instanceof Synchronization))

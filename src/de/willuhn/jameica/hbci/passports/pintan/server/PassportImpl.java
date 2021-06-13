@@ -63,7 +63,7 @@ public class PassportImpl extends UnicastRemoteObject implements Passport
   public List<? extends Configuration> getConfigurations() throws RemoteException
   {
     GenericIterator i = PinTanConfigFactory.getConfigs();
-    List<Configuration> configs = new ArrayList<Configuration>();
+    List<Configuration> configs = new ArrayList<>();
     while (i.hasNext())
       configs.add((Configuration) i.next());
     return configs;

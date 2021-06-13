@@ -49,8 +49,8 @@ public class Reporter
 {
   private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
 
-  private List<PdfPCell> headers = new ArrayList<PdfPCell>();
-  private List<Integer> widths = new ArrayList<Integer>();
+  private List<PdfPCell> headers = new ArrayList<>();
+  private List<Integer> widths = new ArrayList<>();
 
   private OutputStream out = null;
   private Document rpt = null;

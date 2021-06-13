@@ -50,7 +50,7 @@ public class SepaSammelLastschriftExporter extends AbstractSepaExporter
   void setup(Object[] objects, IOFormat format, OutputStream os, ProgressMonitor monitor) throws Exception
   {
     // Wenn die Auftraege unterschiedliche Sequenz-Typen haben, koennen sie nicht in einer Datei zusammengefasst werden.
-    Set<String> conflict = new HashSet<String>();
+    Set<String> conflict = new HashSet<>();
     for (Object o:objects)
     {
       conflict.add(this.createKey((SepaSammelLastschrift) o));

@@ -268,8 +268,8 @@ public class DDVConfig implements Configuration
     if (ids == null || ids.length == 0)
       return null;
     
-    List<String> fixedIds = new ArrayList<String>();
-    List<Konto> konten = new ArrayList<Konto>();
+    List<String> fixedIds = new ArrayList<>();
+    List<Konto> konten = new ArrayList<>();
     for (final String accountId : ids)
     {
       try

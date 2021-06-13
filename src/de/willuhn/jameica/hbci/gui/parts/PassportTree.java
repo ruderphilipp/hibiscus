@@ -188,7 +188,7 @@ public class PassportTree extends TreePart
     try
     {
       Passport[] passports = PassportRegistry.getPassports();
-      List<PassportObject> list = new ArrayList<PassportObject>();
+      List<PassportObject> list = new ArrayList<>();
       for (Passport p:passports)
       {
         list.add(new PassportObject(p));
@@ -274,7 +274,7 @@ public class PassportTree extends TreePart
         return this.children;
       
       List<? extends Configuration> configs = this.passport.getConfigurations();
-      List<ConfigObject> list = new ArrayList<ConfigObject>();
+      List<ConfigObject> list = new ArrayList<>();
       for (Configuration c:configs)
       {
         list.add(new ConfigObject(this.passport, c));

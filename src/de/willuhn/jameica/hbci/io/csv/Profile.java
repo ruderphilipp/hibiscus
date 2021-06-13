@@ -24,7 +24,7 @@ public class Profile implements Serializable, Comparable
 {
   private String name          = null;
   private boolean system       = false;
-  private List<Column> columns = new ArrayList<Column>();
+  private List<Column> columns = new ArrayList<>();
   private String separatorChar = ";";
   private String quotingChar   = "\"";
   private int skipLines        = 0;

@@ -133,7 +133,7 @@ public class UmsatzUtil
                       "LOWER(empfaenger_name2) LIKE ? OR " +
                       "LOWER(art) LIKE ?)";
 
-      List<String> params = new ArrayList<String>(Arrays.asList(text,text,text,text,text,text,text,text,text,text,text,text,text));
+      List<String> params = new ArrayList<>(Arrays.asList(text, text, text, text, text, text, text, text, text, text, text, text, text));
       if (query.matches("^[0-9]{1,10}$"))
       {
         search = "(id = ? or " + search + ")";

@@ -26,7 +26,7 @@ import de.willuhn.jameica.util.DateUtil;
  */
 public class SaldoFinder
 {
-  private TreeMap<Date,Double> map = new TreeMap<Date,Double>();
+  private TreeMap<Date, Double> map = new TreeMap<>();
   private double anfangssaldo = 0.0d;
   
   /**

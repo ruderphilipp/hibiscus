@@ -60,12 +60,12 @@ import de.willuhn.util.ProgressMonitor;
 public class SynchronizeList extends TablePart
 {
   // Wir cachen die Liste der vom User explizit abgewaehlten Aufgaben waehrend der Sitzung
-  private static Map<String,Boolean> uncheckedCache = new HashMap<String,Boolean>();
+  private static Map<String,Boolean> uncheckedCache = new HashMap<>();
   
   private static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   private MessageConsumer mcSync  = new SyncMessageConsumer();
   private MessageConsumer mcCache = new CacheMessageConsumer();
-  private List<Synchronization> syncList = new ArrayList<Synchronization>();
+  private List<Synchronization> syncList = new ArrayList<>();
   private Button syncButton = null;
   private Listener syncButtonListener = new SyncButtonListener();
 
@@ -323,11 +323,11 @@ public class SynchronizeList extends TablePart
         List<SynchronizeJob> selected = getItems(true);
 
         // Iterieren ueber die Synchronisationen und die rauswerfen, die nicht markiert sind
-        List<Synchronization> result = new ArrayList<Synchronization>();
+        List<Synchronization> result = new ArrayList<>();
         for (Synchronization s:syncList)
         {
           List<SynchronizeJob> jobs = s.getJobs(); // komplette Liste der Jobs
-          List<SynchronizeJob> toExecute = new ArrayList<SynchronizeJob>();
+          List<SynchronizeJob> toExecute = new ArrayList<>();
           for (SynchronizeJob job:jobs)
           {
             if (selected.contains(job)) // in den selektierten enthalten?

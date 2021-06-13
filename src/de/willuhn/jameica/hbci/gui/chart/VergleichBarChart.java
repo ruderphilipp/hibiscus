@@ -196,7 +196,7 @@ public class VergleichBarChart extends AbstractChart
     if (data == null)
       return new String[] {i18n.tr("Keine Daten")};
     
-    final List<String> result = new ArrayList<String>();
+    final List<String> result = new ArrayList<>();
     for (EinnahmeAusgabeZeitraum n : this.data)
     {
       result.add(this.getLabel(n));

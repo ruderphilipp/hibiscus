@@ -164,7 +164,7 @@ public enum PurposeCode
    */
   public static List<String> codes()
   {
-    List<String> result = new ArrayList<String>();
+    List<String> result = new ArrayList<>();
     for (PurposeCode c:values())
     {
       result.add(c.getCode());

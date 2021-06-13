@@ -65,7 +65,7 @@ public abstract class AbstractSynchronizeBackend<T extends SynchronizeJobProvide
   public List<Konto> getSynchronizeKonten(Konto k)
   {
     List<Konto> list = k == null ? SynchronizeOptions.getSynchronizeKonten() : Arrays.asList(k);
-    List<Konto> result = new ArrayList<Konto>();
+    List<Konto> result = new ArrayList<>();
     
     for (Konto konto:list)
     {
@@ -106,7 +106,7 @@ public abstract class AbstractSynchronizeBackend<T extends SynchronizeJobProvide
     if (this.providers != null)
       return this.providers;
     
-    this.providers = new ArrayList<T>();
+    this.providers = new ArrayList<>();
 
     try
     {
@@ -247,7 +247,7 @@ public abstract class AbstractSynchronizeBackend<T extends SynchronizeJobProvide
     // der zu synchronisierenden Konten und lassen das nicht
     // die Job-Provider tun. Denn wir wollen die Jobs in diesem
     // Fall nach Konten gruppiert haben und nicht nach Auftragsart.
-    List<SynchronizeJob> jobs = new LinkedList<SynchronizeJob>();
+    List<SynchronizeJob> jobs = new LinkedList<>();
     for (Konto konto:this.getSynchronizeKonten(k))
     {
       for (T provider:this.getJobProviders())
@@ -542,7 +542,7 @@ public abstract class AbstractSynchronizeBackend<T extends SynchronizeJobProvide
   protected abstract class JobGroup
   {
     private Konto konto = null;
-    protected List<SynchronizeJob> jobs = new ArrayList<SynchronizeJob>();
+    protected List<SynchronizeJob> jobs = new ArrayList<>();
     
     /**
      * ct.
@@ -593,7 +593,7 @@ public abstract class AbstractSynchronizeBackend<T extends SynchronizeJobProvide
    */
   protected class Synchronization
   {
-    List<JobGroup> groups = new ArrayList<JobGroup>();
+    List<JobGroup> groups = new ArrayList<>();
     
     /**
      * Liefert die JobGroup fuer das angegebene Konto.

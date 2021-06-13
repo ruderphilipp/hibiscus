@@ -54,7 +54,7 @@ public class HBCIAccountNewController extends AbstractControl
     if (this.variants != null)
       return this.variants;
     
-    this.variants = new ArrayList<InfoPanel>();
+    this.variants = new ArrayList<>();
     
     BeanService bs = Application.getBootLoader().getBootable(BeanService.class);
     final HBCIAccountProvider hbci = bs.get(HBCIAccountProvider.class);

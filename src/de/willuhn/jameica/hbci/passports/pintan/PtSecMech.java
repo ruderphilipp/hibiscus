@@ -41,7 +41,7 @@ public class PtSecMech
       throw new ApplicationException(i18n.tr("Keine TAN-Verfahren verfügbar"));
 
 
-    List<PtSecMech> list = new ArrayList<PtSecMech>();
+    List<PtSecMech> list = new ArrayList<>();
     String[] lines = text.split("\\|");
     for (String s:lines)
     {

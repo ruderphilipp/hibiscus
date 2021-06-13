@@ -120,7 +120,7 @@ public abstract class Range
    * */
   public final static List<Range> getActiveRanges(final String category)
   {
-    final List<Range> result = new ArrayList<Range>();
+    final List<Range> result = new ArrayList<>();
     for (Range range : KNOWN)
     {
       if (settings.getBoolean(category + "." + range.getId(), DEFAULT.contains(range)))

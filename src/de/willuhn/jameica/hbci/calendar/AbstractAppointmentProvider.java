@@ -50,7 +50,7 @@ public abstract class AbstractAppointmentProvider<T extends HibiscusDBObject> im
    */
   public List<Appointment> getAppointments(Date from, Date to)
   {
-    List<Appointment> result = new LinkedList<Appointment>();
+    List<Appointment> result = new LinkedList<>();
 
     ScheduleProvider provider = this.getScheduleProvider();
     if (provider == null)

@@ -59,7 +59,7 @@ public class UmsatzTypListDialog extends AbstractDialog
 {
   private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   private final static de.willuhn.jameica.system.Settings settings = new de.willuhn.jameica.system.Settings(UmsatzTypListDialog.class);
-  private static Hashtable<String,Color> colorCache = new Hashtable<String,Color>();
+  private static Hashtable<String,Color> colorCache = new Hashtable<>();
   
   private final static int WINDOW_WIDTH = 370;
   private final static int WINDOW_HEIGHT = 500;

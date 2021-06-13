@@ -75,7 +75,7 @@ public class CSVImportDialog extends AbstractDialog
   private SpinnerInput skipLines    = null;
   private LabelInput error          = null;
   
-  private List<SelectInput> selects = new ArrayList<SelectInput>();
+  private List<SelectInput> selects = new ArrayList<>();
   
   private Composite parent          = null;
   
@@ -228,7 +228,7 @@ public class CSVImportDialog extends AbstractDialog
   private List<Column> getColumns()
   {
     // Spalten noch zuordnen
-    List<Column> columns = new ArrayList<Column>();
+    List<Column> columns = new ArrayList<>();
     for (int i=0;i<selects.size();++i)
     {
       SelectInput input = selects.get(i);
@@ -267,7 +267,7 @@ public class CSVImportDialog extends AbstractDialog
       this.selects.clear();
 
       Profile p = getProfile();
-      List<List<String>> lines = new ArrayList<List<String>>(); // Liste mit Zeilen mit Listen von Spalten %-)
+      List<List<String>> lines = new ArrayList<>(); // Liste mit Zeilen mit Listen von Spalten %-)
       int cols = 0;
 
       ////////////////////////////////////////////////////////////////////////////

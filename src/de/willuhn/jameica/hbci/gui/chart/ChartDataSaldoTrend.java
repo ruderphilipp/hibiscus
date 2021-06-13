@@ -38,7 +38,7 @@ public class ChartDataSaldoTrend extends AbstractChartDataSaldo
     }
     if (this.data == null)
     {
-      this.data = new ArrayList<Value>();
+      this.data = new ArrayList<>();
 
       for (int i=0;i<data.size();++i)
       {

@@ -45,7 +45,7 @@ public class ErweiterteVerwendungszwecke implements Part
   private final static I18N i18n    = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   
   private String[] orig             = null;
-  private List<TextInput> fields    = new ArrayList<TextInput>();
+  private List<TextInput> fields    = new ArrayList<>();
   private Button add                = null;
   
   private boolean readonly          = false;
@@ -151,7 +151,7 @@ public class ErweiterteVerwendungszwecke implements Part
    */
   public String[] getTexts() throws RemoteException
   {
-    List<String> list = new ArrayList<String>();
+    List<String> list = new ArrayList<>();
     for (TextInput text:this.fields)
     {
       String value = (String) text.getValue();

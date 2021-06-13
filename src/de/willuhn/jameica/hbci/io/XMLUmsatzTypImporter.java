@@ -80,7 +80,7 @@ public class XMLUmsatzTypImporter implements Importer
       int created = 0;
       int error   = 0;
 
-      Map<String,String> idMap = new HashMap<String,String>();
+      Map<String, String> idMap = new HashMap<>();
       
       AbstractDBObjectNode object = null;
       while ((object = (AbstractDBObjectNode) reader.read()) != null)

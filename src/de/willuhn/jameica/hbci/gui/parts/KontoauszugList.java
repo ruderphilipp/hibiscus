@@ -676,7 +676,7 @@ public class KontoauszugList extends UmsatzList
     
     boolean logged = false;
     
-    List<Umsatz> result = new LinkedList<Umsatz>();
+    List<Umsatz> result = new LinkedList<>();
     while (umsaetze.hasNext())
     {
       Umsatz u = (Umsatz) umsaetze.next();

@@ -21,7 +21,7 @@ import de.willuhn.jameica.hbci.synchronize.jobs.SynchronizeJob;
 public class Synchronization
 {
   private SynchronizeBackend backend = null;
-  private List<SynchronizeJob> jobs = new ArrayList<SynchronizeJob>();
+  private List<SynchronizeJob> jobs = new ArrayList<>();
   
   /**
    * Speichert das Backend fuer die Synchronisierung.

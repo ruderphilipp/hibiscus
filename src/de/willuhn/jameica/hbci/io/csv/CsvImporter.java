@@ -141,7 +141,7 @@ public class CsvImporter implements Importer
           object = service.createObject(f.getType(),null);
           
           // Spalten zuordnen
-          Map<String, Object> values = new HashMap<String,Object>();
+          Map<String, Object> values = new HashMap<>();
           for (int i=0;i<line.size();++i)
           {
             Column column = null;
@@ -289,7 +289,7 @@ public class CsvImporter implements Importer
   public IOFormat[] getIOFormats(Class objectType)
   {
     // Wir checken, fuer welche Datentypen wir einen CSV-Treiber haben
-    List<IOFormat> formats = new ArrayList<IOFormat>();
+    List<IOFormat> formats = new ArrayList<>();
     try
     {
       BeanService service = Application.getBootLoader().getBootable(BeanService.class);

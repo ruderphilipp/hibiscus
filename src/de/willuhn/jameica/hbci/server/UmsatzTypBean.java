@@ -29,7 +29,7 @@ import de.willuhn.jameica.hbci.rmi.UmsatzTyp;
 public class UmsatzTypBean implements GenericObjectNode
 {
   private UmsatzTypBean parent = null;
-  private List<UmsatzTypBean> children = new LinkedList<UmsatzTypBean>();
+  private List<UmsatzTypBean> children = new LinkedList<>();
   private UmsatzTyp typ = null;
   private Integer level = null;
   
@@ -201,7 +201,7 @@ public class UmsatzTypBean implements GenericObjectNode
   @Override
   public GenericIterator getPath() throws RemoteException
   {
-    List<UmsatzTypBean> result = new LinkedList<UmsatzTypBean>();
+    List<UmsatzTypBean> result = new LinkedList<>();
     
     UmsatzTypBean parent = this.getParent();
     // Maximal 100 Level nach oben

@@ -32,7 +32,7 @@ public class DeutscheBankUmsatzRewriter implements UmsatzRewriter
    */
   public List<String> getBlzList()
   {
-    List<String> list = new ArrayList<String>();
+    List<String> list = new ArrayList<>();
     list.add("50070024");
     list.add("10070024"); // Deutsche Bank Berlin
     list.add("60070070");
@@ -64,7 +64,7 @@ public class DeutscheBankUmsatzRewriter implements UmsatzRewriter
       return; // Steht schon was drin
     
     String[] s = VerwendungszweckUtil.toArray(u);
-    List<String> lines = new ArrayList<String>();
+    List<String> lines = new ArrayList<>();
     lines.addAll(Arrays.asList(s));
     
     if (lines.size() == 0)
@@ -91,7 +91,7 @@ public class DeutscheBankUmsatzRewriter implements UmsatzRewriter
         
         if (i >= 2)
         {
-          List<String> list = new ArrayList<String>(lines.subList(2,i));
+          List<String> list = new ArrayList<>(lines.subList(2, i));
           if (list.size() == 0) return; // haben wir noch was uebrig?
 
           // 1. Verwendungszweck

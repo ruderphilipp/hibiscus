@@ -44,7 +44,7 @@ public class VelocityExporter implements Exporter
 {
   private final static Settings settings = new Settings(VelocityExporter.class);
   private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
-  private Map<Class,IOFormat[]> formats  = new HashMap<Class,IOFormat[]>();
+  private Map<Class, IOFormat[]> formats  = new HashMap<>();
   
   /**
    * @see de.willuhn.jameica.hbci.io.Exporter#doExport(java.lang.Object[], de.willuhn.jameica.hbci.io.IOFormat, java.io.OutputStream, de.willuhn.util.ProgressMonitor)

@@ -32,7 +32,7 @@ public class NetbankUmsatzRewriter implements UmsatzRewriter
    */
   public List<String> getBlzList()
   {
-    List<String> list = new ArrayList<String>();
+    List<String> list = new ArrayList<>();
 //    list.add("20090500"); // Netbank
 //    list.add("60090800"); // SpardaBank BW
 //    list.add("33060592"); // SpardaBank West - siehe https://www.willuhn.de/blog/index.php?url=archives/519-Neues-in-Hibiscus.html&serendipity[csuccess]=true#c1146
@@ -65,7 +65,7 @@ public class NetbankUmsatzRewriter implements UmsatzRewriter
       return; // Steht schon was drin
     
     String[] s = VerwendungszweckUtil.toArray(u);
-    List<String> lines = new ArrayList<String>();
+    List<String> lines = new ArrayList<>();
     lines.addAll(Arrays.asList(s));
     
     if (lines.size() == 0)

@@ -81,7 +81,7 @@ public class AddressbookHibiscusImpl extends UnicastRemoteObject implements Addr
    */
   public List findAddresses(String text) throws RemoteException
   {
-    List<Address> result = new ArrayList<Address>();
+    List<Address> result = new ArrayList<>();
 
     // 1) Im Adressbuch suchen
     {

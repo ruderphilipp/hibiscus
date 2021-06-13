@@ -58,7 +58,7 @@ public class KontoRecalculateOfflineSaldo implements Action
         return;
 
       Umsatz newer = null;
-      List<Umsatz> umsaetze = new ArrayList<Umsatz>();
+      List<Umsatz> umsaetze = new ArrayList<>();
       DBIterator<Umsatz> it = k.getUmsaetze();
       double currentSaldo = 0d;
       

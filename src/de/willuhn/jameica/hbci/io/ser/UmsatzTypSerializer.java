@@ -49,7 +49,7 @@ public class UmsatzTypSerializer extends DefaultSerializer<UmsatzTyp>
     {
       if (cache == null)
       {
-        cache = new HashMap<String,UmsatzTyp>();
+        cache = new HashMap<>();
         DBIterator kategorien = Settings.getDBService().createList(UmsatzTyp.class);
         while (kategorien.hasNext())
         {

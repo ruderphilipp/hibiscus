@@ -59,7 +59,7 @@ public class SepaSammelLastschriftSplit implements Action
     SepaLastschrift tx = null;
     
     // Die Liste der Buchungen
-    List<SepaSammelLastBuchung> buchungen = new ArrayList<SepaSammelLastBuchung>();
+    List<SepaSammelLastBuchung> buchungen = new ArrayList<>();
         
     try
     {

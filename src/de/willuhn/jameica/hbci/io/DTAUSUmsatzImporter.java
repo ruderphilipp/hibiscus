@@ -55,7 +55,7 @@ public class DTAUSUmsatzImporter extends AbstractDTAUSImporter
     u.setGegenkontoName(csatz.getNameEmpfaenger());
     u.setGegenkontoNummer(Long.toString(csatz.getKontonummer()));
     
-    List<String> lines = new ArrayList<String>();
+    List<String> lines = new ArrayList<>();
     for (int i=1;i<=csatz.getAnzahlVerwendungszwecke();++i)
     {
       lines.add(csatz.getVerwendungszweck(i));

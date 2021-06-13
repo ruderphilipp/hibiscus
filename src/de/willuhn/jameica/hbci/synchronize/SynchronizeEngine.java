@@ -59,7 +59,7 @@ public class SynchronizeEngine
     if (this.backends != null)
       return this.backends;
     
-    this.backends = new LinkedList<SynchronizeBackend>();
+    this.backends = new LinkedList<>();
     
     try
     {

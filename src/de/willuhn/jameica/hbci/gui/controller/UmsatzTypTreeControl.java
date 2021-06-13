@@ -211,7 +211,7 @@ public class UmsatzTypTreeControl extends AbstractControl
       tree.setTitle((String) konto);
     
     Object o = getTree().getSelection();
-    List<UmsatzTreeNode> selection = new LinkedList<UmsatzTreeNode>(); 
+    List<UmsatzTreeNode> selection = new LinkedList<>();
     if (o instanceof UmsatzTreeNode)
       selection.add((UmsatzTreeNode)o);
     else if (o instanceof UmsatzTreeNode[])
@@ -356,7 +356,7 @@ public class UmsatzTypTreeControl extends AbstractControl
    */
   private List<GenericObjectNode> getAllGroups() throws RemoteException
   {
-    List<GenericObjectNode> list = new ArrayList<GenericObjectNode>();
+    List<GenericObjectNode> list = new ArrayList<>();
     List<GenericObjectNode> root = getTree().getItems();
     for (GenericObjectNode r:root)
     {

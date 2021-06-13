@@ -170,11 +170,11 @@ public class CamtUmsatzImporter implements Importer
     if (monitor != null)
       monitor.log(i18n.tr("Datei {0}, SEPA-Version: {1}",Integer.toString(no),version.getURN()));
 
-    List<BTag> tage = new ArrayList<BTag>();
+    List<BTag> tage = new ArrayList<>();
     ISEPAParser<List<BTag>> parser = SEPAParserFactory.get(version);
     parser.parse(new ByteArrayInputStream(bos.toByteArray()),tage);
     
-    List<UmsLine> lines = new ArrayList<UmsLine>();
+    List<UmsLine> lines = new ArrayList<>();
     for (BTag tag:tage)
     {
       lines.addAll(tag.lines);

@@ -48,7 +48,7 @@ public class AccountService
     if (this.providers != null)
       return this.providers;
     
-    this.providers = new LinkedList<AccountProvider>();
+    this.providers = new LinkedList<>();
     
     try
     {

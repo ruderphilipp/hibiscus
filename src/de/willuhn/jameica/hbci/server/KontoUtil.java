@@ -433,7 +433,7 @@ public class KontoUtil
        */
       public Object extract(ResultSet rs) throws RemoteException, SQLException
       {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         while (rs.next())
           list.add(rs.getString(1));
         return list;
@@ -499,7 +499,7 @@ public class KontoUtil
   {
     DBIterator it = Settings.getDBService().createList(Konto.class);
     it.setOrder("ORDER BY LOWER(kategorie), blz, kontonummer, bezeichnung");
-    List<Konto> l = new ArrayList<Konto>();
+    List<Konto> l = new ArrayList<>();
 
     while (it.hasNext())
     {

@@ -187,7 +187,7 @@ public class HBCIUmsatzJob extends AbstractHBCIJob
     // vorhandene Umsaetze zaehlt, wie oft sie bereits lokal in der DB vorliegen.
     // Schickt die Bank mehr, als wir in der DB haben, muessen wir die verbleibenden
     // noch anlegen.
-    Map<Umsatz,Integer> duplicates = new HashMap<Umsatz,Integer>();
+    Map<Umsatz, Integer> duplicates = new HashMap<>();
     
     boolean fetchUnbooked  = settings.getBoolean("umsatz.fetchnotbooked",true);
 
@@ -302,7 +302,7 @@ public class HBCIUmsatzJob extends AbstractHBCIJob
       {
         this.dumpCamt(result.camtNotBooked,false);
 
-        List<Umsatz> fetched = new ArrayList<Umsatz>();
+        List<Umsatz> fetched = new ArrayList<>();
         
         int created = 0;
         int skipped = 0;

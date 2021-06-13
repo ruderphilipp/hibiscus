@@ -80,7 +80,7 @@ public class KontoList extends de.willuhn.jameica.hbci.gui.parts.KontoList
     /////////////////////////////////////////////////////////////////
     // Liste der existierenden Konten mit DDV ermitteln
     // Davon ziehen wir die bereits verlinkten ab
-    List<Konto> konten = new ArrayList<Konto>();
+    List<Konto> konten = new ArrayList<>();
     DBIterator list = de.willuhn.jameica.hbci.Settings.getDBService().createList(Konto.class);
     list.addFilter("passport_class = ?",PassportImpl.class.getName());
     list.setOrder("ORDER BY blz, bezeichnung");

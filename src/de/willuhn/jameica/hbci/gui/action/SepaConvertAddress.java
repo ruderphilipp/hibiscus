@@ -43,7 +43,7 @@ public class SepaConvertAddress implements Action
    */
   public void handleAction(Object context) throws ApplicationException, OperationCanceledException
   {
-    List<HibiscusAddress> list = new ArrayList<HibiscusAddress>();
+    List<HibiscusAddress> list = new ArrayList<>();
     if (context instanceof HibiscusAddress)
       list.add((HibiscusAddress) context);
     else if (context instanceof HibiscusAddress[])

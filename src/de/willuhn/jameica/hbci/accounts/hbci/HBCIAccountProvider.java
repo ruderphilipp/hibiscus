@@ -75,7 +75,7 @@ public class HBCIAccountProvider implements AccountProvider
     if (this.variants != null)
       return this.variants;
     
-    this.variants = new LinkedList<HBCIVariant>();
+    this.variants = new LinkedList<>();
     
     try
     {

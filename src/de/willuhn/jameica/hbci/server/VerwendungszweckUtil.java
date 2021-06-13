@@ -186,7 +186,7 @@ public class VerwendungszweckUtil
   public static Map<Tag,String> parse(Transfer t) throws RemoteException
   {
     if (t == null)
-      return  new HashMap<Tag,String>();
+      return new HashMap<>();
     
     return parse(toArray(t));
   }
@@ -223,9 +223,9 @@ public class VerwendungszweckUtil
    * @return Map mit den geparsten Infos. Niemals NULL sondern hoechstens eine leere Map.
    * @throws RemoteException
    */
-  private static Map<Tag,String> parse(boolean leadingSvwz, char sep, String... lines) throws RemoteException
+  private static Map<Tag, String> parse(boolean leadingSvwz, char sep, String... lines) throws RemoteException
   {
-    Map<Tag,String> result = new HashMap<Tag,String>();
+    Map<Tag, String> result = new HashMap<>();
 
     if (lines == null || lines.length == 0)
       return result;
@@ -453,7 +453,7 @@ public class VerwendungszweckUtil
    */
   public static String[] toArray(Transfer t) throws RemoteException
   {
-    List<String> lines = new ArrayList<String>();
+    List<String> lines = new ArrayList<>();
     lines.add(t.getZweck());
     lines.add(t.getZweck2());
     String[] wvz = t.getWeitereVerwendungszwecke();
@@ -538,7 +538,7 @@ public class VerwendungszweckUtil
    */
   private static List<String> clean(boolean trim, List<String> lines)
   {
-    List<String> result = new ArrayList<String>();
+    List<String> result = new ArrayList<>();
     if (lines == null || lines.size() == 0)
       return result;
     

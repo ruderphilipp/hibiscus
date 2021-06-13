@@ -88,7 +88,7 @@ public class UmsatzTypInput extends SelectInput
   public UmsatzTypInput(UmsatzTyp preselected, UmsatzTyp skip, int typ, boolean unassigned) throws RemoteException
   {
     super((List) null, preselected != null ? new UmsatzTypBean(preselected) : null);
-    List<Object> choices=new ArrayList<Object>(UmsatzTypUtil.getList(skip,typ));
+    List<Object> choices= new ArrayList<>(UmsatzTypUtil.getList(skip, typ));
     
     if (unassigned)
       choices.add(0,new UmsatzTypBean(UmsatzTypUtil.UNASSIGNED));

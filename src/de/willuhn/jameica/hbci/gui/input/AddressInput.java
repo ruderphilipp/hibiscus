@@ -47,7 +47,7 @@ import de.willuhn.util.I18N;
  */
 public class AddressInput implements Input
 {
-  private Map<String,Object> data = new HashMap<String,Object>();
+  private Map<String,Object> data = new HashMap<>();
 
   private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   private AddressFilter filter   = null;

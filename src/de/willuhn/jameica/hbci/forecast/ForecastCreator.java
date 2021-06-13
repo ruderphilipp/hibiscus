@@ -48,7 +48,7 @@ public class ForecastCreator
     // load providers
     if (providers == null)
     {
-      providers = new LinkedList<Class<ForecastProvider>>();
+      providers = new LinkedList<>();
       try
       {
         MultipleClassLoader loader = Application.getPluginLoader().getManifest(HBCI.class).getClassLoader();
@@ -66,7 +66,7 @@ public class ForecastCreator
     
     BeanService service = Application.getBootLoader().getBootable(BeanService.class);
     
-    List<ForecastProvider> result = new LinkedList<ForecastProvider>();
+    List<ForecastProvider> result = new LinkedList<>();
     for (Class<ForecastProvider> p:providers)
     {
       try
@@ -118,7 +118,7 @@ public class ForecastCreator
     ////////////////////////////////////////////////////////////////////////////
     // Schritt 1: Die Daten aller Provider in einer Liste zusammenfassen.
     // Das sind erstmal noch keine Salden sondern nur die Geldbewegungen
-    TreeMap<Date,Value> dates = new TreeMap<Date,Value>();
+    TreeMap<Date,Value> dates = new TreeMap<>();
     List<ForecastProvider> providers = getProviders();
     for (ForecastProvider p:providers)
     {
@@ -160,7 +160,7 @@ public class ForecastCreator
 
     ////////////////////////////////////////////////////////////////////////////
     // Schritt 3: Salden draus machen - hierzu addieren wir die Werte jeweils auf
-    List<Value> salden = new LinkedList<Value>();
+    List<Value> salden = new LinkedList<>();
     double prev = startSaldo;
     for (Value v:dates.values())
     {
@@ -173,7 +173,7 @@ public class ForecastCreator
 
     ////////////////////////////////////////////////////////////////////////////
     // Schritt 4: Homogenisieren, sodass wir fuer jeden Tag einen Wert haben.
-    List<Value> result = new LinkedList<Value>();
+    List<Value> result = new LinkedList<>();
     SaldoFinder finder = new SaldoFinder(salden,startSaldo);
     
     // Iterieren ueber den Zeitraum.

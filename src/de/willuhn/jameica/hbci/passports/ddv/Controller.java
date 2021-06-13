@@ -280,7 +280,7 @@ public class Controller extends AbstractControl
     if (this.pcscName != null)
       return this.pcscName;
     
-    List<String> available = new ArrayList<String>();
+    List<String> available = new ArrayList<>();
     
     // Erste Zeile Leerer Eintrag.
     // Damit das Feld auch dann leer bleiben kann, wenn der User nur einen

@@ -57,7 +57,7 @@ public class MT940UmsatzExporterMerged extends MT940UmsatzExporter
       // der Gelegenheit auch gleich, dass die Buchungen alle vom selben Konto
       // stammen
       Konto k = null;
-      List<Umsatz> list = new LinkedList<Umsatz>();
+      List<Umsatz> list = new LinkedList<>();
       for (Object o : objects)
       {
         if (o == null || !(o instanceof Umsatz))

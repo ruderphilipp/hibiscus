@@ -28,7 +28,7 @@ public abstract class AbstractSynchronizeJob implements SynchronizeJob
 {
   protected final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   private Konto konto = null;
-  private Map<String,Object> ctx = new HashMap<String,Object>();
+  private Map<String, Object> ctx = new HashMap<>();
 
   /**
    * @see de.willuhn.jameica.hbci.synchronize.jobs.SynchronizeJob#getContext(java.lang.String)

@@ -53,8 +53,8 @@ import de.willuhn.util.ProgressMonitor;
 public class HBCICallbackSWT extends AbstractHibiscusHBCICallback
 {
 	private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
-	
-	private Map<HBCIPassport,AccountContainer> accountCache = new HashMap<HBCIPassport,AccountContainer>();
+
+  private Map<HBCIPassport,AccountContainer> accountCache = new HashMap<>();
   private PassportHandle currentHandle = null;
   
   @Resource private HBCISynchronizeBackend backend = null;

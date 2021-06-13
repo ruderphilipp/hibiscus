@@ -108,7 +108,7 @@ public class KontoauszugSearchProvider implements SearchProvider
       {
         Konto k = u.getKonto();
         
-        List<String> params = new ArrayList<String>();
+        List<String> params = new ArrayList<>();
         params.add(HBCI.DATEFORMAT.format(u.getAusfuehrungsdatum()));
         params.add(k.getLongName());
         

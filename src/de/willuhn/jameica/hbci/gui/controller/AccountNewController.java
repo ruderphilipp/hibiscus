@@ -54,7 +54,7 @@ public class AccountNewController extends AbstractControl
     if (this.providers != null)
       return this.providers;
 
-    this.providers = new ArrayList<InfoPanel>();
+    this.providers = new ArrayList<>();
     BeanService bs = Application.getBootLoader().getBootable(BeanService.class);
     AccountService service = bs.get(AccountService.class);
     

@@ -99,7 +99,7 @@ public class HBCIVersionInput extends SelectInput
     if (passport != null)
     {
       String[] s = passport.getSuppVersions(); // Wir haben einen Passport, dann nur die unterstuetzten anzeigen
-      list = new ArrayList<String>(Arrays.asList(s)); // Neue Array-List, damit wir Elemente drin aendern koennen
+      list = new ArrayList<>(Arrays.asList(s)); // Neue Array-List, damit wir Elemente drin aendern koennen
 
       // BUGZILLA 684
       if (list.contains("220") && !list.contains("plus")) // "220" enthalten aber nicht "plus", dann haengen wir das "plus" noch an
@@ -111,7 +111,7 @@ public class HBCIVersionInput extends SelectInput
 
     // BUGZILLA 37 http://www.willuhn.de/bugzilla/show_bug.cgi?id=37
     // Ansonsten alle, die wir kennen
-    List<HBCIVersion> versions = new ArrayList<HBCIVersion>();
+    List<HBCIVersion> versions = new ArrayList<>();
     if (list == null || list.size() == 0)
     {
       versions.addAll(VERSIONS);
@@ -131,7 +131,7 @@ public class HBCIVersionInput extends SelectInput
     }
     
     // Rauswerfen der inaktiven HBCI-Versionen, wenn sie nicht gerade verwendet werden
-    List<HBCIVersion> result = new ArrayList<HBCIVersion>();
+    List<HBCIVersion> result = new ArrayList<>();
     for (HBCIVersion v:versions)
     {
       // Version aktiv. Anzeigen

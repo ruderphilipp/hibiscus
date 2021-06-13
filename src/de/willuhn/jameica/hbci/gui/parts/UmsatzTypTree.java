@@ -49,7 +49,7 @@ public class UmsatzTypTree extends TreePart
 
   private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   
-  private static Hashtable<String,Color> colorCache = new Hashtable<String,Color>();
+  private static Hashtable<String, Color> colorCache = new Hashtable<>();
   
   /**
    * Initialisiert die Liste der Root-Elemente.

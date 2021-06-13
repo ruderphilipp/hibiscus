@@ -60,7 +60,7 @@ public class UmsatzTree extends TreePart
 {
   private final static de.willuhn.jameica.system.Settings settings = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getSettings();
   private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
-  private static Hashtable<String,Color> colorCache = new Hashtable<String,Color>();
+  private static Hashtable<String, Color> colorCache = new Hashtable<>();
   
   private int umsatzCount = 0;
   private int groupCount = 0;
@@ -186,7 +186,7 @@ public class UmsatzTree extends TreePart
       // schwieriger, nur die Umsaetze anzuzeigen, die den aktuellen
       // Filter-Kriterien entsprechen.
 
-      Map<String,UmsatzTreeNode> lookup = new HashMap<String,UmsatzTreeNode>();
+      Map<String, UmsatzTreeNode> lookup = new HashMap<>();
       lookup.put(null,new UmsatzTreeNode(null)); // Pseudo-Kategorie "Nicht zugeordnet"
       
       while (list.hasNext())
@@ -206,7 +206,7 @@ public class UmsatzTree extends TreePart
       // Jetzt kopieren wir das noch in ein Array, damit wir es
       // nach Nummer sortieren koennen. Wir nehmen aber nur die Root-Elemente
       Iterator<UmsatzTreeNode> it = lookup.values().iterator();
-      List<UmsatzTreeNode> items = new ArrayList<UmsatzTreeNode>();
+      List<UmsatzTreeNode> items = new ArrayList<>();
       while (it.hasNext())
       {
         UmsatzTreeNode u = it.next();

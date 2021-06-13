@@ -30,7 +30,7 @@ import de.willuhn.util.I18N;
 public abstract class AbstractDateInput extends DateInput
 {
   private final static Settings settings = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getSettings();
-  private final static Map<String,Date> cache = new HashMap<String,Date>();
+  private final static Map<String,Date> cache = new HashMap<>();
   
   final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   

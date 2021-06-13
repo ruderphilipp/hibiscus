@@ -32,7 +32,7 @@ import de.willuhn.util.I18N;
  */
 public class BLZInput extends AccountInput
 {
-  private List<Listener> blzListener = new ArrayList<Listener>();
+  private List<Listener> blzListener = new ArrayList<>();
   private Listener listener = null;
   private I18N i18n         = null;
 

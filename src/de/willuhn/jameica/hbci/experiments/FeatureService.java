@@ -30,7 +30,7 @@ import de.willuhn.logging.Logger;
 public class FeatureService
 {
   private Settings settings = new Settings(FeatureService.class);
-  private List<Feature> features = new LinkedList<Feature>();
+  private List<Feature> features = new LinkedList<>();
   
   /**
    * Initialisiert den Service.

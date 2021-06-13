@@ -113,7 +113,7 @@ public class UmsatzTypUtil
     // Wir laden erstmal alle Kategorien in einem einzelnen Query
     DBIterator<UmsatzTyp> it = getAll();
 
-    final List<UmsatzTypBean> all = new LinkedList<UmsatzTypBean>();
+    final List<UmsatzTypBean> all = new LinkedList<>();
     while (it.hasNext())
     {
       UmsatzTyp t = it.next();
@@ -129,7 +129,7 @@ public class UmsatzTypUtil
     // die jedesmal aufgerufen werden, wenn die Selectbox eingeblendet wird. Daher laden wir mit einem
     // einzelnen Query alle Kategorien und erzeugen den Baum dann komplett im Speicher. Das ist erheblich
     // schneller.
-    final List<UmsatzTypBean> root = new LinkedList<UmsatzTypBean>();
+    final List<UmsatzTypBean> root = new LinkedList<>();
     for (UmsatzTypBean t:all)
     {
       if (t.getAttribute("parent_id") == null)
@@ -162,7 +162,7 @@ public class UmsatzTypUtil
     GenericIterator<UmsatzTypBean> tree = getTree(skip,typ);
     
     // Jetzt rekursiv in Liste uebertragen
-    List<UmsatzTypBean> result = new LinkedList<UmsatzTypBean>();
+    List<UmsatzTypBean> result = new LinkedList<>();
     while (tree.hasNext())
     {
       collect(tree.next(),result);

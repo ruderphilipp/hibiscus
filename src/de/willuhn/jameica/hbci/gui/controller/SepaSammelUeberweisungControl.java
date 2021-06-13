@@ -99,7 +99,7 @@ public class SepaSammelUeberweisungControl extends AbstractSepaSammelTransferCon
       return this.typ;
     final SepaSammelUeberweisung u = getTransfer();
     
-    List<Typ> list = new ArrayList<Typ>();
+    List<Typ> list = new ArrayList<>();
     list.add(new Typ(false));
     list.add(new Typ(true));
     this.typ = new SelectInput(list,new Typ(u.isTerminUeberweisung()));

@@ -91,7 +91,7 @@ public class MT940UmsatzExporter implements Exporter
       // Wir sortieren die Buchungen vorher noch chronologisch. Und checken bei
       // der Gelegenheit auch gleich, dass die Buchungen alle vom selben Konto
       // stammen
-      List<Umsatz> list = new LinkedList<Umsatz>();
+      List<Umsatz> list = new LinkedList<>();
       for (Object o : objects)
       {
         if (o == null || !(o instanceof Umsatz))

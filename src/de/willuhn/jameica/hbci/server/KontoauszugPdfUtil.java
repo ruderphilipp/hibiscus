@@ -404,7 +404,7 @@ public class KontoauszugPdfUtil
     if (k == null)
       throw new ApplicationException(i18n.tr("Kein Konto angegeben"));
 
-    Map<String,Object> ctx = new HashMap<String,Object>();
+    Map<String,Object> ctx = new HashMap<>();
     
     {
       String iban = StringUtils.trimToNull(k.getIban());
@@ -862,7 +862,7 @@ public class KontoauszugPdfUtil
    */
   public static List<Format> getFormats(TypedProperties bpd)
   {
-    List<Format> result = new ArrayList<Format>();
+    List<Format> result = new ArrayList<>();
     if (bpd == null || bpd.size() == 0)
       return result;
     

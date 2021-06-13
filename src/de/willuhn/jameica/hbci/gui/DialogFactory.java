@@ -36,7 +36,7 @@ public class DialogFactory
 {
 
   // BUGZILLA 185
-  private static Map<String,PINEntry> pinCache = new HashMap<String,PINEntry>();
+  private static Map<String,PINEntry> pinCache = new HashMap<>();
 
   private static long lastTry = 0;
 

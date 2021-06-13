@@ -344,8 +344,8 @@ public class PinTanConfigImpl implements PinTanConfig
     if (ids == null || ids.length == 0)
       return null;
     
-    List<String> fixedIds = new ArrayList<String>();
-    List<Konto> konten = new ArrayList<Konto>();
+    List<String> fixedIds = new ArrayList<>();
+    List<Konto> konten = new ArrayList<>();
     for (String id : ids)
     {
       try
@@ -438,7 +438,7 @@ public class PinTanConfigImpl implements PinTanConfig
   @Override
   public List<PtSecMech> getAvailableSecMechs() throws RemoteException
   {
-    List<PtSecMech> result = new ArrayList<PtSecMech>();
+    List<PtSecMech> result = new ArrayList<>();
     final String s = settings.getString(getID() + ".secmech.list",null);
     if (s == null)
       return result;
@@ -522,7 +522,7 @@ public class PinTanConfigImpl implements PinTanConfig
   @Override
   public List<String> getAvailableTanMedias() throws RemoteException
   {
-    List<String> result = new ArrayList<String>();
+    List<String> result = new ArrayList<>();
     final String s = settings.getString(getID() + ".tanmedias.list",null);
     if (s == null)
       return result;
@@ -557,7 +557,7 @@ public class PinTanConfigImpl implements PinTanConfig
     
     // Bisherige Werte
     String[] current = this.getTanMedias();
-    List<String> list = new ArrayList<String>();
+    List<String> list = new ArrayList<>();
 
     for (String s:current)
     {

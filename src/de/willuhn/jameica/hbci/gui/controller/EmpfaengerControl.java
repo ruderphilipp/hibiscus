@@ -264,7 +264,7 @@ public class EmpfaengerControl extends AbstractControl
        */
       public Object extract(ResultSet rs) throws RemoteException, SQLException
       {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         list.add(""); // <Keine Kategorie>
         while (rs.next())
           list.add(rs.getString(1));

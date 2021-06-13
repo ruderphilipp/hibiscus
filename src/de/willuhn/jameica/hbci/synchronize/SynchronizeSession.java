@@ -26,8 +26,8 @@ public class SynchronizeSession
   private Worker worker = null;
   private int status = ProgressMonitor.STATUS_NONE;
   private double progressWindow = 100d;
-  private List<String> warnings = new ArrayList<String>();
-  private List<String> errors = new ArrayList<String>();
+  private List<String> warnings = new ArrayList<>();
+  private List<String> errors = new ArrayList<>();
   
   /**
    * ct.

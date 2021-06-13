@@ -837,7 +837,7 @@ public class HBCIProperties
     Konto[] accounts = passport.getAccounts();
 
     // Zum Vermeiden von Doppeln
-    Set<String> set = new HashSet<String>();
+    Set<String> set = new HashSet<>();
     
     set.add(passport.getCustomerId()); // Die Customer-ID des Passport selbst auf jeden Fall auch
 

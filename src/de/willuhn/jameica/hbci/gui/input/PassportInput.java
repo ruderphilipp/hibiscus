@@ -79,7 +79,7 @@ public class PassportInput extends SelectInput
   public void update(SynchronizeBackend backend)
   {
     List<Passport> all = init();
-    List<Passport> result = new ArrayList<Passport>();
+    List<Passport> result = new ArrayList<>();
     
     BeanService service = Application.getBootLoader().getBootable(BeanService.class);
     boolean hb = backend != null && service.get(HBCISynchronizeBackend.class).equals(backend);
@@ -124,7 +124,7 @@ public class PassportInput extends SelectInput
     }
     
     if (passports == null)
-      passports = new ArrayList<Passport>();
+      passports = new ArrayList<>();
     
     return passports;
   }

@@ -46,7 +46,7 @@ public class ProfileUtil
    */
   public static List<Profile> read(Format format)
   {
-    List<Profile> result = new ArrayList<Profile>();
+    List<Profile> result = new ArrayList<>();
 
     if (format == null)
     {

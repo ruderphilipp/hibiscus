@@ -59,7 +59,7 @@ public class SepaSammelUeberweisungSplit implements Action
     AuslandsUeberweisung tx = null;
     
     // Die Liste der Buchungen
-    List<SepaSammelUeberweisungBuchung> buchungen = new ArrayList<SepaSammelUeberweisungBuchung>();
+    List<SepaSammelUeberweisungBuchung> buchungen = new ArrayList<>();
         
     try
     {

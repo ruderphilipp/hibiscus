@@ -76,7 +76,7 @@ public class SelectKeyDialog extends AbstractDialog
     apply.setEnabled(false); // initial deaktivieren
     
     GenericIterator list = RDHKeyFactory.getKeys();
-    List<KeyObject> l = new ArrayList<KeyObject>();
+    List<KeyObject> l = new ArrayList<>();
     while (list.hasNext())
     {
       RDHKey key = (RDHKey) list.next();

@@ -66,7 +66,7 @@ public class SettingsControl extends AbstractControl
 	private Input buchungHabenFg    				= null;
 
   private UmsatzTypTree umsatzTypTree     = null;
-  private Map<String,RangeList> ranges    = new HashMap<String,RangeList>();
+  private Map<String,RangeList> ranges    = new HashMap<>();
 
   private Input ueberweisungLimit         = null;
 
@@ -289,7 +289,7 @@ public class SettingsControl extends AbstractControl
     final BeanService bs = Application.getBootLoader().getBootable(BeanService.class);
     final FeatureService fs = bs.get(FeatureService.class);
     
-    this.experiments = new ArrayList<CheckboxInput>();
+    this.experiments = new ArrayList<>();
     
     for (Feature f:fs.getFeatures())
     {

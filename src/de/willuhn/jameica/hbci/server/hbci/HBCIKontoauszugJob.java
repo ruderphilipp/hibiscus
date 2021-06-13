@@ -47,7 +47,7 @@ public class HBCIKontoauszugJob extends AbstractHBCIJob
 {
 	private Konto konto = null;
 	
-	private List<AbstractHBCIJob> followers = new ArrayList<AbstractHBCIJob>();
+	private List<AbstractHBCIJob> followers = new ArrayList<>();
 
   /**
 	 * ct.

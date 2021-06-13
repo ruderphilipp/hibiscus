@@ -118,8 +118,8 @@ public class BarChart extends AbstractChart
     List<ChartData> data = getData();
     for (int i=0;i<data.size();++i)
     {
-      final List<String> labelLine = new LinkedList<String>();
-      final List<Number> dataLine  = new LinkedList<Number>();
+      final List<String> labelLine = new LinkedList<>();
+      final List<Number> dataLine  = new LinkedList<>();
       
       ChartData cd          = (ChartData) data.get(i);
       List list             = cd.getData();

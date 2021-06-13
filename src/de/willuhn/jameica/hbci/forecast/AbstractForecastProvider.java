@@ -46,7 +46,7 @@ public abstract class AbstractForecastProvider<T extends HibiscusDBObject> imple
    */
   public List<Value> getData(Konto k, Date from, Date to) throws Exception
   {
-    List<Value> result = new LinkedList<Value>();
+    List<Value> result = new LinkedList<>();
 
     ScheduleProvider provider = this.getScheduleProvider();
     if (provider == null)

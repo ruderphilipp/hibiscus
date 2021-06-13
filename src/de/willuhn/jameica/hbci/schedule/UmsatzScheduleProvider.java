@@ -40,7 +40,7 @@ public class UmsatzScheduleProvider implements ScheduleProvider<Umsatz>
    */
   public List<Schedule<Umsatz>> getSchedules(Konto k, Date from, Date to)
   {
-    List<Schedule<Umsatz>> result = new LinkedList<Schedule<Umsatz>>();
+    List<Schedule<Umsatz>> result = new LinkedList<>();
     
     try
     {

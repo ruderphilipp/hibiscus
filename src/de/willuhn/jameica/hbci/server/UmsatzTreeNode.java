@@ -37,8 +37,8 @@ public class UmsatzTreeNode implements GenericObjectNode, Comparable
 
   private UmsatzTyp typ                 = null;
   private UmsatzTreeNode parent         = null;
-  private List<UmsatzTreeNode> children = new ArrayList<UmsatzTreeNode>();
-  private List<Umsatz> umsaetze         = new ArrayList<Umsatz>();
+  private List<UmsatzTreeNode> children = new ArrayList<>();
+  private List<Umsatz> umsaetze         = new ArrayList<>();
   
   private Double betrag                 = null;
   private Double einnahmen              = null;
