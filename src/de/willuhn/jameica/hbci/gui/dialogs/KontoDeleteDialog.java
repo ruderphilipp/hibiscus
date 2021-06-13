@@ -187,7 +187,7 @@ public class KontoDeleteDialog extends AbstractDialog<Boolean>
             });
           }
         });
-      };
+      }
     }.start();
     
     return this.deps;

@@ -81,7 +81,7 @@ public abstract class AbstractSizRdhFormat extends AbstractKeyFormat
         file = settings.getString("sizrdh.nativelib","libhbci4java-sizrdh-linux-gcc3.so");
         break;
       case Platform.OS_WINDOWS:
-        file = settings.getString("sizrdh.nativelib","hbci4java-sizrdh-win32.dll");;
+        file = settings.getString("sizrdh.nativelib","hbci4java-sizrdh-win32.dll");
         break;
     }
     if (file == null)

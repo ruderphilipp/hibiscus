@@ -64,8 +64,6 @@ public class KontoList extends ContextMenu implements Extendable
      * Default-Stil.
      */
     DEFAULT,
-    
-    ;
   }
 
   /**

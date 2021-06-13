@@ -779,6 +779,6 @@ public class UmsatzTypUtil
     public boolean hasFlag(int flag) throws RemoteException
     {
       return false;
-    };
+    }
   }
 }
