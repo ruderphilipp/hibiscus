@@ -11,6 +11,8 @@
 package de.willuhn.jameica.hbci.io;
 
 import java.io.OutputStream;
+import java.rmi.RemoteException;
+import java.text.DateFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,12 +25,17 @@ import org.kapott.hbci.GV.generators.ISEPAGenerator;
 import org.kapott.hbci.GV.generators.SEPAGeneratorFactory;
 import org.kapott.hbci.sepa.SepaVersion;
 import org.kapott.hbci.sepa.SepaVersion.Type;
+import org.kapott.hbci.GV.SepaUtil;
+import org.kapott.hbci.manager.HBCIUtils;
 
+import de.willuhn.jameica.hbci.HBCIProperties;
 import de.willuhn.jameica.hbci.gui.dialogs.KontoAuswahlDialog;
 import de.willuhn.jameica.hbci.gui.dialogs.PainVersionDialog;
 import de.willuhn.jameica.hbci.gui.filter.KontoFilter;
 import de.willuhn.jameica.hbci.rmi.HibiscusTransfer;
 import de.willuhn.jameica.hbci.rmi.Konto;
+import de.willuhn.jameica.hbci.rmi.SepaBooking;
+import de.willuhn.jameica.hbci.rmi.SepaBookingMitMandatsinfo;
 import de.willuhn.jameica.hbci.rmi.SepaSammelTransfer;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ProgressMonitor;
@@ -186,4 +193,30 @@ public abstract class AbstractSepaExporter extends AbstractExporter
 
   }
 
+  protected static void ergaenzeLastschriftBuchung(Properties props, int count, SepaBookingMitMandatsinfo b, Konto k, DateFormat formatter) throws RemoteException
+  {
+    props.setProperty(SepaUtil.insertIndex("dst.bic",count),      StringUtils.trimToEmpty(b.getGegenkontoBLZ()));
+    props.setProperty(SepaUtil.insertIndex("dst.iban",count),     StringUtils.trimToEmpty(b.getGegenkontoNummer()));
+    props.setProperty(SepaUtil.insertIndex("dst.name",count),     StringUtils.trimToEmpty(b.getGegenkontoName()));
+    props.setProperty(SepaUtil.insertIndex("btg.value",count),    HBCIUtils.value2String(b.getBetrag()));
+    props.setProperty(SepaUtil.insertIndex("btg.curr",count),     k.getWaehrung() != null ? k.getWaehrung() : HBCIProperties.CURRENCY_DEFAULT_DE);
+    props.setProperty(SepaUtil.insertIndex("usage",count),        StringUtils.trimToEmpty(b.getZweck()));
+    props.setProperty(SepaUtil.insertIndex("endtoendid",count),   StringUtils.trimToEmpty(b.getEndtoEndId()));
+
+    props.setProperty(SepaUtil.insertIndex("creditorid",count),   StringUtils.trimToEmpty(b.getCreditorId()));
+    props.setProperty(SepaUtil.insertIndex("mandateid",count),    StringUtils.trimToEmpty(b.getMandateId()));
+    props.setProperty(SepaUtil.insertIndex("manddateofsig",count), formatter.format(b.getSignatureDate()));
+    props.setProperty(SepaUtil.insertIndex("purposecode",count),  StringUtils.trimToEmpty(b.getPurposeCode()));
+  }
+
+  protected static void ergaenzeUeberweisung(Properties props, int count, SepaBooking b, Konto k) throws RemoteException {
+    props.setProperty(SepaUtil.insertIndex("dst.bic",count),      StringUtils.trimToEmpty(b.getGegenkontoBLZ()));
+    props.setProperty(SepaUtil.insertIndex("dst.iban",count),     StringUtils.trimToEmpty(b.getGegenkontoNummer()));
+    props.setProperty(SepaUtil.insertIndex("dst.name",count),     StringUtils.trimToEmpty(b.getGegenkontoName()));
+    props.setProperty(SepaUtil.insertIndex("btg.value",count),    HBCIUtils.value2String(b.getBetrag()));
+    props.setProperty(SepaUtil.insertIndex("btg.curr",count),     k.getWaehrung() != null ? k.getWaehrung() : HBCIProperties.CURRENCY_DEFAULT_DE);
+    props.setProperty(SepaUtil.insertIndex("usage",count),        StringUtils.trimToEmpty(b.getZweck()));
+    props.setProperty(SepaUtil.insertIndex("endtoendid",count),   StringUtils.trimToEmpty(b.getEndtoEndId()));
+    props.setProperty(SepaUtil.insertIndex("purposecode",count),  StringUtils.trimToEmpty(b.getPurposeCode()));
+  }
 }
