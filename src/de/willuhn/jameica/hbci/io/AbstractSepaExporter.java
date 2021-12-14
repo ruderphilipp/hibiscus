@@ -193,7 +193,21 @@ public abstract class AbstractSepaExporter extends AbstractExporter
 
   }
 
-  protected static void ergaenzeLastschriftBuchung(Properties props, int count, SepaBookingMitMandatsinfo b, Konto k, DateFormat formatter) throws RemoteException
+  protected static void ergaenzeLastschriftBuchung(final Properties props, final int count,
+                                                   final SepaBookingMitMandatsinfo b, final Konto k,
+                                                   final DateFormat formatter) throws RemoteException
+  {
+    ergaenzeBuchung(props, count, b, k, formatter);
+  }
+
+  protected static void ergaenzeUeberweisung(final Properties props, final int count, final SepaBooking b,
+                                             final Konto k) throws RemoteException
+  {
+    ergaenzeBuchung(props, count, b, k, null);
+  }
+
+  private static <T extends SepaBooking> void ergaenzeBuchung(final Properties props, final int count, final T b,
+                                                              final Konto k, final DateFormat formatter) throws RemoteException
   {
     props.setProperty(SepaUtil.insertIndex("dst.bic",count),      StringUtils.trimToEmpty(b.getGegenkontoBLZ()));
     props.setProperty(SepaUtil.insertIndex("dst.iban",count),     StringUtils.trimToEmpty(b.getGegenkontoNummer()));
@@ -203,20 +217,14 @@ public abstract class AbstractSepaExporter extends AbstractExporter
     props.setProperty(SepaUtil.insertIndex("usage",count),        StringUtils.trimToEmpty(b.getZweck()));
     props.setProperty(SepaUtil.insertIndex("endtoendid",count),   StringUtils.trimToEmpty(b.getEndtoEndId()));
 
-    props.setProperty(SepaUtil.insertIndex("creditorid",count),   StringUtils.trimToEmpty(b.getCreditorId()));
-    props.setProperty(SepaUtil.insertIndex("mandateid",count),    StringUtils.trimToEmpty(b.getMandateId()));
-    props.setProperty(SepaUtil.insertIndex("manddateofsig",count), formatter.format(b.getSignatureDate()));
-    props.setProperty(SepaUtil.insertIndex("purposecode",count),  StringUtils.trimToEmpty(b.getPurposeCode()));
-  }
+    if (null != formatter && b instanceof SepaBookingMitMandatsinfo)
+    {
+      SepaBookingMitMandatsinfo b2 = (SepaBookingMitMandatsinfo)b;
+      props.setProperty(SepaUtil.insertIndex("creditorid",count),   StringUtils.trimToEmpty(b2.getCreditorId()));
+      props.setProperty(SepaUtil.insertIndex("mandateid",count),    StringUtils.trimToEmpty(b2.getMandateId()));
+      props.setProperty(SepaUtil.insertIndex("manddateofsig",count), formatter.format(b2.getSignatureDate()));
+    }
 
-  protected static void ergaenzeUeberweisung(Properties props, int count, SepaBooking b, Konto k) throws RemoteException {
-    props.setProperty(SepaUtil.insertIndex("dst.bic",count),      StringUtils.trimToEmpty(b.getGegenkontoBLZ()));
-    props.setProperty(SepaUtil.insertIndex("dst.iban",count),     StringUtils.trimToEmpty(b.getGegenkontoNummer()));
-    props.setProperty(SepaUtil.insertIndex("dst.name",count),     StringUtils.trimToEmpty(b.getGegenkontoName()));
-    props.setProperty(SepaUtil.insertIndex("btg.value",count),    HBCIUtils.value2String(b.getBetrag()));
-    props.setProperty(SepaUtil.insertIndex("btg.curr",count),     k.getWaehrung() != null ? k.getWaehrung() : HBCIProperties.CURRENCY_DEFAULT_DE);
-    props.setProperty(SepaUtil.insertIndex("usage",count),        StringUtils.trimToEmpty(b.getZweck()));
-    props.setProperty(SepaUtil.insertIndex("endtoendid",count),   StringUtils.trimToEmpty(b.getEndtoEndId()));
     props.setProperty(SepaUtil.insertIndex("purposecode",count),  StringUtils.trimToEmpty(b.getPurposeCode()));
   }
 }
