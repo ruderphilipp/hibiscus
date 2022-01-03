@@ -34,7 +34,7 @@ Die Nutzung von neueren Methoden ermöglicht auch, dass der Compiler besser opti
 Gleichzeitig wird die Lesbarkeit erhöht, was der Wartbarkeit zugutekommt und somit hoffentlich die Fehlerbehebung vereinfacht.
 
 Geplant ist unter anderem:
-* Umstellung auf aktuelle Java-Version (sukzessive: Java 5 -> Java 8 -> Java 11 -> Java 16)
+* Umstellung auf aktuelle Java-Version (sukzessive: Java 5 -> Java 8 -> Java 11 -> Java 17)
 * Beseitigen der `deprecated`-Warnungen
 * Anpassung Code-Stil
 	* Raw-Types um passende Typdeklarationen ergänzen
