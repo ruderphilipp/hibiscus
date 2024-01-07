@@ -1,8 +1,127 @@
 HEAD 2.11 (nightly)
 
-  * NEW: 0971 Neue Option "Unterkategorien von Treffern anzeigen" im Dialog "Auswahl der Kategorie" - siehe https://homebanking-hilfe.de/forum/topic.php?p=162002#real162002
-  * NEW: 0970 Feature INIT_FLIP_USER_INST per Default aktiv - siehe https://github.com/hbci4j/hbci4java/pull/67
-  * NEW: 0969 Update auf HBCI4Java 3.1.58 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.58
+  * NEW: 1061 Update auf HBCI4Java 3.1.74 (PushTAN Decoupled) - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.74
+  * BUG: 1060 Beim PDF-Export nicht "null" ausgeben, wenn kein Gegenkontoname vorhanden ist
+  * NEW: 1059 Beim PDF-Export von Umsätzen die Notiz im Verwendungszweck mit ausgeben
+  * NEW: 1058 Counter für Ungelesen/Überfällig links in der Navigation auch bei Inaktivität stündlich aktualisieren (z.B. wenn eine Überweisung fällig wird und Hibiscus über den Tageswechsel durchlief)
+  * NEW: 1057 Update auf HBCI4Java 3.1.73 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.73
+  * NEW: 1056 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 04.12.2023
+  * CHG: 1055 Das fehlgeschlagene Laden eines Datensatzes per ObjectNotFoundException sollte nicht dazu führen, dass das Backup übersprungen wird
+  * BUG: 1054 Wenn der Rechner in Standby versetzt wird, kann es vorkommen, dass die nächste automatische Synchronisierung nicht zum angezeigten Zeitpunkt stattfindet 
+  * NEW: 1053 Umstellung von MySQL auf MariaDB
+
+2023-11-03 Version 2.10.15
+
+  * NEW: 1052 Beim erstmaligen Markieren von Umsätzen als gelesen eine Auswahl anzeigen, ob dies beim Beenden automatisch geschehen soll
+  * CHG: 1051 Dialog für Erinnerungstermine etwas größer
+  * NEW: 1050 Einheitliche Schreibweise des Kontos auch in der Liste der elektronischen Kontoauszüge
+  * NEW: 1049 Update auf HBCI4Java 3.1.72 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.72
+  * NEW: 1048 Update auf SWT-Chart 0.14
+  * BUG: 1047 Tooltip in Line-Charts wurde nicht zuverlässig angezeigt - siehe https://homebanking-hilfe.de/forum/topic.php?t=25998
+  * NEW: 1046 Neue Option "[x] Umsätze beim Beenden als Gelesen markieren" in den Anzeigeoptionen der Umsätze
+  * BUG: 1045 Option "Im Fehlerfall anhalten" in den Einstellungen der automatischen Synchronisierung wurde nicht gespeichert
+  * NEW: 1044 Update auf HBCI4Java 3.1.70 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.70
+
+2023-09-01 Version 2.10.14
+
+  * BUG: 1043 Beim CSV-Export von Umsätzen wurde bei Umsätzen ohne Kategorie fälschlicherweise die Kategorie des vorherigen Umsatzes angezeigt
+  * NEW: 1042 Wildcards im Kartenleser-Namen erlaubt. Für den Fall, dass der SmartCard-Service abhängig von Lade-/Port-Reihenfolge variierende Bezeichnungen liefert
+  * BUG: 1041 Markierte Synchronisierungsaufgaben auch bereits beim Klick auf "Automatische Synchronisierung einrichten..." zwischenspeichern
+
+2023-08-24 Version 2.10.13
+
+  * NEW: 1040 Import von Sammelaufträgen im "Hibiscus-Format": Konto nur dann erfragen, wenn keines in der XML-Datei angegeben ist
+  * NEW: 1039 Ungelesen-Information der Umsätze auch in Datenbank speichern
+  * BUG: 1038 Tippfehler in SEPA-Purpose-Code "GOWT". Muss "GOVT" heissen. Siehe https://homebanking-hilfe.de/forum/topic.php?p=167894#real167894
+  * NEW: 1037 Bei "Umsätze nach Kategorie" ebenfalls "Name 2" der Gegenkonten anzeigen (wurde in Umsatzliste bereits so angezeigt, fehlte hier aber noch)
+  * NEW: 1036 Gelesen/Ungelesen-Information für jeden Umsatz einzeln speichern und änderbar machen
+  * NEW: 1035 Beim CSV-Export von Umsätzen auch den kompletten Pfad der Kategorien in einer neuen Spalte "Kategorie-Pfad" exportieren
+  * NEW: 1034 Adressbuch: In der Liste der Sammelauftragsbuchungen zu einer Adresse auch die Termine der korrespondierenden Sammelaufträge mit anzeigen
+  * NEW: 1033 Update auf HBCI4Java 3.1.69 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.69
+  * NEW: 1032 Update auf HBCI4Java 3.1.68 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.68
+  * NEW: 1031 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 05.06.2023 (Update vom 25.05.2023)
+  * CHG: 1030 Reihenfolge (Sortierung erst nach Name, dann nach Kontonummer) und Anzeige der Konten in der Kontoauswahl leicht geändert
+  * NEW: 1029 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 05.06.2023
+  * BUG: 1028 Automatische Synchronisierung: Synchronisationsaufgaben, die in der Liste der Synchronisationsaufgaben abgewählt sind, wurden bei der automatischen Ausführung dennoch ausgeführt
+  * NEW: 1027 Verwendungszweck im MT940-Export nach Bedarf mit SVWZ-Tag versehen - siehe https://homebanking-hilfe.de/forum/topic.php?t=25786
+
+2023-04-18 Version 2.10.12
+
+  * NEW: 1026 Intervall der automatischen Konten-Synchronisierung konfigurierbar
+
+2023-04-17 Version 2.10.11
+
+  * NEW: 1025 System-Tray auch in den Einstellungen der automatischen Synchronisierung aktivierbar
+  * NEW: 1024 Automatische zeitgesteuerte Konten-Synchronisierung
+  * NEW: 1023 Verwendungszweck-Vervollständigung nach Addressbuch-Auswahl: Auch nach Name in vorherigen Aufträgen suchen. Ermöglicht unterschiedliche Verwendungszweck-Vorschläge je nach ausgewählter Adresse (selbst bei identischer Ziel-IBAN) 
+  * NEW: 1022 Update auf HBCI4Java 3.1.67 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.67
+  * BUG: 1021 Umsatzliste: Nachtrag zu 1019 - Auswahl von "<Nicht zugeordnet>" funktionierte nicht mehr 
+  * NEW: 1020 Postgres-Treiber aktualisiert
+  * BUG: 1019 Umsatzliste: Bei Auswahl einer Umsatzkategorie konnten auch Umsätze angezeigt werden, die eigentlich per automatischer Zuordnung einer anderen Kategorie zugewiesen wurden, zusätzlich aber auch zur ausgewählten Kategorie passen 
+  * NEW: 1018 Update auf HBCI4Java 3.1.66 - RAH-10 Support
+  * NEW: 1017 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 06.03.2023
+
+2023-01-25 Version 2.10.10
+
+  * NEW: 1016 Die von hibiscus.transferwise genutzten Libs (Apache HTTP-Client, Jackson und SLF4J-API) direkt in Hibiscus verschoben, damit sie von mehreren Plugins genutzt werden können
+  * CHG: 1015 Umsatzliste: Nachtrag zu 1009 - Verhalten ist in den Einstellungen der Umsatzliste oben rechts jetzt mit der Option "Suche bei Eingabe eines Suchbegriffs sofort starten" konfigurierbar
+  * BUG: 1014 Umsatzkategorie-Auswahl: Wenn auch Kinder von Treffern angezeigt werden, konnte es vorkommen, dass ein Element mehrfach angezeigt wird. - siehe https://homebanking-hilfe.de/forum/topic.php?t=25537
+  * CHG: 1013 Umsatzliste: Bei Änderung des Von-/Bis-Datums ebenfalls nicht mehr sofort aktualisieren sondern erst bei Klick auf "Aktualisieren"/Enter - siehe https://homebanking-hilfe.de/forum/topic.php?t=25309
+  * NEW: 1012 Beim Druck von Überweisungen deutlicher machen, ob es sich um bankseitig terminierte Aufträge handelt
+  
+2022-11-14 Version 2.10.9
+
+  * NEW: 1011 Update auf HBCI4Java 3.1.64 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.64 - siehe https://homebanking-hilfe.de/forum/topic.php?p=164595#real164595
+  * NEW: 1010 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 05.12.2022
+  * CHG: 1009 Umsatzliste: Suche nicht mehr direkt bei Eingabe in "Suchbegriff" starten sondern bei Klick auf "Aktualisieren"/Enter - siehe https://homebanking-hilfe.de/forum/topic.php?t=25309
+  * NEW: 1008 Gespeichertes TAN-Verfahren und Medienbezeichnung neben dem Button "TAN-Verfahren zurücksetzen" anzeigen, falls etwas gespeichert wurde
+  * NEW: 1007 Beim PDF-Export von Umsätzen auch Name2, IBAN und Bank des Gegenkontos mit ausgeben
+  * NEW: 1006 Umsatzliste: Name der Kategorie in der Farbe der Kategorie anzeigen - siehe https://homebanking-hilfe.de/forum/topic.php?p=164418#real164418
+  * BUG: 1005 Nur die Kategorien färben, nicht die Umsätze selbst - siehe https://homebanking-hilfe.de/forum/topic.php?t=17474
+  * NEW: 1004 Checkbox "In Adressbuch übernehmen" merkt sich jetzt den vom User ausgewählten Zustand - siehe https://homebanking-hilfe.de/forum/topic.php?t=25423 
+  * BUG: 1003 Umsätze nach Kategorie: Anzahl der Kategorien und Umsätze in Summenzeile war immer 0 - siehe https://homebanking-hilfe.de/forum/topic.php?t=25413
+  * BUG: 1002 Saldo im Verlauf: Summenlinie dicker anzeigen
+  * BUG: 1001 Beim XML-Datenbank-Dump die Konten vor den Umsatzkategorien exportieren, da Umsätze auf Konten referenzieren können - siehe https://homebanking-hilfe.de/forum/topic.php?t=25409
+
+2022-09-12 Version 2.10.8
+
+  * BUG: 1000 Update auf HBCI4Java 3.1.62 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.62 - siehe https://homebanking-hilfe.de/forum/topic.php?t=25388
+  * BUG: 0999 Mögliche NPE - kann den Fehler selbst aber nicht reproduzieren - siehe Mail von Paul vom 16.08.2022
+  * BUG: 0998 Beim Import von Sammelaufträgen per SEPA-PAIN XML wurde das Batchbooking-Flag nicht berücksichtigt - siehe https://homebanking-hilfe.de/forum/topic.php?p=163721#real163721
+  * NEW: 0997 Update auf HBCI4Java 3.1.61 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.61
+  * NEW: 0996 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 05.09.2022
+  * CHG: 0995 Beim MT940-Export in das Tag ":20:" den Wert "STARTUMS" schreiben. Siehe https://homebanking-hilfe.de/forum/topic.php?t=25333&page=1&fup=163636#real163636
+
+2022-06-21 Version 2.10.7
+
+  * CHG: 0994 Option "Unterkategorien von Treffern anzeigen" aus Changeset #0976 unter die Tabelle verschoben - siehe https://homebanking-hilfe.de/forum/topic.php?t=25248&page=1&fup=163107#real163107
+  * NEW: 0993 Neuer Preset-Zeitraum "Letzte 90 Tage"
+  * NEW: 0992 Update auf HBCI4Java 3.1.60 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.60
+  * NEW: 0991 Option, um in der Umsatzliste nur den Betrag farbig anzuzeigen sowie eine extra Box für die Starseite mit den Umsätzen (Datum-Slider funktioniert hier aber noch nicht richtig) - siehe https://homebanking-hilfe.de/forum/topic.php?t=25228
+  * BUG: 0990 Der Verwendungszweck darf beim MT940-Export nur 27 Zeichen lang sein. Die 65-Zeichen gelten für das ganze Tag 86
+  * NEW: 0989 Feld für die Kontonummer auf 16 Zeichen verlängert - siehe https://github.com/willuhn/hibiscus/pull/133
+  * NEW: 0988 Pauschale Längenprüfung deutscher IBANs auch bei deaktivierter Kontonummernprüfung wieder entfernt wegen https://github.com/willuhn/hibiscus/pull/133 - es gibt auch IBANs mit weniger als 22 Zeichen. Ausserdem Adressbuch-Ausnahme auch bei IBAN hinzugefügt
+  * NEW: 0987 Upgrade von Guava von Version 25.1 auf Version 31.1 wegen Abhängigkeit zu Selenium. 31.1 erfordert jetzt auch 'failureaccess-1.0.1.jar' - sonst funktioniert hibiscus.transferwise nicht mehr
+  * CHG: 0987 Bibliothek fastqrcodegen auf qrcodegen umgestellt - siehe https://github.com/nayuki/QR-Code-generator/pull/143
+  
+2022-05-12 Version 2.10.6
+
+  * BUG: 0986 Umsatzliste: Kategorie "<Nicht zugeordnet>" wurde nicht korrekt als Vorauswahl wiederhergestellt, wenn man aus der Detailansicht zurückwechselte - siehe https://homebanking-hilfe.de/forum/topic.php?t=25174&page=1&fup=162697#real162697
+  * NEW: 0985 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 06.06.2022
+  * BUG: 0984 Hinweistext aus 0972 in Auftragslisten wieder zurückgebaut - dadurch wird der Textfilter nicht mehr angewendet - siehe https://homebanking-hilfe.de/forum/topic.php?t=25170&page=1&fup=162657#real162657
+
+2022-05-03 Version 2.10.5
+
+  * NEW: 0983 Update auf HBCI4Java 3.1.59 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.59
+  * NEW: 0982 Anzeige des eigenen Kontos in "Umsätze nach Kategorien" - siehe https://homebanking-hilfe.de/forum/topic.php?p=162518#real162518
+  * CHG: 0981 Schönere Default-Farben für Soll- und Habenbuchungen, die auch auf Dark-Themes besser lesbar sind
+  * CHG: 0980 CSV-Import: Bezeichnungen im Dialog für die Zuordnung der Spalten des Gegenkontos zu denen in der Umsatzliste angeglichen - siehe https://homebanking-hilfe.de/forum/topic.php?t=25139
+  * NEW: 0979 Bei Lastschriften mit clientseitiger Wiederholung in den duplizierten Aufträgen als SEPA Zieltermin nicht morgen verwenden sondern das nächstmögliche Datum in der Zukunft basierend auf Zieldatum der Vorlage und Wiederholungsintervall 
+  * NEW: 0978 Unterstützung für SEPA-Echtzeitüberweisungen (SEPA Instant Payments) - als Auftragsart bei der Erstellung einer Überweisung auswählbar
+  * NEW: 0977 Im Adressbuch auch die Einzelaufträge von/an diese Adresse anzeigen (um auch jene anzeigen zu können, die noch nicht ausgeführt wurden und daher noch nicht in den Umsätzen auftauchen)
+  * NEW: 0976 Neue Option "Unterkategorien von Treffern anzeigen" im Dialog "Auswahl der Kategorie" - siehe https://homebanking-hilfe.de/forum/topic.php?p=162002#real162002
+  * NEW: 0975 Feature INIT_FLIP_USER_INST per Default aktiv - siehe https://github.com/hbci4j/hbci4java/pull/67
+  * NEW: 0974 Update auf HBCI4Java 3.1.58 - https://github.com/hbci4j/hbci4java/releases/tag/hbci4j-core-3.1.58
   * NEW: 0973 Neue obantoo-Version mit aktualisierter BLZ-Datei gültig ab 07.03.2022
   * NEW: 0972 Hinweistext in Auftragslisten anzeigen, wenn durch Filterkriterien Aufträge ausgeblendet sind - siehe https://homebanking-hilfe.de/forum/topic.php?p=161817#real161817
   * BUG: 0971 Parameter "usage.list.all" und "usage.display.all" zu "usage.display.all" zusammengefasst. Vorher konnte mit beiden Parametern in Detail-Ansicht und Liste zwischen gekürztem und komplettem Verwendungszweck umgeschaltet werden 

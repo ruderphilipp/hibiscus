@@ -10,15 +10,9 @@
 package de.willuhn.jameica.hbci.passports.pintan;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import javax.smartcardio.CardTerminal;
-import javax.smartcardio.CardTerminals;
-import javax.smartcardio.TerminalFactory;
-
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Event;
@@ -54,7 +48,6 @@ import de.willuhn.jameica.hbci.rmi.Konto;
 import de.willuhn.jameica.messaging.StatusBarMessage;
 import de.willuhn.jameica.system.Application;
 import de.willuhn.jameica.system.OperationCanceledException;
-import de.willuhn.logging.Level;
 import de.willuhn.logging.Logger;
 import de.willuhn.util.ApplicationException;
 import de.willuhn.util.I18N;
@@ -81,6 +74,7 @@ public class Controller extends AbstractControl
   private Input customerId        = null;
   private Input userId            = null;
   private Input bezeichnung       = null;
+  private PtSecMechInput tanMech  = null;
   private CheckboxInput showTan   = null;
   private SelectInput cardReaders = null;
   private CheckboxInput useUsb    = null;
@@ -235,40 +229,17 @@ public class Controller extends AbstractControl
     if (this.cardReaders != null)
       return this.cardReaders;
     
-    List<String> available = new ArrayList<String>();
+    final List<String> available = SmartCardUtil.getAvailable();
     
     // Erste Zeile Leerer Eintrag.
     // Damit das Feld auch dann leer bleiben kann, wenn der User nur einen
     // Kartenleser hat. Der sollte dann nicht automatisch vorselektiert
     // werden, da dessen Bezeichnung sonst unnoetigerweise hart gespeichert wird
-    available.add("");
-    try
-    {
-      TerminalFactory terminalFactory = TerminalFactory.getDefault();
-      CardTerminals terminals = terminalFactory.terminals();
-      if (terminals != null)
-      {
-        List<CardTerminal> list = terminals.list();
-        if (list != null && list.size() > 0)
-        {
-          for (CardTerminal t:list)
-          {
-            String name = StringUtils.trimToNull(t.getName());
-            if (name != null)
-            available.add(name);
-          }
-        }
-      }
-    }
-    catch (Throwable t)
-    {
-      Logger.info("unable to determine card reader list: " + t.getMessage());
-      Logger.write(Level.DEBUG,"stacktrace for debugging purpose",t);
-    }
+    available.add(0,"");
     
     this.cardReaders = new SelectInput(available,this.getConfig().getCardReader());
     this.cardReaders.setEditable(true);
-    this.cardReaders.setComment(i18n.tr("nur nötig, wenn mehrere Leser vorhanden"));
+    this.cardReaders.setComment(i18n.tr("nur nötig, wenn mehrere Leser vorhanden (\"*\" am Anfang/Ende erlaubt)"));
     this.cardReaders.setName(i18n.tr("Identifier des PC/SC-Kartenlesers"));
     return this.cardReaders;
   }
@@ -306,6 +277,21 @@ public class Controller extends AbstractControl
     this.convertQr.addListener(l);
     l.handleEvent(null);
     return this.convertQr;
+  }
+  
+  /**
+   * Liefert eine Anzeige des aktuell gespeicherten TAN-Verfahrens und TAN-Mediums mit der Möglichkeit,
+   * dieses zurückzusetzen.
+   * @return das Anzeigefeld.
+   * @throws RemoteException
+   */
+  public PtSecMechInput getTANMech() throws RemoteException
+  {
+    if (this.tanMech != null)
+      return this.tanMech;
+    
+    this.tanMech = new PtSecMechInput(this.getConfig());
+    return this.tanMech;
   }
   
   /**
@@ -487,30 +473,6 @@ public class Controller extends AbstractControl
   }
 
   /**
-   * BUGZILLA 218
-   * Loescht die Vorauswahlen bei den TAN-Verfahren.
-   */
-  public void handleDeleteTanSettings()
-  {
-    try
-    {
-      PinTanConfig conf = this.getConfig();
-      conf.setCurrentSecMech(null);
-      conf.setStoredSecMech(null);
-      conf.setTanMedia(null);
-      conf.setChipTANUSB(null);
-      conf.setConvertFlickerToQRCode(false);
-      
-      Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Vorauswahl der TAN-Verfahren zurückgesetzt"),StatusBarMessage.TYPE_SUCCESS));
-    }
-    catch (Exception e)
-    {
-      Logger.error("error while deleting tan settings",e);
-      Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Fehler beim Zurücksetzen der TAN-Verfahren"),StatusBarMessage.TYPE_ERROR));
-    }
-  }
-  
-  /**
    * Zeigt die BPD/UPD des Passports an.
    */
   public synchronized void handleDisplayProperties()
@@ -571,15 +533,20 @@ public class Controller extends AbstractControl
    */
   public synchronized void handleSync()
   {
-    this.handleDeleteTanSettings();
-    
     try
     {
       if (!Application.getCallback().askUser(i18n.tr("Sind Sie sicher?")))
         return;
 
+      // Speichern, damit sicher ist, dass wir vernuenftige Daten fuer den
+      // Test haben und die auch gespeichert sind
+      if (!handleStore())
+        return;
+
       final PinTanConfig config = this.getConfig();
       config.reload();
+      
+      new PtSecMechDeleteSettings().handleAction(config);
       new PassportSync().handleAction(new PassportHandleImpl(config));
     }
     catch (ApplicationException ae)

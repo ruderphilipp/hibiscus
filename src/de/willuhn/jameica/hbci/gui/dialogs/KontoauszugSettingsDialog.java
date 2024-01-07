@@ -37,7 +37,9 @@ public class KontoauszugSettingsDialog extends AbstractDialog
 
   private final static int WINDOW_WIDTH = 500;
   
-  private CheckboxInput displayAll = null;
+  private CheckboxInput displayAll     = null;
+  private CheckboxInput instantSearch  = null;
+  private CheckboxInput markReadOnExit = null;
 
   /**
    * ct.
@@ -57,6 +59,8 @@ public class KontoauszugSettingsDialog extends AbstractDialog
   {
     final Container c = new SimpleContainer(parent);
     c.addInput(this.getDisplayAll());
+    c.addInput(this.getInstantSearch());
+    c.addInput(this.getMarkReadOnExit());
     
     final Button apply = new Button(i18n.tr("Übernehmen"),new Action() {
       
@@ -64,6 +68,8 @@ public class KontoauszugSettingsDialog extends AbstractDialog
       public void handleAction(Object context) throws ApplicationException
       {
         settings.setAttribute("usage.display.all",((Boolean) getDisplayAll().getValue()).booleanValue());
+        settings.setAttribute("usage.instantsearch",((Boolean) getInstantSearch().getValue()).booleanValue());
+        de.willuhn.jameica.hbci.Settings.setMarkReadOnExit(((Boolean) getMarkReadOnExit().getValue()).booleanValue());
         close();
       }
     },null,true,"ok.png");
@@ -97,6 +103,34 @@ public class KontoauszugSettingsDialog extends AbstractDialog
     this.displayAll = new CheckboxInput(settings.getBoolean("usage.display.all",false));
     this.displayAll.setName(i18n.tr("Alle Daten des Verwendungszwecks anzeigen"));
     return this.displayAll;
+  }
+  
+  /**
+   * Liefert die Checkbox, mit der eingestellt werden kann, die Suche nach Eingabe eines Suchbegriffs sofort starten soll.
+   * @return Checkbox.
+   */
+  private CheckboxInput getInstantSearch()
+  {
+    if (this.instantSearch != null)
+      return this.instantSearch;
+    
+    this.instantSearch = new CheckboxInput(settings.getBoolean("usage.instantsearch",false));
+    this.instantSearch.setName(i18n.tr("Suche bei Eingabe eines Suchbegriffs sofort starten"));
+    return this.instantSearch;
+  }
+
+  /**
+   * Liefert die Checkbox, mit der eingestellt werden kann, ob die Umsätze beim Beenden automatisch als gelesen markiert werden.
+   * @return Checkbox.
+   */
+  private CheckboxInput getMarkReadOnExit()
+  {
+    if (this.markReadOnExit != null)
+      return this.markReadOnExit;
+    
+    this.markReadOnExit = new CheckboxInput(de.willuhn.jameica.hbci.Settings.getMarkReadOnExit());
+    this.markReadOnExit.setName(i18n.tr("Umsätze beim Beenden als gelesen markieren"));
+    return this.markReadOnExit;
   }
 
 }

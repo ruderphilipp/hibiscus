@@ -1,6 +1,6 @@
 /**********************************************************************
  *
- * Copyright (c) 2004 Olaf Willuhn
+ * Copyright (c) 2022 Olaf Willuhn
  * All rights reserved.
  * 
  * This software is copyrighted work licensed under the terms of the
@@ -11,8 +11,9 @@
 package de.willuhn.jameica.hbci.gui.dialogs;
 
 import java.rmi.RemoteException;
-import java.util.Hashtable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.swt.events.DisposeEvent;
@@ -21,7 +22,6 @@ import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -30,7 +30,6 @@ import org.eclipse.swt.widgets.TableItem;
 
 import de.willuhn.datasource.GenericIterator;
 import de.willuhn.jameica.gui.Action;
-import de.willuhn.jameica.gui.GUI;
 import de.willuhn.jameica.gui.dialogs.AbstractDialog;
 import de.willuhn.jameica.gui.formatter.TableFormatter;
 import de.willuhn.jameica.gui.input.CheckboxInput;
@@ -43,6 +42,7 @@ import de.willuhn.jameica.gui.util.DelayedListener;
 import de.willuhn.jameica.gui.util.SimpleContainer;
 import de.willuhn.jameica.hbci.HBCI;
 import de.willuhn.jameica.hbci.Settings;
+import de.willuhn.jameica.hbci.gui.ColorUtil;
 import de.willuhn.jameica.hbci.rmi.UmsatzTyp;
 import de.willuhn.jameica.hbci.server.UmsatzTypBean;
 import de.willuhn.jameica.hbci.server.UmsatzTypUtil;
@@ -61,7 +61,6 @@ public class UmsatzTypListDialog extends AbstractDialog
 {
   private final static I18N i18n = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getI18N();
   private final static de.willuhn.jameica.system.Settings settings = new de.willuhn.jameica.system.Settings(UmsatzTypListDialog.class);
-  private static Hashtable<String,Color> colorCache = new Hashtable<String,Color>();
   
   private final static int WINDOW_WIDTH = 370;
   private final static int WINDOW_HEIGHT = 500;
@@ -115,8 +114,8 @@ public class UmsatzTypListDialog extends AbstractDialog
     group.addText(i18n.tr("Bitte wählen Sie die zu verwendende Kategorie aus."),true);
     TextInput text = this.getSearch();
     group.addInput(text);
-    group.addInput(this.getChildren());
     group.addPart(this.getTable());
+    group.addInput(this.getChildren());
 
     ////////////////
     // geht erst nach dem Paint
@@ -262,17 +261,7 @@ public class UmsatzTypListDialog extends AbstractDialog
           
           if (ut.isCustomColor())
           {
-            int[] color = ut.getColor();
-            if (color == null || color.length != 3)
-              return;
-            
-            RGB rgb = new RGB(color[0],color[1],color[2]);
-            c = colorCache.get(rgb.toString());
-            if (c == null)
-            {
-              c = new Color(GUI.getDisplay(),rgb);
-              colorCache.put(rgb.toString(),c);
-            }
+            c = ColorUtil.getColor(ut);
           }
           else
           {
@@ -284,7 +273,9 @@ public class UmsatzTypListDialog extends AbstractDialog
             else
               c = de.willuhn.jameica.gui.util.Color.FOREGROUND.getSWTColor();
           }
-          item.setForeground(c);
+          
+          if (c != null)
+            item.setForeground(c);
         }
         catch (Exception e)
         {
@@ -323,8 +314,10 @@ public class UmsatzTypListDialog extends AbstractDialog
     final boolean children = ((Boolean) getChildren().getValue()).booleanValue();
     String text = (String) getSearch().getValue();
     text = text.trim().toLowerCase();
+    
     try
     {
+      final Set<String> lookup = children ? new HashSet<String>() : null;
       for (UmsatzTypBean t:list)
       {
         if (text.length() == 0)
@@ -336,7 +329,7 @@ public class UmsatzTypListDialog extends AbstractDialog
         if (!t.getTyp().getName().toLowerCase().contains(text))
           continue;
 
-        addItems(t,children);
+        addItems(t,lookup);
       }
     }
     catch (RemoteException re)
@@ -375,20 +368,31 @@ public class UmsatzTypListDialog extends AbstractDialog
   /**
    * Fuegt das Element zur Liste hinzu und eventuell die Kinder.
    * @param b das Element.
-   * @param recursive true, wenn auch die Kinder hinzugefuegt werden sollen.
+   * @param lookup Set mit Identifiern der bereits hinzugefügten wenn auch Kinder der Treffer angezeigt werden sollen.
    * @throws RemoteException
    */
-  private void addItems(UmsatzTypBean b, boolean recursive) throws RemoteException
+  private void addItems(UmsatzTypBean b, Set<String> lookup) throws RemoteException
   {
+    // Wenn wir auch Kinder von Treffern anzeigen, kann es sein, dass ein Element
+    // mehrfach gematcht wird. Einmal direkt über den Suchbegriff und dann nochmal
+    // als Kind einer übergeordneten Kategorie, falls deren Name ebenfalls auf den
+    // Suchbegriff passt
+    if (lookup != null)
+    {
+      if (lookup.contains(b.getID()))
+        return;
+      
+      lookup.add(b.getID());
+    }
     final TablePart table = this.getTable();
     table.addItem(b);
-    if (!recursive)
+    if (lookup == null)
       return;
-    
+
     final GenericIterator<UmsatzTypBean> children = b.getChildren();
     while (children.hasNext())
     {
-      addItems(children.next(),recursive);
+      addItems(children.next(),lookup);
     }
   }
   

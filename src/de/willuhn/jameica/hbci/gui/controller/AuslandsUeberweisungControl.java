@@ -11,10 +11,8 @@
 package de.willuhn.jameica.hbci.gui.controller;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -41,6 +39,7 @@ import de.willuhn.jameica.hbci.gui.input.IBANInput;
 import de.willuhn.jameica.hbci.gui.input.KontoInput;
 import de.willuhn.jameica.hbci.gui.input.PurposeCodeInput;
 import de.willuhn.jameica.hbci.gui.input.ReminderIntervalInput;
+import de.willuhn.jameica.hbci.gui.input.StoreAddressInput;
 import de.willuhn.jameica.hbci.gui.input.TerminInput;
 import de.willuhn.jameica.hbci.gui.input.ZweckInput;
 import de.willuhn.jameica.hbci.gui.parts.AuslandsUeberweisungList;
@@ -330,7 +329,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
           // eine Terminueberweisung werden soll. Muessen wir aber nicht fragen, wenn
           // der User nicht ohnehin schon eine Termin-Ueberweisung ausgewaehlt hat
           Typ typ = (Typ) getTyp().getValue();
-          if (typ == null || typ.termin)
+          if (typ == null || typ == Typ.TERMIN)
             return;
 
           Calendar cal = Calendar.getInstance();
@@ -340,7 +339,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
           {
             String q = i18n.tr("Soll der Auftrag als bankseitig geführte SEPA-Terminüberweisung ausgeführt werden?");
             if (Application.getCallback().askUser(q))
-              getTyp().setValue(new Typ(true,false));
+              getTyp().setValue(Typ.TERMIN);
           }
         }
         catch (Exception e)
@@ -379,18 +378,8 @@ public class AuslandsUeberweisungControl extends AbstractControl
     if (storeEmpfaenger != null)
       return storeEmpfaenger;
 
-    // Nur bei neuen Transfers aktivieren
-    HibiscusTransfer t = getTransfer();
-    // Checkbox nur setzen, wenn es eine neue Ueberweisung ist und
-    // noch kein Gegenkonto definiert ist.
-    boolean enabled = t.isNewObject() && t.getGegenkontoNummer() == null;
-    
-    // Per Hidden-Parameter kann die Checkbox komplett ausgeschaltet werden
-    de.willuhn.jameica.system.Settings settings = Application.getPluginLoader().getPlugin(HBCI.class).getResources().getSettings();
-    enabled &= settings.getBoolean("transfer.addressbook.autoadd",true);
-    storeEmpfaenger = new CheckboxInput(enabled);
-
-    return storeEmpfaenger;
+    this.storeEmpfaenger = new StoreAddressInput(this.getTransfer());
+    return this.storeEmpfaenger;
   }
   
   /**
@@ -405,13 +394,9 @@ public class AuslandsUeberweisungControl extends AbstractControl
       return this.typ;
     final AuslandsUeberweisung u = getTransfer();
     
-    List<Typ> list = new ArrayList<Typ>();
-    list.add(new Typ(false,false));
-    list.add(new Typ(true,false));
-    list.add(new Typ(false,true));
-    this.typ = new SelectInput(list,new Typ(u.isTerminUeberweisung(),u.isUmbuchung()));
+    this.typ = new SelectInput(Typ.values(),Typ.determine(u));
     this.typ.setName(i18n.tr("Auftragstyp"));
-    this.typ.setAttribute("name");
+    this.typ.setAttribute("description");
     this.typ.setEnabled(!u.ausgefuehrt());
     this.typ.addListener(new Listener() {
       public void handleEvent(Event event)
@@ -422,7 +407,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
         try
         {
           Typ t = (Typ) getTyp().getValue();
-          u.setTerminUeberweisung(t.termin);
+          u.setTerminUeberweisung(t != null && t == Typ.TERMIN);
         }
         catch (Exception e)
         {
@@ -463,8 +448,8 @@ public class AuslandsUeberweisungControl extends AbstractControl
       t.setPurposeCode((String)getPurposeCode().getValue());
 
       Typ typ = (Typ) getTyp().getValue();
-      t.setTerminUeberweisung(typ.termin);
-      t.setUmbuchung(typ.umb);
+      if (typ != null)
+        typ.apply(t);
 
       String kto  = (String)getEmpfaengerKonto().getValue();
       String name = getEmpfaengerName().getText();
@@ -609,6 +594,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
           
           DBIterator list = getTransfer().getList();
           list.addFilter("empfaenger_konto = ?",a.getIban());
+          list.addFilter("empfaenger_name = ?",a.getName());
           list.setOrder("order by id desc");
           if (list.hasNext())
           {
@@ -652,7 +638,7 @@ public class AuslandsUeberweisungControl extends AbstractControl
           {
             TerminInput input = getTermin();
             Typ typ = (Typ) getTyp().getValue();
-            if (typ != null && typ.termin)
+            if (typ != null && typ == Typ.TERMIN)
             {
               input.setName(i18n.tr("Ausführungstermin"));
               
@@ -685,43 +671,80 @@ public class AuslandsUeberweisungControl extends AbstractControl
   /**
    * Hilfsklasse fuer den Auftragstyp.
    */
-  public class Typ
+  public enum Typ
   {
-    private boolean termin = false;
-    private boolean umb    = false;
+    /**
+     * Ueberweisung
+     */
+    UEBERWEISUNG("Überweisung"),
+    
+    /**
+     * Terminueberweisung
+     */
+    TERMIN("Bankseitige SEPA-Terminüberweisung"),
+
+    /**
+     * Umbuchung
+     */
+    UMBUCHUNG("Interne Umbuchung (Übertrag)"),
+    
+    /**
+     * Echtzeitueberweisung
+     */
+    INSTANT("Echtzeitüberweisung (SEPA Instant-Payment)"),
+    
+    ;
+    
+    private String description = null;
     
     /**
      * ct.
-     * @param termin true bei Termin-Ueberweisung.
-     * @param umb true bei Umbuchung.
+     * @param description der Beschreibungstext.
      */
-    private Typ(boolean termin, boolean umb)
+    private Typ(String description)
     {
-      this.termin = termin;
-      this.umb    = umb;
+      this.description = description;
     }
     
     /**
-     * Liefert den sprechenden Namen des Typs.
-     * @return sprechender Name des Typs.
+     * Liefert den Beschreibungstext.
+     * @return description
      */
-    public String getName()
+    public String getDescription()
     {
-      if (this.termin) return i18n.tr("Bankseitige SEPA-Terminüberweisung");
-      if (this.umb)    return i18n.tr("Interne Umbuchung (Übertrag)");
-      return           i18n.tr("Überweisung");
+      return i18n.tr(description);
     }
     
     /**
-     * @see java.lang.Object#equals(java.lang.Object)
+     * Ermittelt den Typ anhand des Auftrages.
+     * @param u der Auftrag.
+     * @return der Typ.
+     * @throws RemoteException
      */
-    public boolean equals(Object o)
+    public static Typ determine(AuslandsUeberweisung u) throws RemoteException
     {
-      if (o == null || !(o instanceof Typ))
-        return false;
-      Typ other = (Typ) o;
-      return other.termin == this.termin &&
-             other.umb == this.umb;
+      if (u.isInstantPayment())
+        return INSTANT;
+      
+      if (u.isTerminUeberweisung())
+        return TERMIN;
+      
+      if (u.isUmbuchung())
+        return UMBUCHUNG;
+      
+      return UEBERWEISUNG;
+    }
+    
+    /**
+     * Uebernimmt den Typ in den Auftrag.
+     * @param u der Auftrag.
+     * @throws RemoteException
+     */
+    public void apply(AuslandsUeberweisung u) throws RemoteException
+    {
+      u.setInstantPayment(this == INSTANT);
+      u.setUmbuchung(this == UMBUCHUNG);
+      u.setTerminUeberweisung(this == TERMIN);
     }
   }
 

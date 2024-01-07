@@ -96,7 +96,7 @@ public class Settings
 		if (buchungSollForeground != null)
 			return buchungSollForeground;
 
-		buchungSollForeground = new Color(GUI.getDisplay(),settings.getRGB("buchung.soll.fg",new RGB(147,33,33)));
+		buchungSollForeground = new Color(GUI.getDisplay(),settings.getRGB("buchung.soll.fg",new RGB(226,102,38)));
 		return buchungSollForeground;
 	}
 
@@ -109,7 +109,7 @@ public class Settings
 		if (buchungHabenForeground != null)
 			return buchungHabenForeground;
 
-		buchungHabenForeground = new Color(GUI.getDisplay(),settings.getRGB("buchung.haben.fg",new RGB(4,13,169)));
+		buchungHabenForeground = new Color(GUI.getDisplay(),settings.getRGB("buchung.haben.fg",new RGB(29,158,33)));
 		return buchungHabenForeground;
 	}
 
@@ -244,6 +244,24 @@ public class Settings
   }
 
   /**
+   * Prueft, ob nur Geldbetraege farbig angezeigt werden sollen.
+   * @return true, wenn nur Geldbetraege farbig gedruckt angezeigt werden sollen.
+   */
+  public static boolean getColorValues()
+  {
+    return settings.getBoolean("colorvalues",true);
+  }
+
+  /**
+   * Legt fest, ob nur Geldbetraege farbig angezeigt werden sollen.
+   * @param color true, wenn nur Geldbetraege farbig angezeigt werden sollen.
+   */
+  public static void setColorValues(boolean color)
+  {
+    settings.setAttribute("colorvalues",color);
+  }
+
+  /**
    * Speichert, ob wir eine permanente Online-Verbindung haben und daher
    * vom HBCI-Kernel nicht dauernd gefragt werden muessen, ob wir eine
    * Internetverbindung haben wollen.
@@ -288,6 +306,42 @@ public class Settings
   public static void setKontoCheckExcludeAddressbook(boolean check)
   {
     settings.setAttribute("kontocheck.addressbook.exclude",check);
+  }
+
+  /**
+   * Liefert true, wenn die Ungelesen-Markierungen in der Datenbank gespeichert werden soll.
+   * @return true, wenn die Ungelesen-Markierungen in der Datenbank gespeichert werden soll.
+   */
+  public static boolean getStoreUnreadFlag()
+  {
+    return settings.getBoolean("unread.store",true);
+  }
+
+  /**
+   * Legt fest, ob die Ungelesen-Markierungen in der Datenbank gespeichert werden sollen.
+   * @param store true, wenn die Ungelesen-Markierungen in der Datenbank gespeichert werden sollen.
+   */
+  public static void setStoreUnreadFlag(boolean store)
+  {
+    settings.setAttribute("unread.store",store);
+  }
+
+  /**
+   * Liefert true, wenn die Ungelesen-Markierungen beim Beenden zurückgesetzt werden soll.
+   * @return true, wenn die Ungelesen-Markierungen beim Beenden zurückgesetzt werden soll.
+   */
+  public static boolean getMarkReadOnExit()
+  {
+    return settings.getBoolean("unread.markreadonexit",true);
+  }
+
+  /**
+   * Legt fest, ob die Ungelesen-Markierungen beim Beenden zurückgesetzt werden soll.
+   * @param b true, wenn die Ungelesen-Markierungen beim Beenden zurückgesetzt werden soll.
+   */
+  public static void setMarkReadOnExit(boolean b)
+  {
+    settings.setAttribute("unread.markreadonexit",b);
   }
 
   /**

@@ -108,9 +108,9 @@ public abstract class AbstractTransferList extends AbstractFromToList
               item.setImage(5,SWTUtil.getImage("preferences-system-time.png"));
               Date end = r.getEnd();
               if (end != null)
-                item.setText(5,i18n.tr("{0} - {1}\n{2}",HBCI.DATEFORMAT.format(termin),HBCI.DATEFORMAT.format(end),r.getReminderInterval().toString()));
+                item.setText(5,i18n.tr("{0} - {1} \n{2}",HBCI.DATEFORMAT.format(termin),HBCI.DATEFORMAT.format(end),r.getReminderInterval().toString()));
               else
-                item.setText(5,i18n.tr("ab {0}\n{1}",HBCI.DATEFORMAT.format(termin),r.getReminderInterval().toString()));
+                item.setText(5,i18n.tr("ab {0} \n{1}",HBCI.DATEFORMAT.format(termin),r.getReminderInterval().toString()));
             }
             catch (Exception e)
             {
@@ -241,14 +241,7 @@ public abstract class AbstractTransferList extends AbstractFromToList
     list.setOrder("ORDER BY " + service.getSQLTimestamp("termin") + " DESC, id DESC");
 
     if (filterCount > 0)
-    {
-      final int all = service.createList(getObjectType()).size();
-      final int size = list.size();
-      if (all != size)
-        Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Suchkriterien: {0} - Anzeige: {1} von {2} Aufträgen",Integer.toString(filterCount), Integer.toString(size), Integer.toString(all)),StatusBarMessage.TYPE_INFO));
-      else
-        Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Suchkriterien: {0}",Integer.toString(filterCount)),StatusBarMessage.TYPE_INFO));
-    }
+      Application.getMessagingFactory().sendMessage(new StatusBarMessage(i18n.tr("Suchkriterien: {0}",Integer.toString(filterCount)),StatusBarMessage.TYPE_INFO));
 
     return list;
   }

@@ -21,6 +21,7 @@ import de.willuhn.jameica.gui.util.ColumnLayout;
 import de.willuhn.jameica.gui.util.SimpleContainer;
 import de.willuhn.jameica.hbci.HBCI;
 import de.willuhn.jameica.hbci.gui.controller.UmsatzDetailControl;
+import de.willuhn.jameica.hbci.messaging.NeueUmsaetze;
 import de.willuhn.jameica.hbci.rmi.Konto;
 import de.willuhn.jameica.hbci.rmi.Umsatz;
 import de.willuhn.jameica.system.Application;
@@ -47,7 +48,8 @@ public abstract class AbstractUmsatzDetail extends AbstractView
     final UmsatzDetailControl control = getControl();
     
     // BUGZILLA 38 http://www.willuhn.de/bugzilla/show_bug.cgi?id=38
-    Konto k = control.getUmsatz().getKonto();
+    final Umsatz u = control.getUmsatz();
+    Konto k = u.getKonto();
 
     String s1 = k.getLongName();
     if (s1 == null) s1 = "";
@@ -87,9 +89,10 @@ public abstract class AbstractUmsatzDetail extends AbstractView
     right.addHeadline(i18n.tr("Sonstige Informationen"));
     right.addLabelPair(i18n.tr("Art der Buchung"),              control.getArt());
     right.addInput(control.getEndToEndId());
+    right.addInput(control.getCreditorId());
     right.addLabelPair(i18n.tr("Kunden-/Mandatsreferenz"),      new MultiInput(control.getCustomerRef(),control.getMandateId()));
     right.addLabelPair(i18n.tr("Primanota/GV-Code"),new MultiInput(control.getPrimanota(),control.getGvCode()));
-
+    
     right.addHeadline(i18n.tr("Notizen"));
     right.addPart(control.getKommentar());
 
@@ -101,6 +104,7 @@ public abstract class AbstractUmsatzDetail extends AbstractView
     bottom.addInput(control.getZweckSwitch());
 
     forceSaldoUpdateforReverseBooking();
+    NeueUmsaetze.setRead(u);
   }
 
   private void forceSaldoUpdateforReverseBooking()

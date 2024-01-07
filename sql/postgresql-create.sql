@@ -1,6 +1,6 @@
 CREATE TABLE konto (
   id serial primary key,
-  kontonummer varchar(15) NOT NULL,
+  kontonummer varchar(16) NOT NULL,
   unterkonto varchar(30) null,
   blz varchar(15) NOT NULL,
   name varchar(255) NOT NULL,
@@ -61,6 +61,7 @@ CREATE TABLE aueberweisung (
   termin date NOT NULL,
   banktermin integer NULL,
   umbuchung integer NULL,
+  instantpayment integer NULL,
   ausgefuehrt integer NOT NULL,
   ausgefuehrt_am timestamp,
   endtoendid varchar(35) NULL,
@@ -177,7 +178,8 @@ CREATE TABLE umsatz (
   purposecode varchar(10),
   endtoendid varchar(100),
   mandateid varchar(100),
-  empfaenger_name2 varchar(255)
+  empfaenger_name2 varchar(255),
+  creditorid varchar(35)
 );
 
 CREATE TABLE umsatztyp (
@@ -399,4 +401,4 @@ CREATE INDEX idx_umsatz_datum ON umsatz(datum);
 CREATE INDEX idx_umsatz_valuta ON umsatz(valuta);
 CREATE INDEX idx_umsatz_flags ON umsatz(flags);
   
-INSERT INTO version (name,version) values ('db',68);
+INSERT INTO version (name,version) values ('db',71);

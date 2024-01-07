@@ -149,7 +149,8 @@ public class UmsatzList extends TablePart implements Extendable
           }
           else
           {
-            item.setForeground(ColorUtil.getForeground(u.getBetrag()));
+            ColorUtil.setForeground(item,5,u.getBetrag());
+            ColorUtil.setForeground(item,6,u.getUmsatzTyp());
 
             // Saldo nicht mit einfaerben, dass irritiert sonst,
             // wenn die Buchung zwar einen negativen Betrag hat,
@@ -174,7 +175,7 @@ public class UmsatzList extends TablePart implements Extendable
     // BUGZILLA 23 http://www.willuhn.de/bugzilla/show_bug.cgi?id=23
     // BUGZILLA 86 http://www.willuhn.de/bugzilla/show_bug.cgi?id=86
     addColumn("#","id-int");
-    addColumn(i18n.tr("Flags"),                     "flags");
+    addColumn(i18n.tr("Geprüft"),                   "flags");
     addColumn(i18n.tr("Gegenkonto"),                "empfaenger");
     
     if (settings.getBoolean("usage.display.all",false))

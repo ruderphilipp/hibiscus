@@ -11,8 +11,10 @@ package de.willuhn.jameica.hbci.server;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +23,7 @@ import java.util.regex.PatternSyntaxException;
 import org.apache.commons.lang.StringUtils;
 
 import de.willuhn.datasource.GenericIterator;
+import de.willuhn.datasource.GenericObjectNode;
 import de.willuhn.datasource.db.AbstractDBObjectNode;
 import de.willuhn.datasource.pseudo.PseudoIterator;
 import de.willuhn.datasource.rmi.DBIterator;
@@ -301,7 +304,12 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
     String ref   = StringUtils.trimToEmpty(umsatz.getCustomerRef());
     String e2eid = StringUtils.trimToEmpty(umsatz.getEndToEndId());
     String mid   = StringUtils.trimToEmpty(umsatz.getMandateId());
+    String cid   = StringUtils.trimToEmpty(umsatz.getCreditorId());
     String id    = StringUtils.trimToEmpty(umsatz.getID());
+    
+    // Im Suchbegriff können wir nicht nach Betrag suchen, da wir das Komma "," bereits als Trennzeichen
+    // für mehrere Suchbegriffe verwenden. Es wäre also nicht möglich, nach "50,00" zu suchen, weil dann
+    // auch alles gefunden werden würde, wo "00" oder "50" drin steht.
     
     if (!isRegex())
     {
@@ -315,20 +323,33 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
       ref   = ref.toLowerCase();
       e2eid = e2eid.toLowerCase();
       mid   = mid.toLowerCase();
+      cid   = cid.toLowerCase();
 
       if (ignorewhitespace)
       {
         zweck = StringUtils.deleteWhitespace(zweck);
         name = StringUtils.deleteWhitespace(name); // BUGZILLA 1705 - auch im Namen koennen Leerzeichen sein
         name2 = StringUtils.deleteWhitespace(name2);
-        s = StringUtils.deleteWhitespace(s);
       }
 
-      String[] list = s.toLowerCase().split(","); // Wir beachten Gross-Kleinschreibung grundsaetzlich nicht
+      String[] list = UmsatzTypUtil.splitQuery(s.toLowerCase(), ","); // Wir beachten Gross-Kleinschreibung grundsaetzlich nicht
 
       for (int i=0;i<list.length;++i)
       {
         String test = list[i].trim();
+        if (ignorewhitespace) {
+          test = StringUtils.deleteWhitespace(test);
+
+          /*
+           * While we already removed empty elements in split_escape(), this
+           * removal was only valid for actually empty elements.
+           * After whitespace removal, we might get additional empty elements
+           * (i.e., such that previously only contained whitespace).
+           */
+          if (test.isEmpty()) {
+              continue;
+          }
+        }
         if (zweck.indexOf(test) != -1 ||
             name.indexOf(test) != -1 ||
             name2.indexOf(test) != -1 ||
@@ -339,6 +360,7 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
             ref.indexOf(test) != -1 ||
             e2eid.indexOf(test) != -1 ||
             mid.indexOf(test) != -1 ||
+            cid.indexOf(test) != -1 ||
             id.equals(test))
         {
           return true;
@@ -368,7 +390,8 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
       Matcher mRef = pattern.matcher(ref);
       Matcher mE2eid = pattern.matcher(e2eid);
       Matcher mMid = pattern.matcher(mid);
-      Matcher mAll = pattern.matcher(name + " " + name2 + " " + kto + " " + zweck + " " + kom + " " + art + " " + purp + " " + e2eid + " " + mid + " " + ref);
+      Matcher mCid = pattern.matcher(cid);
+      Matcher mAll = pattern.matcher(name + " " + name2 + " " + kto + " " + zweck + " " + kom + " " + art + " " + purp + " " + e2eid + " " + mid + " " + cid + " " + ref);
 
       return (mAll.matches()    ||
               mZweck.matches()  ||
@@ -380,7 +403,8 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
               mPurp.matches()   ||
               mRef.matches()    ||
               mE2eid.matches()  ||
-              mMid.matches()
+              mMid.matches()    ||
+              mCid.matches()
              );
     }
     catch (Exception e)
@@ -705,6 +729,25 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
     di.setOrder("order by COALESCE(nummer,''),name");
     return di;
   }
+  
+  /**
+   * @see de.willuhn.datasource.db.AbstractDBObjectNode#getParent()
+   */
+  @Override
+  public GenericObjectNode getParent() throws RemoteException
+  {
+    Cache cache = Cache.get(UmsatzTyp.class, new Cache.ObjectFactory() {
+      public DBIterator load() throws RemoteException
+      {
+        return UmsatzTypUtil.getAll();
+      }
+    },true);
+    
+    final Object i = this.getAttribute(this.getNodeField());
+    if (i instanceof UmsatzTyp)
+      return (UmsatzTyp) i;
+    return (UmsatzTyp) cache.get(i);
+  }
 
   /**
    * @see de.willuhn.jameica.hbci.rmi.Duplicatable#duplicate()
@@ -807,5 +850,30 @@ public class UmsatzTypImpl extends AbstractDBObjectNode implements UmsatzTyp, Du
       return; // ungueltig
     
     this.setAttribute("flags", Integer.valueOf(flags));
+  }
+  
+  /**
+   * @see de.willuhn.jameica.hbci.rmi.UmsatzTyp#getPath(java.lang.String)
+   */
+  @Override
+  public String getPath(String sep) throws RemoteException
+  {
+    final List<String> names = new ArrayList<>();
+    
+    UmsatzTyp current = this;
+    for (int i=0;i<20;++i)
+    {
+      if (current == null)
+        break;
+      names.add(current.getName());
+      
+      current = (UmsatzTyp) current.getParent();
+    }
+
+    if (sep == null)
+      sep = "|";
+    
+    Collections.reverse(names);
+    return StringUtils.join(names,sep);
   }
 }

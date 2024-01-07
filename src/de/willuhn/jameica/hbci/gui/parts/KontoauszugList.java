@@ -73,6 +73,7 @@ import de.willuhn.jameica.hbci.rmi.Konto;
 import de.willuhn.jameica.hbci.rmi.Umsatz;
 import de.willuhn.jameica.hbci.rmi.UmsatzTyp;
 import de.willuhn.jameica.hbci.server.Range;
+import de.willuhn.jameica.hbci.server.UmsatzTypUtil;
 import de.willuhn.jameica.hbci.server.UmsatzUtil;
 import de.willuhn.jameica.messaging.StatusBarMessage;
 import de.willuhn.jameica.system.Application;
@@ -341,7 +342,6 @@ public class KontoauszugList extends UmsatzList
     this.start = new DateFromInput(null,"umsatzlist.filter.from");
     this.start.setName(i18n.tr("Von"));
     this.start.setComment(null);
-    this.start.addListener(this.listener);
     return this.start;
   }
   
@@ -357,7 +357,6 @@ public class KontoauszugList extends UmsatzList
     this.end = new DateToInput(null,"umsatzlist.filter.to");
     this.end.setName(i18n.tr("bis"));
     this.end.setComment(null);
-    this.end.addListener(this.listener);
     return this.end;
   }
   
@@ -394,13 +393,13 @@ public class KontoauszugList extends UmsatzList
       return this.kategorie;
     
     UmsatzTyp preset = (UmsatzTyp) cache.get("kontoauszug.list.kategorie");
-    if (preset == null || preset.getID() == null)
-      preset = null; // wurde zwischenzeitlich geloescht
+    if (preset == null || (preset.getID() == null && preset != UmsatzTypUtil.UNASSIGNED)) // // ID ist NULL, wenn sie zwischenzeitlich geloescht wurde
+      preset = null; 
     this.kategorie = new UmsatzTypInput(preset,UmsatzTyp.TYP_EGAL, true);
     this.kategorie.setPleaseChoose(i18n.tr("<Alle Kategorien>"));
     this.kategorie.setComment("");
     this.kategorie.addListener(this.listener);
-    
+
     // Wenn in der Kategorie-Auswahl "<Alle Kategorien>" ausgewaehlt wurde, deaktivieren wir uns
     this.kategorie.addListener(new Listener()
     {
@@ -713,17 +712,14 @@ public class KontoauszugList extends UmsatzList
    */
   private boolean matches(UmsatzTyp typ, Umsatz u, boolean children) throws RemoteException
   {
-    // Keine rekursive Suche
-    if (!children)
-      return typ.matches(u);
+    UmsatzTyp t = u.getUmsatzTyp();
+    
+    if (t == null && typ != null && typ == UmsatzTypUtil.UNASSIGNED)
+      return true;
 
     // wir suchen von unten nach oben, indem wir die Umsatzkategorien
     // des Umsatzes nach oben iterieren. Wenn wir dabei auf die gesuchte
     // Kategorie stossen, passts.
-    UmsatzTyp t = u.getUmsatzTyp();
-    
-    if (t == null)
-      return false; // nichts zum Suchen da
     
     for (int i=0;i<100;++i) // maximal 100 Iterationen - fuer den (eigentlich unmoeglichen Fall), dass eine Rekursion existiert
     {
@@ -732,6 +728,10 @@ public class KontoauszugList extends UmsatzList
       
       if (t.equals(typ))
         return true; // passt!
+
+      // Keine rekursive Suche
+      if (!children)
+        break;
       
       t = (UmsatzTyp) t.getParent(); // weiter nach oben gehen
     }
@@ -1064,16 +1064,20 @@ public class KontoauszugList extends UmsatzList
       String s = (String) cache.get("kontoauszug.list.search");
       this.setValue(s);
       this.hasChanged(); // Einmal initial triggern, damit bereits die erste Text-Eingabe als Aenderung erkannt wird
-      this.text.addKeyListener(new KeyAdapter() {
-        /**
-         * @see org.eclipse.swt.events.KeyAdapter#keyReleased(org.eclipse.swt.events.KeyEvent)
-         */
-        @Override
-        public void keyReleased(KeyEvent e)
-        {
-          listener.handleEvent(null);
-        }
-      });
+      
+      if (syssettings.getBoolean("usage.instantsearch",false))
+      {
+        this.text.addKeyListener(new KeyAdapter() {
+          /**
+           * @see org.eclipse.swt.events.KeyAdapter#keyReleased(org.eclipse.swt.events.KeyEvent)
+           */
+          @Override
+          public void keyReleased(KeyEvent e)
+          {
+            listener.handleEvent(null);
+          }
+        });
+      }
       return this.text;
     }
 
